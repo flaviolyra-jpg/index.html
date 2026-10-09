@@ -504,11 +504,14 @@
                 <div class="p-4 rounded-xl bg-charcoal-800 border border-gold/15 flex flex-wrap items-center justify-between gap-4">
                     <div>
                         <span class="font-mono text-xs text-gold uppercase block font-semibold">Ações de Backup e Dados</span>
-                        <span class="text-sand-300 text-xs">Exporte seu progresso em JSON para segurança.</span>
+                        <span class="text-sand-300 text-xs">Rascunhos ficam neste navegador; “Publicar alterações” envia a versão para o servidor seguro.</span>
                     </div>
                     <div class="flex flex-wrap items-center gap-3 font-mono text-xs">
                         <button onclick="exportDataJSON()" class="px-3 py-2 rounded-lg bg-gold/20 hover:bg-gold/30 text-gold border border-gold/40 flex items-center gap-2">
                             <i data-lucide="download" class="w-4 h-4"></i> Exportar JSON
+                        </button>
+                        <button id="publish-changes-btn" onclick="publishChanges()" class="px-3 py-2 rounded-lg bg-blue-700 hover:bg-blue-600 text-white border border-blue-400/50 flex items-center gap-2 font-bold" title="Publica as alterações sem mudar a URL">
+                            <i data-lucide="cloud-upload" class="w-4 h-4"></i> Publicar alterações
                         </button>
                         <label class="px-3 py-2 rounded-lg bg-mineral-700 hover:bg-mineral-600 text-sand-200 border border-sand-400/30 cursor-pointer flex items-center gap-2">
                             <i data-lucide="upload" class="w-4 h-4"></i> Importar JSON
@@ -793,6 +796,20 @@
             takeaway: "A precisão e a segurança técnica na instrumentação elétrica são competências indispensáveis para a minha trajetória profissional no IFRN."
         };
 
+        // ============================================================
+        // PUBLICAÇÃO ONLINE — GITHUB PAGES
+        // Os dados publicados ficam embutidos nesta mesma página.
+        // O token do GitHub NUNCA fica salvo no código: ele é informado
+        // pelo próprio dono do site e usado somente durante a publicação.
+        // ============================================================
+        const GITHUB_OWNER = 'flaviolyra-jpg';
+        const GITHUB_REPO = 'index.html';
+        const GITHUB_BRANCH = 'principal';
+        const GITHUB_FILE = 'index.html';
+        const GITHUB_RAW_URL = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/${GITHUB_BRANCH}/${GITHUB_FILE}`;
+        const PUBLISHED_PORTFOLIO_DATA = null;
+        let isPublishing = false;
+
         // State Variables
         let chapters = [];
         let reflection = {};
@@ -806,30 +823,154 @@
             lucide.createIcons();
         });
 
-        // Load Data from LocalStorage or Defaults
+        // Load Data from this published page, then allow local drafts to override it.
         function loadPortfolioData() {
             const savedChapters = localStorage.getItem('ifrn_portfolio_chapters_v4');
             const savedRef = localStorage.getItem('ifrn_portfolio_reflection_v4');
 
+            const published = PUBLISHED_PORTFOLIO_DATA || {};
+            const publishedChapters = Array.isArray(published.chapters) ? published.chapters : DEFAULT_CHAPTERS;
+            const publishedReflection = published.reflection && typeof published.reflection === 'object' ? published.reflection : DEFAULT_REFLECTION;
+
             if (savedChapters) {
-                try { chapters = JSON.parse(savedChapters); } catch(e) { chapters = DEFAULT_CHAPTERS; }
+                try { chapters = JSON.parse(savedChapters); } catch(e) { chapters = JSON.parse(JSON.stringify(publishedChapters)); }
             } else {
-                chapters = JSON.parse(JSON.stringify(DEFAULT_CHAPTERS));
+                chapters = JSON.parse(JSON.stringify(publishedChapters));
             }
 
             if (savedRef) {
-                try { reflection = JSON.parse(savedRef); } catch(e) { reflection = DEFAULT_REFLECTION; }
+                try { reflection = JSON.parse(savedRef); } catch(e) { reflection = JSON.parse(JSON.stringify(publishedReflection)); }
             } else {
-                reflection = JSON.parse(JSON.stringify(DEFAULT_REFLECTION));
+                reflection = JSON.parse(JSON.stringify(publishedReflection));
             }
         }
 
-        // Save Data to LocalStorage
+        // Save Data locally as a draft. This does NOT publish to GitHub.
         function saveData() {
             localStorage.setItem('ifrn_portfolio_chapters_v4', JSON.stringify(chapters));
             localStorage.setItem('ifrn_portfolio_reflection_v4', JSON.stringify(reflection));
             renderApp();
-            showToast("Dados atualizados com sucesso!");
+            showToast("Rascunho salvo neste computador.");
+        }
+
+        // Data that will become the public version of the portfolio.
+        function getPublicationPayload() {
+            return {
+                version: 2,
+                site: 'ifrn-eletricidade-instrumental',
+                bimestre: '4º BIMESTRE',
+                ano: 2026,
+                aluno: 'Flávio Augusto',
+                disciplina: 'Eletricidade Instrumental',
+                chapters: chapters,
+                reflection: reflection,
+                publishedAt: new Date().toISOString()
+            };
+        }
+
+        function githubBase64(text) {
+            const bytes = new TextEncoder().encode(text);
+            let binary = '';
+            const chunkSize = 0x8000;
+            for (let i = 0; i < bytes.length; i += chunkSize) {
+                binary += String.fromCharCode(...bytes.subarray(i, i + chunkSize));
+            }
+            return btoa(binary);
+        }
+
+        function safePublishedJson(data) {
+            return JSON.stringify(data, null, 2)
+                .replace(/</g, '\\u003c')
+                .replace(/>/g, '\\u003e')
+                .replace(/&/g, '\\u0026');
+        }
+
+        async function getGithubToken() {
+            const token = prompt('Cole seu token do GitHub (ele não será salvo neste site).\n\nEle precisa ter permissão de escrita no conteúdo deste repositório.');
+            if (!token) throw new Error('TOKEN_CANCELADO');
+            return token.trim();
+        }
+
+        // Publica no mesmo index.html do mesmo repositório. A URL não muda.
+        async function publishChanges() {
+            if (isPublishing) return;
+
+            isPublishing = true;
+            const button = document.getElementById('publish-changes-btn');
+            if (button) {
+                button.disabled = true;
+                button.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i> Publicando...';
+                lucide.createIcons();
+            }
+
+            try {
+                const token = await getGithubToken();
+                const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`;
+                const headers = {
+                    'Accept': 'application/vnd.github+json',
+                    'Authorization': `Bearer ${token}`,
+                    'X-GitHub-Api-Version': '2022-11-28',
+                    'Content-Type': 'application/json'
+                };
+
+                // Busca a versão atual do arquivo para obter o SHA exigido pelo GitHub.
+                const currentResponse = await fetch(apiUrl + `?ref=${encodeURIComponent(GITHUB_BRANCH)}`, { headers });
+                if (!currentResponse.ok) throw new Error('GET_' + currentResponse.status);
+                const current = await currentResponse.json();
+
+                const currentHtmlResponse = await fetch(GITHUB_RAW_URL + `?t=${Date.now()}`);
+                if (!currentHtmlResponse.ok) throw new Error('RAW_' + currentHtmlResponse.status);
+                let html = await currentHtmlResponse.text();
+
+                const marker = 'const PUBLISHED_PORTFOLIO_DATA = null;';
+                if (!html.includes(marker)) {
+                    throw new Error('MARCADOR_NAO_ENCONTRADO');
+                }
+
+                html = html.replace(marker, `const PUBLISHED_PORTFOLIO_DATA = ${safePublishedJson(getPublicationPayload())};`);
+
+                const body = {
+                    message: 'Atualizar portfólio pelo editor online',
+                    content: githubBase64(html),
+                    sha: current.sha,
+                    branch: GITHUB_BRANCH
+                };
+
+                const updateResponse = await fetch(apiUrl, {
+                    method: 'PUT',
+                    headers,
+                    body: JSON.stringify(body)
+                });
+
+                if (!updateResponse.ok) {
+                    let detail = '';
+                    try { detail = (await updateResponse.json()).message || ''; } catch (_) {}
+                    throw new Error('PUT_' + updateResponse.status + '_' + detail);
+                }
+
+                showToast('Publicado no GitHub! A mesma URL será atualizada.');
+                localStorage.setItem('ifrn_portfolio_last_published_v4', new Date().toISOString());
+            } catch (error) {
+                console.error('Falha na publicação:', error);
+                if (error.message === 'TOKEN_CANCELADO') {
+                    showToast('Publicação cancelada.');
+                } else if (error.message.includes('401')) {
+                    showToast('Token inválido ou sem permissão para este repositório.');
+                } else if (error.message.includes('403')) {
+                    showToast('GitHub recusou a publicação. Verifique a permissão do token.');
+                } else if (error.message === 'MARCADOR_NAO_ENCONTRADO') {
+                    showToast('Este index.html ainda não é a versão preparada para publicação.');
+                } else {
+                    showToast('Não foi possível publicar. Veja o console para detalhes.');
+                }
+            } finally {
+                isPublishing = false;
+                if (button) {
+                    button.disabled = false;
+                    button.innerHTML = '<i data-lucide="cloud-upload" class="w-4 h-4"></i> Publicar alterações';
+                    lucide.createIcons();
+                }
+            }
         }
 
         // Render Entire Application
