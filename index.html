@@ -3,32 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio Acadêmico • Eletricidade Instrumental - Flávio Augusto (IFRN SGA)</title>
+    <title>Portfólio Acadêmico | Eletricidade Instrumental · 4º Bimestre</title>
 
-    <!-- Tailwind CSS CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        brand: {
-                            50: '#f0f7ff',
-                            100: '#e0f2fe',
-                            500: '#0284c7', // Electric cyan-blue
-                            600: '#2563eb', // Royal Electric Blue
-                            700: '#1d4ed8',
-                            800: '#1e40af',
-                            900: '#0f172a', // Deep slate
+                        charcoal: {
+                            900: '#0B0B0D',
+                            800: '#121215',
+                            700: '#18181C',
+                            600: '#222228'
                         },
-                        ifrn: {
-                            green: '#059669',
-                            emerald: '#10b981',
-                            dark: '#064e3b'
+                        mineral: {
+                            800: '#191512',
+                            700: '#221C18',
+                            600: '#2D2621'
+                        },
+                        gold: {
+                            DEFAULT: '#C59B27',
+                            light: '#E2BD52',
+                            dark: '#9E7B1A',
+                            bright: '#F3D268'
+                        },
+                        copper: {
+                            DEFAULT: '#B87333',
+                            light: '#D48B47'
+                        },
+                        sand: {
+                            100: '#FAF6EE',
+                            200: '#EAE3D2',
+                            300: '#C8BEA7',
+                            400: '#8A8270'
                         }
                     },
                     fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                        cinzel: ['Cinzel', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
                         mono: ['JetBrains Mono', 'monospace']
                     }
                 }
@@ -36,1214 +57,1575 @@
         }
     </script>
 
-    <!-- Google Fonts & FontAwesome Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
     <style>
+        /* Custom Circuit & Aesthetic Styling */
         body {
+            background-color: #0B0B0D;
+            color: #EAE3D2;
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #f8fafc;
-            color: #0f172a;
+            overflow-x: hidden;
         }
 
-        /* Subtle Electrical Engineering Grid Backdrop */
-        .bg-grid-tech {
+        /* Ambient Glow & Background Textures */
+        .bg-grid-pattern {
+            background-image: radial-gradient(rgba(197, 155, 39, 0.08) 1px, transparent 1px);
             background-size: 32px 32px;
-            background-image: 
-                linear-gradient(to right, rgba(37, 99, 235, 0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(37, 99, 235, 0.05) 1px, transparent 1px);
         }
 
-        /* PCB Circuit Trace Animation */
-        .circuit-dash {
-            stroke-dasharray: 6;
-            animation: circuitFlow 15s linear infinite;
+        .bg-vignette {
+            background: radial-gradient(circle at center, transparent 30%, rgba(11, 11, 13, 0.85) 100%);
         }
 
-        @keyframes circuitFlow {
-            from { stroke-dashoffset: 100; }
-            to { stroke-dashoffset: 0; }
+        /* Gold Gradient Text */
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #FFF0CA 0%, #D4AF37 50%, #9E7B1A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        /* Card Glassmorphism and Glow Effect */
-        .card-tech {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(226, 232, 240, 0.9);
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        .text-copper-gradient {
+            background: linear-gradient(135deg, #F0A875 0%, #B87333 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .card-tech:hover {
-            border-color: rgba(37, 99, 235, 0.4);
-            box-shadow: 0 12px 30px -10px rgba(37, 99, 235, 0.12), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
-            transform: translateY(-2px);
+        /* Circuit Lines & LED Nodes */
+        .circuit-line {
+            position: relative;
+        }
+        .circuit-line::before {
+            content: '';
+            position: absolute;
+            background: linear-gradient(90deg, transparent, rgba(197, 155, 39, 0.4), transparent);
+            height: 1px;
+            width: 100%;
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f5f9; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #2563eb; }
+        .led-glow {
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.6), 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .led-glow-active {
+            box-shadow: 0 0 15px rgba(243, 210, 104, 0.9), 0 0 30px rgba(212, 175, 55, 0.6);
+            background-color: #F3D268 !important;
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0B0D;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #221C18;
+            border: 1px solid rgba(197, 155, 39, 0.3);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C59B27;
+        }
+
+        /* Print / Presentation Utilities */
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white; color: black; }
+        }
     </style>
 </head>
-<body class="min-h-screen flex flex-col antialiased selection:bg-brand-600 selection:text-white bg-grid-tech">
+<body class="bg-grid-pattern relative min-h-screen selection:bg-gold selection:text-charcoal-900">
 
-    <!-- ADMIN BANNER (Top floating editor indicator) -->
-    <div id="admin-banner" class="hidden bg-slate-900 text-white px-4 py-2.5 text-xs sm:text-sm font-medium sticky top-0 z-50 shadow-lg border-b border-blue-500/30">
-        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-            <div class="flex items-center space-x-2">
-                <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-bold bg-ifrn-emerald text-white animate-pulse">
-                    <i class="fa-solid fa-user-gear mr-1.5"></i> MODO EDITOR ATIVO
-                </span>
-                <span class="text-slate-300">Portfólio em Edição • <strong class="text-white">Flávio Augusto</strong></span>
-            </div>
-            <div class="flex items-center space-x-2">
-                <button onclick="openLessonModal()" class="bg-brand-600 hover:bg-brand-500 text-white px-3 py-1.5 rounded-lg transition duration-200 flex items-center gap-1.5 font-semibold text-xs shadow-sm">
-                    <i class="fa-solid fa-plus"></i> Nova Aula
+    <!-- Custom Toast Container -->
+    <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-3 pointer-events-none"></div>
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-40 bg-charcoal-900/90 backdrop-blur-md border-b border-gold/20 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo & Academic Badge -->
+            <a href="#inicio" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-lg bg-mineral-800 border border-gold/40 flex items-center justify-center text-gold group-hover:border-gold group-hover:scale-105 transition-all shadow-md relative">
+                    <i data-lucide="zap" class="w-5 h-5 text-gold"></i>
+                    <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-gold rounded-full led-glow"></span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-cinzel font-bold text-sm text-sand-100 tracking-wider group-hover:text-gold transition-colors">FLÁVIO AUGUSTO</span>
+                    <span class="font-mono text-[10px] text-sand-400 tracking-widest uppercase">IFRN · ELETRICIDADE INSTRUMENTAL</span>
+                </div>
+            </a>
+
+            <!-- Desktop Links -->
+            <nav class="hidden lg:flex items-center gap-8 font-mono text-xs uppercase tracking-widest text-sand-300">
+                <a href="#inicio" class="hover:text-gold transition-colors py-2 relative group">
+                    Início
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#jornada" class="hover:text-gold transition-colors py-2 relative group">
+                    A Jornada
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#capitulos" class="hover:text-gold transition-colors py-2 relative group">
+                    Capítulos
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#galeria-geral" class="hover:text-gold transition-colors py-2 relative group">
+                    Galeria
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#reflexao-final" class="hover:text-gold transition-colors py-2 relative group">
+                    Reflexão
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </nav>
+
+            <!-- Actions & Bimestre Badge -->
+            <div class="flex items-center gap-3">
+                <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-mineral-800 border border-gold/30 text-sand-200 font-mono text-xs">
+                    <span class="w-2 h-2 rounded-full bg-gold led-glow"></span>
+                    <span class="font-semibold text-gold">4º BIMESTRE</span>
+                    <span class="text-sand-400">· 2026</span>
+                </div>
+
+                <button onclick="openEditorModal()" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-gold/10 hover:bg-gold/20 border border-gold/40 text-gold font-mono text-xs font-semibold transition-all shadow-lg active:scale-95" title="Gerenciar Aulas e Dados">
+                    <i data-lucide="edit-3" class="w-4 h-4"></i>
+                    <span class="hidden md:inline">GERENCIAR</span>
                 </button>
-                <button onclick="openConfigModal()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-1.5 rounded-lg transition text-xs flex items-center gap-1.5 border border-slate-700">
-                    <i class="fa-solid fa-sliders"></i> Configurar Firebase
-                </button>
-                <button onclick="logoutAdmin()" class="bg-red-600/90 hover:bg-red-600 text-white px-3 py-1.5 rounded-lg transition text-xs flex items-center gap-1">
-                    <i class="fa-solid fa-right-from-bracket"></i> Sair
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-sand-200 hover:text-gold focus:outline-none">
+                    <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
                 </button>
             </div>
         </div>
-    </div>
 
-    <!-- MAIN NAVBAR -->
-    <header class="bg-white/90 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <!-- Brand & Logo -->
-                <div class="flex items-center space-x-3.5">
-                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-600 via-brand-700 to-slate-900 text-white flex items-center justify-center font-bold text-xl shadow-md border border-blue-400/20">
-                        <i class="fa-solid fa-microchip text-brand-100"></i>
-                    </div>
-                    <div>
-                        <div class="flex items-center gap-2">
-                            <span class="text-[10px] font-extrabold tracking-wider uppercase text-ifrn-emerald bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">IFRN SGA</span>
-                            <span class="text-[11px] text-slate-500 font-mono font-medium">TURMA INFO 1M</span>
-                        </div>
-                        <h1 class="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight leading-tight">
-                            Eletricidade Instrumental
-                        </h1>
-                    </div>
-                </div>
-
-                <!-- Desktop Navigation Links -->
-                <nav class="hidden md:flex items-center space-x-6 text-sm font-semibold text-slate-600">
-                    <a href="#hero" class="hover:text-brand-600 transition">Início</a>
-                    <a href="#aulas" class="hover:text-brand-600 transition">Aulas & Atividades</a>
-                    <a href="#calculadora" class="hover:text-brand-600 transition text-brand-600 flex items-center gap-1.5 bg-brand-50 px-3 py-1.5 rounded-lg border border-brand-100">
-                        <i class="fa-solid fa-calculator"></i> Calculadora Elétrica
-                    </a>
-                    <a href="#guia-firebase" class="hover:text-brand-600 transition">Guia Firebase</a>
-                </nav>
-
-                <!-- Admin Access Button -->
-                <div class="flex items-center space-x-2">
-                    <button id="admin-login-btn" onclick="openLoginModal()" class="text-xs sm:text-sm bg-slate-900 hover:bg-slate-800 text-white font-semibold px-4 py-2.5 rounded-xl transition shadow-sm flex items-center gap-2">
-                        <i class="fa-solid fa-lock text-brand-500"></i>
-                        <span>Painel do Aluno</span>
-                    </button>
-                </div>
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden border-b border-gold/20 bg-charcoal-800 px-6 py-4 flex flex-col gap-4 font-mono text-sm">
+            <a href="#inicio" onclick="toggleMobileMenu()" class="text-sand-200 hover:text-gold py-1">Início</a>
+            <a href="#jornada" onclick="toggleMobileMenu()" class="text-sand-200 hover:text-gold py-1">A Jornada</a>
+            <a href="#capitulos" onclick="toggleMobileMenu()" class="text-sand-200 hover:text-gold py-1">Capítulos / Aulas</a>
+            <a href="#galeria-geral" onclick="toggleMobileMenu()" class="text-sand-200 hover:text-gold py-1">Galeria Geral</a>
+            <a href="#reflexao-final" onclick="toggleMobileMenu()" class="text-sand-200 hover:text-gold py-1">Reflexão Final</a>
+            <div class="pt-2 border-t border-sand-400/20 flex items-center justify-between text-xs text-sand-400">
+                <span>IFRN · Prof. Elialdo Chibério</span>
+                <span class="text-gold font-bold">4º BIMESTRE</span>
             </div>
         </div>
     </header>
 
-    <!-- HERO / INSTITUTIONAL SECTION -->
-    <section id="hero" class="relative bg-gradient-to-b from-white via-brand-50/30 to-slate-50 border-b border-slate-200 py-12 lg:py-16 overflow-hidden">
+    <!-- HERO SECTION / CAPA CINEMATOGRÁFICA -->
+    <section id="inicio" class="relative min-h-[90vh] flex items-center justify-center pt-12 pb-20 px-4 sm:px-6 lg:px-8 bg-vignette overflow-hidden">
         
-        <!-- SVG Circuit Graphic Overlay -->
-        <div class="absolute inset-0 opacity-15 pointer-events-none">
-            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0,60 L200,60 L300,160 L700,160 L800,60 L1200,60" fill="none" stroke="#2563eb" stroke-width="2" class="circuit-dash"/>
-                <circle cx="300" cy="160" r="4" fill="#2563eb"/>
-                <circle cx="700" cy="160" r="4" fill="#0284c7"/>
+        <!-- Background Electrical Circuit SVG Art -->
+        <div class="absolute inset-0 opacity-15 pointer-events-none flex items-center justify-center">
+            <svg class="w-full h-full max-w-6xl" viewBox="0 0 1000 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M100 300 H 300 L 400 200 H 600 L 700 300 H 900" stroke="#C59B27" stroke-width="2" stroke-dasharray="6 6"/>
+                <path d="M200 150 V 450 L 350 450 H 650 L 800 150" stroke="#B87333" stroke-width="1.5"/>
+                <circle cx="300" cy="300" r="8" fill="#C59B27" class="animate-pulse"/>
+                <circle cx="700" cy="300" r="8" fill="#C59B27" class="animate-pulse"/>
+                <circle cx="400" cy="200" r="6" fill="#B87333"/>
+                <circle cx="600" cy="200" r="6" fill="#B87333"/>
             </svg>
         </div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                
-                <!-- Main Header Info -->
-                <div class="lg:col-span-8 space-y-5">
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-brand-200 shadow-xs text-xs font-bold text-brand-700">
-                        <span class="w-2 h-2 rounded-full bg-brand-500 animate-ping"></span>
-                        <span>Portfólio Acadêmico Oficial • 4º Bimestre</span>
-                    </div>
-
-                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-none">
-                        Eletricidade Instrumental
-                    </h1>
-
-                    <p class="text-base sm:text-lg text-slate-600 max-w-2xl leading-relaxed">
-                        Documentação técnica e acadêmica referente às aulas teóricas e práticas, resoluções de listas de exercícios, medições de bancada e reflexões sobre circuitos elétricos desenvolvidos no IFRN.
-                    </p>
-
-                    <!-- Student & Academic Badges Grid -->
-                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-                        <div class="bg-white p-3.5 rounded-2xl border border-slate-200/80 shadow-xs">
-                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Aluno</span>
-                            <span class="text-sm font-extrabold text-slate-800 flex items-center gap-1.5 mt-1">
-                                <i class="fa-solid fa-user-graduate text-brand-600"></i> Flávio Augusto
-                            </span>
-                        </div>
-
-                        <div class="bg-white p-3.5 rounded-2xl border border-slate-200/80 shadow-xs">
-                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Professor</span>
-                            <span class="text-sm font-extrabold text-slate-800 flex items-center gap-1.5 mt-1" title="Prof. Elialdo Chibério">
-                                <i class="fa-solid fa-chalkboard-user text-brand-600"></i> Prof. Elialdo Chibério
-                            </span>
-                        </div>
-
-                        <div class="bg-white p-3.5 rounded-2xl border border-slate-200/80 shadow-xs">
-                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Turma & Bimestre</span>
-                            <span class="text-sm font-extrabold text-slate-800 flex items-center gap-1.5 mt-1">
-                                <i class="fa-solid fa-layer-group text-brand-600"></i> INFO 1M • 4º Bim
-                            </span>
-                        </div>
-
-                        <div class="bg-white p-3.5 rounded-2xl border border-slate-200/80 shadow-xs">
-                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Instituição</span>
-                            <span class="text-sm font-extrabold text-slate-800 flex items-center gap-1.5 mt-1 truncate" title="IFRN Campus São Gonçalo do Amarante">
-                                <i class="fa-solid fa-building-columns text-ifrn-emerald"></i> IFRN SGA
-                            </span>
-                        </div>
-                    </div>
-
-                    <!-- Call to action buttons -->
-                    <div class="flex flex-wrap items-center gap-3 pt-2">
-                        <a href="#aulas" class="bg-brand-600 hover:bg-brand-700 text-white font-bold px-6 py-3.5 rounded-xl shadow-md transition duration-200 flex items-center gap-2 text-sm">
-                            <i class="fa-solid fa-book-open"></i> Acessar Aulas do Portfólio
-                        </a>
-                        <a href="#calculadora" class="bg-white hover:bg-slate-100 text-slate-800 font-bold px-5 py-3.5 rounded-xl border border-slate-300 shadow-xs transition duration-200 flex items-center gap-2 text-sm">
-                            <i class="fa-solid fa-calculator text-brand-600"></i> Calculadora Elétrica
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Academic Circuit Counter Widget -->
-                <div class="lg:col-span-4">
-                    <div class="bg-slate-900 text-white rounded-3xl p-6 shadow-xl border border-slate-800 relative overflow-hidden">
-                        <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-4">
-                            <span class="text-xs font-mono text-brand-500 font-semibold uppercase tracking-wider">Status da Conexão</span>
-                            <span id="connection-status-badge" class="text-xs font-bold bg-emerald-500/20 text-emerald-400 px-2.5 py-1 rounded-full border border-emerald-500/30 flex items-center gap-1.5">
-                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> Online (Firebase)
-                            </span>
-                        </div>
-
-                        <div class="space-y-4">
-                            <div>
-                                <div class="flex justify-between text-xs text-slate-400 mb-1 font-mono">
-                                    <span>REGISTROS PROCESSADOS</span>
-                                    <span id="total-lessons-badge" class="text-white font-bold">-- Aulas</span>
-                                </div>
-                                <div class="w-full bg-slate-800 rounded-full h-2.5">
-                                    <div class="bg-gradient-to-r from-brand-500 to-ifrn-emerald h-2.5 rounded-full w-full"></div>
-                                </div>
-                            </div>
-
-                            <div class="bg-slate-800/80 p-4 rounded-2xl border border-slate-700 space-y-2">
-                                <span class="text-[11px] font-mono uppercase text-slate-400 block">Tópicos do 4º Bimestre (Prof. Elialdo Chibério):</span>
-                                <div class="flex flex-wrap gap-1.5 text-xs">
-                                    <span class="bg-brand-900/80 text-brand-100 px-2.5 py-1 rounded-md border border-brand-700/50">Associação Mista</span>
-                                    <span class="bg-slate-700 text-slate-200 px-2.5 py-1 rounded-md">1ª & 2ª Lei de Kirchhoff</span>
-                                    <span class="bg-slate-700 text-slate-200 px-2.5 py-1 rounded-md">Multímetro em Bancada</span>
-                                </div>
-                            </div>
-
-                            <p class="text-xs text-slate-400 italic">
-                                "A constante prática do laboratório aliada à fundamentação teórica transforma abstrações elétricas em conhecimento consolidado."
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
+        <div class="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center">
+            
+            <!-- Chapter Tagline -->
+            <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-mineral-800/80 border border-gold/30 text-gold font-mono text-xs tracking-widest uppercase mb-8 shadow-2xl backdrop-blur-md">
+                <i data-lucide="compass" class="w-4 h-4 text-gold animate-spin-slow"></i>
+                <span>THE FOURTH JOURNEY · SEASON 04</span>
             </div>
+
+            <!-- Main Title Header -->
+            <h1 class="font-cinzel text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-4 text-sand-100 leading-tight">
+                PORTFÓLIO ACADÊMICO
+            </h1>
+            <div class="font-cinzel text-xl sm:text-3xl font-semibold text-gold-gradient tracking-widest uppercase mb-8">
+                ELETRICIDADE INSTRUMENTAL
+            </div>
+
+            <div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent mb-8"></div>
+
+            <!-- Academic Credits Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-3xl mb-12 text-left">
+                <div class="p-4 rounded-xl bg-charcoal-800/80 border border-gold/15 backdrop-blur-sm">
+                    <span class="block font-mono text-[11px] text-sand-400 uppercase tracking-wider mb-1">Aluno</span>
+                    <span class="font-cinzel font-bold text-sand-100 text-lg">Flávio Augusto</span>
+                </div>
+                <div class="p-4 rounded-xl bg-charcoal-800/80 border border-gold/15 backdrop-blur-sm">
+                    <span class="block font-mono text-[11px] text-sand-400 uppercase tracking-wider mb-1">Professor</span>
+                    <span class="font-cinzel font-bold text-sand-100 text-base">Elialdo Chibério</span>
+                    <span class="block font-mono text-[10px] text-sand-400">da Silva</span>
+                </div>
+                <div class="p-4 rounded-xl bg-charcoal-800/80 border border-gold/15 backdrop-blur-sm sm:col-span-2 md:col-span-1">
+                    <span class="block font-mono text-[11px] text-sand-400 uppercase tracking-wider mb-1">Instituição</span>
+                    <span class="font-cinzel font-bold text-sand-100 text-base">IFRN</span>
+                    <span class="block font-mono text-[10px] text-sand-400">Campus Rio Grande do Norte</span>
+                </div>
+            </div>
+
+            <!-- Period Banner -->
+            <div class="flex items-center gap-4 text-sand-300 font-mono text-xs sm:text-sm tracking-widest uppercase mb-10">
+                <span class="text-gold font-bold">4º BIMESTRE</span>
+                <span>•</span>
+                <span>ANO LETIVO 2026</span>
+            </div>
+
+            <!-- CTA Scroll Button -->
+            <a href="#jornada" class="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-mineral-700 hover:bg-mineral-600 border border-gold/50 text-sand-100 font-cinzel font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:scale-105 hover:border-gold hover:shadow-[0_0_25px_rgba(197,155,39,0.3)] group">
+                <span>INICIAR A JORNADA</span>
+                <i data-lucide="arrow-down" class="w-4 h-4 text-gold group-hover:translate-y-1 transition-transform"></i>
+            </a>
+
         </div>
     </section>
 
-    <!-- FILTER TOOLBAR & SEARCH SECTION -->
-    <section id="aulas" class="py-8 bg-white border-b border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                <div>
-                    <span class="text-xs font-bold text-brand-600 uppercase tracking-widest font-mono">Diário de Bordo Acadêmico</span>
-                    <h2 class="text-2xl font-extrabold text-slate-900 mt-0.5">Aulas e Atividades Cadastradas</h2>
-                </div>
-
-                <!-- Search and Filter Tools -->
-                <div class="flex flex-wrap items-center gap-3 w-full md:w-auto">
-                    <div class="relative flex-grow md:w-64">
-                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
-                        <input type="text" id="search-input" onkeyup="filterLessons()" placeholder="Buscar aula, assunto ou exercício..." class="w-full pl-9 pr-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 shadow-xs">
-                    </div>
-
-                    <select id="category-filter" onchange="filterLessons()" class="bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm px-3.5 py-2.5 focus:outline-none focus:ring-2 focus:ring-brand-500 text-slate-700 font-medium">
-                        <option value="ALL">Todas as Categorias</option>
-                        <option value="Teoria">Teoria & Conceitos</option>
-                        <option value="Prática">Prática em Bancada</option>
-                        <option value="Exercício">Listas & Exercícios</option>
-                    </select>
-
-                    <select id="sort-order" onchange="filterLessons()" class="bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm px-3.5 py-2.5 focus:outline-none focus:ring-2 focus:ring-brand-500 text-slate-700 font-medium">
-                        <option value="DESC">Mais Recentes Primeiro</option>
-                        <option value="ASC">Mais Antigas Primeiro</option>
-                    </select>
-                </div>
+    <!-- SECTION 2: A JORNADA (INTRODUÇÃO) -->
+    <section id="jornada" class="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto border-t border-gold/10">
+        <div class="bg-mineral-800/60 rounded-2xl border border-gold/20 p-8 sm:p-12 shadow-2xl relative overflow-hidden backdrop-blur-sm">
+            
+            <div class="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
+                <i data-lucide="compass" class="w-48 h-48 text-gold"></i>
             </div>
-        </div>
-    </section>
 
-    <!-- LESSONS CARDS CONTAINER -->
-    <section class="py-12 bg-slate-50 flex-grow">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div id="lessons-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Dynamic cards populated by JavaScript -->
-                <div class="col-span-full py-16 text-center">
-                    <div class="inline-block animate-spin text-brand-600 text-4xl mb-3">
-                        <i class="fa-solid fa-circle-notch"></i>
-                    </div>
-                    <p class="text-slate-500 font-medium text-sm">Carregando aulas do portfólio de Flávio Augusto...</p>
-                </div>
+            <div class="flex items-center gap-3 font-mono text-xs text-gold uppercase tracking-widest mb-3">
+                <span class="w-8 h-px bg-gold"></span>
+                <span>CAPÍTULO PREFÁCIO</span>
             </div>
-        </div>
-    </section>
 
-    <!-- INTERACTIVE OHM & RESISTOR CALCULATOR SECTION -->
-    <section id="calculadora" class="py-12 bg-white border-t border-b border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-10">
-                <span class="text-xs font-bold text-brand-600 uppercase tracking-widest bg-brand-50 px-3 py-1 rounded-full border border-brand-100">Ferramenta Integrada ao Portfólio</span>
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2">Calculadora de Circuitos e Associação de Resistores</h2>
-                <p class="text-slate-600 text-xs sm:text-sm mt-1">
-                    Desenvolvida para validação dos exercícios propostos em sala pelo Prof. Elialdo Chibério.
+            <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-sand-100 mb-6">
+                A JORNADA DO CONHECIMENTO
+            </h2>
+
+            <div class="space-y-4 text-sand-200 leading-relaxed font-sans text-base sm:text-lg">
+                <p>
+                    Bem-vindo ao registro oficial da jornada acadêmica em <strong class="text-gold font-semibold">Eletricidade Instrumental</strong> no IFRN durante o <strong class="text-gold font-semibold">4º Bimestre de 2026</strong>.
+                </p>
+                <p class="text-sand-300 text-sm sm:text-base">
+                    Este portfólio não é apenas um relatório técnico: é um diário contínuo de descobertas, práticas de laboratório, medições elétricas, desafios superados e evolução conceitual. Cada aula representa um novo ponto de conexão nesta trilha de aprendizado guiada pelo Prof. Elialdo Chibério da Silva.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Ohm's Law Widget -->
-                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200/90 shadow-xs space-y-4">
-                    <div class="flex items-center justify-between border-b border-slate-200 pb-3">
-                        <h3 class="font-extrabold text-slate-800 text-base sm:text-lg flex items-center gap-2">
-                            <i class="fa-solid fa-bolt-lightning text-yellow-500"></i> Calculadora da Lei de Ohm
-                        </h3>
-                        <span class="text-xs font-mono bg-brand-100 text-brand-800 px-2.5 py-1 rounded-md font-bold">V = I · R</span>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-600 mb-1">Tensão (V) - Volts</label>
-                            <input type="number" id="calc-v" placeholder="Ex: 12" oninput="calculateOhm()" class="w-full p-2.5 bg-white border border-slate-300 rounded-xl text-sm font-mono focus:ring-2 focus:ring-brand-500">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-600 mb-1">Corrente (I) - Amperes</label>
-                            <input type="number" id="calc-i" placeholder="Ex: 0.5" oninput="calculateOhm()" class="w-full p-2.5 bg-white border border-slate-300 rounded-xl text-sm font-mono focus:ring-2 focus:ring-brand-500">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-600 mb-1">Resistência (R) - Ω</label>
-                            <input type="number" id="calc-r" placeholder="Ex: 24" oninput="calculateOhm()" class="w-full p-2.5 bg-white border border-slate-300 rounded-xl text-sm font-mono focus:ring-2 focus:ring-brand-500">
-                        </div>
-                    </div>
-
-                    <div class="p-3.5 bg-slate-900 text-white rounded-2xl text-xs font-mono flex items-center justify-between">
-                        <span>Preencha 2 valores para calcular o terceiro.</span>
-                        <span id="calc-power" class="text-brand-500 font-bold">P = -- W</span>
-                    </div>
+            <div class="mt-8 pt-6 border-t border-gold/15 flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-sand-400">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="book-open" class="w-4 h-4 text-gold"></i>
+                    <span>REGISTRO ACADÊMICO REUTILIZÁVEL E DINÂMICO</span>
                 </div>
-
-                <!-- Resistor Association Widget -->
-                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200/90 shadow-xs space-y-4">
-                    <div class="flex items-center justify-between border-b border-slate-200 pb-3">
-                        <h3 class="font-extrabold text-slate-800 text-base sm:text-lg flex items-center gap-2">
-                            <i class="fa-solid fa-network-wired text-brand-600"></i> Resistência Equivalente ($R_{eq}$)
-                        </h3>
-                        <span class="text-xs font-mono bg-emerald-100 text-emerald-800 px-2.5 py-1 rounded-md font-bold">Série & Paralelo</span>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-600 mb-1">Resistores separados por vírgula (em Ohms Ω):</label>
-                        <input type="text" id="resistors-input" value="10, 20, 30" oninput="calculateResistorAssociation()" placeholder="Ex: 100, 220, 330" class="w-full p-2.5 bg-white border border-slate-300 rounded-xl text-sm font-mono focus:ring-2 focus:ring-brand-500">
-                    </div>
-
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="p-4 bg-white rounded-2xl border border-slate-200 shadow-xs">
-                            <span class="text-xs text-slate-500 block font-medium">Req em Série</span>
-                            <span id="req-serie-result" class="text-xl font-black text-brand-700 font-mono">60.00 Ω</span>
-                            <p class="text-[10px] text-slate-400 mt-1">Soma direta: R1 + R2 + ...</p>
-                        </div>
-                        <div class="p-4 bg-white rounded-2xl border border-slate-200 shadow-xs">
-                            <span class="text-xs text-slate-500 block font-medium">Req em Paralelo</span>
-                            <span id="req-paralelo-result" class="text-xl font-black text-brand-500 font-mono">5.45 Ω</span>
-                            <p class="text-[10px] text-slate-400 mt-1">Recíproco: 1 / Σ(1/Rn)</p>
-                        </div>
-                    </div>
+                <div class="flex items-center gap-2">
+                    <i data-lucide="cpu" class="w-4 h-4 text-copper"></i>
+                    <span>SISTEMA DE CIRCUITO INTERATIVO</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FIREBASE STEP-BY-STEP TUTORIAL SECTION -->
-    <section id="guia-firebase" class="py-12 bg-slate-900 text-white border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 gap-4">
-                <div>
-                    <span class="text-xs font-bold text-brand-500 uppercase tracking-widest font-mono">Guia Prático do Aluno</span>
-                    <h2 class="text-2xl md:text-3xl font-extrabold mt-0.5">Como Manter seu Portfólio Salvo na Nuvem</h2>
+    <!-- SECTION 3: SUMÁRIO / MAPA DA JORNADA (CIRCUITO ELÉTRICO) -->
+    <section id="capitulos" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-gold/10">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="font-mono text-xs text-gold uppercase tracking-widest block mb-2">● CIRCUITO DE AULAS</span>
+            <h2 class="font-cinzel text-3xl sm:text-5xl font-bold text-sand-100 mb-4">NOSSA JORNADA</h2>
+            <p class="text-sand-300 font-sans text-sm sm:text-base">
+                Navegue pelas aulas do 4º Bimestre como capítulos interativos conectados por uma trilha elétrica de aprendizagem.
+            </p>
+        </div>
+
+        <!-- Interactive Circuit Board Navigation Bar -->
+        <div class="mb-12 p-6 rounded-2xl bg-charcoal-800 border border-gold/20 shadow-2xl overflow-x-auto">
+            <div class="min-w-[650px] flex items-center justify-between relative py-4" id="circuit-timeline-track">
+                <!-- Circuit Track Background Line -->
+                <div class="absolute left-0 right-0 top-1/2 h-0.5 bg-mineral-600 -translate-y-1/2 z-0"></div>
+                <div class="absolute left-0 top-1/2 h-0.5 bg-gold -translate-y-1/2 z-0 transition-all duration-500" id="circuit-progress-line" style="width: 0%;"></div>
+
+                <!-- Dynamic Nodes appended via JavaScript -->
+                <div id="circuit-nodes-container" class="w-full flex justify-between relative z-10">
+                    <!-- Nodes rendered dynamically -->
                 </div>
-                <button onclick="openTutorialModal()" class="bg-brand-600 hover:bg-brand-500 text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-xl transition flex items-center gap-2 shadow-sm">
-                    <i class="fa-solid fa-book-open"></i> Ver Tutorial Detalhado
-                </button>
+            </div>
+        </div>
+
+        <!-- Chapters Cards Summary Grid -->
+        <div id="chapters-summary-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Dynamic Chapter Preview Cards appended via JS -->
+        </div>
+    </section>
+
+    <!-- SECTION 4: CAPÍTULOS DE AULAS DETALHADOS -->
+    <section class="py-12 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto space-y-24" id="detailed-chapters-container">
+        <!-- Rendered by JavaScript dynamically -->
+    </section>
+
+    <!-- SECTION 5: GALERIA GERAL DA JORNADA -->
+    <section id="galeria-geral" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-gold/10">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+            <span class="font-mono text-xs text-gold uppercase tracking-widest block mb-2">● REGISTROS VISUAIS</span>
+            <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-sand-100 mb-4">GALERIA DA JORNADA</h2>
+            <p class="text-sand-300 font-sans text-sm">
+                Exposição fotográfica consolidada dos experimentos, circuitos e registros do 4º Bimestre.
+            </p>
+        </div>
+
+        <!-- Gallery Filter Buttons -->
+        <div id="gallery-filters" class="flex flex-wrap items-center justify-center gap-2 mb-8 font-mono text-xs">
+            <!-- Rendered by JS -->
+        </div>
+
+        <!-- General Gallery Grid -->
+        <div id="general-gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <!-- Rendered by JS -->
+        </div>
+    </section>
+
+    <!-- SECTION 6: REFLEXÃO FINAL DO BIMESTRE -->
+    <section id="reflexao-final" class="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto border-t border-gold/10">
+        <div class="p-8 sm:p-12 rounded-2xl bg-mineral-800/80 border border-gold/30 shadow-2xl backdrop-blur-md">
+            
+            <div class="flex items-center gap-3 font-mono text-xs text-gold uppercase tracking-widest mb-3">
+                <i data-lucide="award" class="w-4 h-4 text-gold"></i>
+                <span>SÍNTESE ACADÊMICA</span>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <div class="bg-slate-800/80 p-4 rounded-2xl border border-slate-700 space-y-2">
-                    <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold text-xs flex items-center justify-center">1</div>
-                    <h4 class="font-bold text-sm text-slate-100">Criar Projeto no Firebase</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">
-                        Acesse console.firebase.google.com e crie um projeto gratuito para o portfólio.
+            <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-sand-100 mb-8">
+                REFLEXÃO FINAL DO 4º BIMESTRE
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="reflection-fields-container">
+                <!-- Editable via JS / Modal -->
+                <div class="p-6 rounded-xl bg-charcoal-800 border border-gold/15 space-y-2">
+                    <span class="font-mono text-xs text-gold uppercase tracking-wider block">1. O que aprendi?</span>
+                    <p id="ref-learned" class="text-sand-200 font-sans text-sm leading-relaxed whitespace-pre-line">
+                        [Registre aqui a síntese de todo o aprendizado obtido durante o 4º Bimestre na disciplina de Eletricidade Instrumental.]
                     </p>
                 </div>
 
-                <div class="bg-slate-800/80 p-4 rounded-2xl border border-slate-700 space-y-2">
-                    <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold text-xs flex items-center justify-center">2</div>
-                    <h4 class="font-bold text-sm text-slate-100">Ativar Firestore Database</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">
-                        Crie o banco em Modo de Teste ou defina regras de leitura pública e escrita autenticada.
+                <div class="p-6 rounded-xl bg-charcoal-800 border border-gold/15 space-y-2">
+                    <span class="font-mono text-xs text-gold uppercase tracking-wider block">2. Minha Evolução</span>
+                    <p id="ref-evolution" class="text-sand-200 font-sans text-sm leading-relaxed whitespace-pre-line">
+                        [Descreva como o seu raciocínio técnico, capacidade de medição e análise de circuitos evoluíram ao longo deste período.]
                     </p>
                 </div>
 
-                <div class="bg-slate-800/80 p-4 rounded-2xl border border-slate-700 space-y-2">
-                    <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold text-xs flex items-center justify-center">3</div>
-                    <h4 class="font-bold text-sm text-slate-100">Ativar Login Email/Senha</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">
-                        Em Authentication, ative o método de e-mail e crie o usuário do Flávio.
+                <div class="p-6 rounded-xl bg-charcoal-800 border border-gold/15 space-y-2">
+                    <span class="font-mono text-xs text-gold uppercase tracking-wider block">3. Principais Desafios</span>
+                    <p id="ref-challenges" class="text-sand-200 font-sans text-sm leading-relaxed whitespace-pre-line">
+                        [Registre as maiores dificuldades encontradas nas aulas teóricas ou práticas e como foram superadas.]
                     </p>
                 </div>
 
-                <div class="bg-slate-800/80 p-4 rounded-2xl border border-slate-700 space-y-2">
-                    <div class="w-8 h-8 rounded-full bg-ifrn-emerald text-white font-bold text-xs flex items-center justify-center">4</div>
-                    <h4 class="font-bold text-sm text-slate-100">Publicar no Vercel / GitHub</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">
-                        Suba o arquivo index.html. O link permanece o mesmo durante todo o 4º bimestre.
+                <div class="p-6 rounded-xl bg-charcoal-800 border border-gold/15 space-y-2">
+                    <span class="font-mono text-xs text-gold uppercase tracking-wider block">4. O que levo desta disciplina?</span>
+                    <p id="ref-takeaway" class="text-sand-200 font-sans text-sm leading-relaxed whitespace-pre-line">
+                        [Reflexão pessoal sobre a relevância prática desses conhecimentos para sua formação técnica no IFRN.]
                     </p>
                 </div>
+            </div>
+
+            <div class="mt-8 flex justify-end">
+                <button onclick="openReflectionEditModal()" class="px-4 py-2 rounded-lg bg-gold/10 hover:bg-gold/20 border border-gold/40 text-gold font-mono text-xs font-semibold flex items-center gap-2 transition-all">
+                    <i data-lucide="edit-2" class="w-4 h-4"></i>
+                    <span>EDITAR REFLEXÃO FINAL</span>
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="bg-slate-950 text-slate-400 py-8 border-t border-slate-800 text-xs">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div class="flex items-center space-x-3">
-                <div class="w-8 h-8 rounded-lg bg-brand-600 text-white flex items-center justify-center font-bold">
-                    <i class="fa-solid fa-bolt text-xs"></i>
-                </div>
-                <div>
-                    <p class="font-bold text-slate-200">Eletricidade Instrumental • 4º Bimestre</p>
-                    <p class="text-slate-500">IFRN Campus São Gonçalo do Amarante • Aluno: Flávio Augusto (INFO 1M) • Prof. Elialdo Chibério</p>
-                </div>
-            </div>
+    <!-- SECTION 7: ENCERRAMENTO CINEMATOGRÁFICO -->
+    <footer class="py-20 px-4 sm:px-6 lg:px-8 border-t border-gold/20 bg-charcoal-900 text-center relative overflow-hidden">
+        
+        <!-- Fading Circuit Line -->
+        <div class="max-w-md mx-auto mb-8 relative">
+            <div class="h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent opacity-50"></div>
+            <div class="w-3 h-3 bg-gold rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 led-glow"></div>
+        </div>
 
-            <div class="flex items-center space-x-4">
-                <button onclick="openLoginModal()" class="hover:text-white transition flex items-center gap-1.5 text-slate-400 font-medium">
-                    <i class="fa-solid fa-key"></i> Acesso Restrito do Aluno
-                </button>
+        <div class="max-w-2xl mx-auto space-y-4">
+            <h3 class="font-cinzel text-2xl sm:text-3xl font-bold text-sand-100 tracking-wider">
+                FIM DA JORNADA
+            </h3>
+            <p class="font-mono text-xs text-gold uppercase tracking-widest">
+                4º BIMESTRE · 2026 · ELETRICIDADE INSTRUMENTAL
+            </p>
+            <p class="text-sand-400 font-sans text-xs">
+                Aluno: Flávio Augusto · Professor: Elialdo Chibério da Silva · IFRN
+            </p>
+            
+            <div class="pt-8 text-sand-400 font-mono text-[11px]">
+                "Esta etapa terminou, mas a jornada continua."
             </div>
         </div>
     </footer>
 
-    <!-- MODAL 1: LOGIN DO ADMINISTRADOR -->
-    <div id="modal-login" class="fixed inset-0 bg-slate-950/75 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
-        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-200 relative">
-            <button onclick="closeLoginModal()" class="absolute right-5 top-5 text-slate-400 hover:text-slate-600 text-lg">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
+    <!-- IMAGE LIGHTBOX MODAL -->
+    <div id="image-modal" class="fixed inset-0 z-50 hidden bg-charcoal-900/95 backdrop-blur-xl flex items-center justify-center p-4">
+        <button onclick="closeImageModal()" class="absolute top-6 right-6 p-3 rounded-full bg-mineral-800 text-sand-100 hover:text-gold border border-gold/30 transition-all">
+            <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
 
-            <div class="text-center mb-6">
-                <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-2xl flex items-center justify-center mx-auto mb-3 text-xl font-bold">
-                    <i class="fa-solid fa-user-shield"></i>
-                </div>
-                <h3 class="text-xl font-bold text-slate-900">Painel do Aluno</h3>
-                <p class="text-xs text-slate-500 mt-1">Entre com as credenciais do Firebase ou ative o modo demonstração.</p>
+        <button onclick="navigateModalImage(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-mineral-800/80 text-sand-100 hover:text-gold border border-gold/30 transition-all">
+            <i data-lucide="chevron-left" class="w-6 h-6"></i>
+        </button>
+
+        <button onclick="navigateModalImage(1)" class="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-mineral-800/80 text-sand-100 hover:text-gold border border-gold/30 transition-all">
+            <i data-lucide="chevron-right" class="w-6 h-6"></i>
+        </button>
+
+        <div class="max-w-4xl w-full flex flex-col items-center gap-4">
+            <img id="modal-img" src="" alt="" class="max-h-[75vh] w-auto rounded-xl border border-gold/30 shadow-2xl object-contain">
+            <div class="text-center space-y-1">
+                <span id="modal-caption" class="font-sans text-sand-200 text-sm font-medium"></span>
+                <span id="modal-subtext" class="block font-mono text-xs text-gold"></span>
             </div>
-
-            <form onsubmit="handleLogin(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-semibold text-slate-700 mb-1">E-mail do Administrador</label>
-                    <input type="email" id="login-email" placeholder="flavio@ifrn.edu.br" class="w-full p-3 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold text-slate-700 mb-1">Senha de Acesso</label>
-                    <input type="password" id="login-password" placeholder="••••••••" class="w-full p-3 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
-                </div>
-
-                <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl shadow-md transition text-sm flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-right-to-bracket"></i> Entrar no Painel
-                </button>
-            </form>
-
-            <div class="relative my-5">
-                <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-slate-200"></div></div>
-                <div class="relative flex justify-center text-[11px] uppercase"><span class="bg-white px-2 text-slate-400 font-mono">Demonstração Instantânea</span></div>
-            </div>
-
-            <button onclick="enableDemoMode()" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-2.5 rounded-xl border border-slate-300 transition text-xs flex items-center justify-center gap-2">
-                <i class="fa-solid fa-bolt text-yellow-500"></i> Testar Modo Editor sem Firebase
-            </button>
         </div>
     </div>
 
-    <!-- MODAL 2: ADICIONAR / EDITAR AULA CMS -->
-    <div id="modal-lesson" class="fixed inset-0 bg-slate-950/75 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4 overflow-y-auto">
-        <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative my-8">
-            <button onclick="closeLessonModal()" class="absolute right-5 top-5 text-slate-400 hover:text-slate-600 text-lg">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-
-            <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-200">
-                <div class="w-10 h-10 bg-brand-100 text-brand-600 rounded-2xl flex items-center justify-center text-lg font-bold">
-                    <i class="fa-solid fa-pen-to-square"></i>
+    <!-- MANAGER / EDITOR MODAL -->
+    <div id="editor-modal" class="fixed inset-0 z-50 hidden bg-charcoal-900/90 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-mineral-800 border border-gold/30 rounded-2xl max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl my-8">
+            
+            <!-- Modal Header -->
+            <div class="p-6 border-b border-gold/20 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="p-2 rounded-lg bg-gold/10 text-gold border border-gold/30">
+                        <i data-lucide="sliders" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-cinzel text-xl font-bold text-sand-100">GERENCIADOR DA JORNADA</h3>
+                        <p class="font-mono text-xs text-sand-400">Adicione, edite, duplique ou faça backup do seu portfólio</p>
+                    </div>
                 </div>
-                <div>
-                    <h3 id="modal-lesson-title" class="text-lg font-bold text-slate-900">Adicionar Nova Aula</h3>
-                    <p class="text-xs text-slate-500">Cadastre a atividade do 4º Bimestre (Prof. Elialdo Chibério).</p>
-                </div>
+                <button onclick="closeEditorModal()" class="text-sand-400 hover:text-gold p-2">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
             </div>
 
-            <form onsubmit="saveLesson(event)" class="space-y-4">
-                <input type="hidden" id="form-lesson-id">
-
-                <div class="grid grid-cols-1 sm:grid-cols-12 gap-4">
-                    <div class="sm:col-span-8">
-                        <label class="block text-xs font-semibold text-slate-700 mb-1">Título da Aula *</label>
-                        <input type="text" id="form-title" required placeholder="Ex: Associação de Resistores Mista" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-brand-500">
+            <!-- Modal Content Tabs -->
+            <div class="p-6 overflow-y-auto space-y-8 text-sm">
+                
+                <!-- Quick Backup & Actions -->
+                <div class="p-4 rounded-xl bg-charcoal-800 border border-gold/15 flex flex-wrap items-center justify-between gap-4">
+                    <div>
+                        <span class="font-mono text-xs text-gold uppercase block font-semibold">Ações de Backup e Dados</span>
+                        <span class="text-sand-300 text-xs">Rascunhos ficam neste navegador; “Publicar alterações” envia a versão para o servidor seguro.</span>
                     </div>
-                    <div class="sm:col-span-4">
-                        <label class="block text-xs font-semibold text-slate-700 mb-1">Data *</label>
-                        <input type="date" id="form-date" required class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-brand-500">
+                    <div class="flex flex-wrap items-center gap-3 font-mono text-xs">
+                        <button onclick="exportDataJSON()" class="px-3 py-2 rounded-lg bg-gold/20 hover:bg-gold/30 text-gold border border-gold/40 flex items-center gap-2">
+                            <i data-lucide="download" class="w-4 h-4"></i> Exportar JSON
+                        </button>
+                        <button id="publish-changes-btn" onclick="publishChanges()" class="px-3 py-2 rounded-lg bg-blue-700 hover:bg-blue-600 text-white border border-blue-400/50 flex items-center gap-2 font-bold" title="Publica as alterações sem mudar a URL">
+                            <i data-lucide="cloud-upload" class="w-4 h-4"></i> Publicar alterações
+                        </button>
+                        <label class="px-3 py-2 rounded-lg bg-mineral-700 hover:bg-mineral-600 text-sand-200 border border-sand-400/30 cursor-pointer flex items-center gap-2">
+                            <i data-lucide="upload" class="w-4 h-4"></i> Importar JSON
+                            <input type="file" id="json-import-input" accept=".json" onchange="importDataJSON(event)" class="hidden">
+                        </label>
+                        <button onclick="resetDataToDefault()" class="px-3 py-2 rounded-lg bg-red-900/30 hover:bg-red-900/50 text-red-300 border border-red-500/30 flex items-center gap-2">
+                            <i data-lucide="rotate-ccw" class="w-4 h-4"></i> Restaurar Exemplo
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Add Chapter Section -->
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-cinzel font-bold text-sand-100 text-base">Aulas Cadastradas (<span id="chapters-count-badge">0</span>)</h4>
+                        <button onclick="createNewChapter()" class="px-4 py-2 rounded-lg bg-gold hover:bg-gold-light text-charcoal-900 font-mono text-xs font-bold flex items-center gap-2 transition-all">
+                            <i data-lucide="plus" class="w-4 h-4"></i> Nova Aula
+                        </button>
+                    </div>
+
+                    <!-- Chapters List in Modal -->
+                    <div id="modal-chapters-list" class="space-y-3">
+                        <!-- Appended by JS -->
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="p-4 border-t border-gold/20 bg-charcoal-800 flex justify-end">
+                <button onclick="closeEditorModal()" class="px-6 py-2 rounded-lg bg-mineral-700 text-sand-100 hover:bg-mineral-600 font-mono text-xs">
+                    Fechar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CHAPTER EDIT MODAL -->
+    <div id="single-chapter-modal" class="fixed inset-0 z-50 hidden bg-charcoal-900/90 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-mineral-800 border border-gold/30 rounded-2xl max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl my-8">
+            <div class="p-6 border-b border-gold/20 flex items-center justify-between">
+                <h3 class="font-cinzel text-xl font-bold text-sand-100" id="chapter-edit-title">Editar Aula</h3>
+                <button onclick="closeSingleChapterModal()" class="text-sand-400 hover:text-gold p-2">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <form id="chapter-edit-form" onsubmit="saveChapterForm(event)" class="p-6 overflow-y-auto space-y-6 text-sm">
+                <input type="hidden" id="edit-chapter-id">
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block font-mono text-xs text-gold uppercase mb-1">Nº do Capítulo</label>
+                        <input type="number" id="edit-chapter-num" required class="w-full bg-charcoal-800 border border-gold/20 rounded-lg p-2.5 text-sand-100 font-mono text-sm focus:border-gold outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-mono text-xs text-gold uppercase mb-1">Data (DD · MM · AAAA)</label>
+                        <input type="text" id="edit-chapter-date" placeholder="24 · 09 · 2026" required class="w-full bg-charcoal-800 border border-gold/20 rounded-lg p-2.5 text-sand-100 font-mono text-sm focus:border-gold outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-mono text-xs text-gold uppercase mb-1">Status da Aula</label>
+                        <select id="edit-chapter-status" class="w-full bg-charcoal-800 border border-gold/20 rounded-lg p-2.5 text-sand-100 font-mono text-sm focus:border-gold outline-none">
+                            <option value="normal">Normal / Presencial</option>
+                            <option value="pratica">Aula Prática / Laboratório</option>
+                            <option value="cancelada">Aula Cancelada / Sem Conteúdo</option>
+                            <option value="ausente">Ausência / Reposição</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block font-mono text-xs text-gold uppercase mb-1">Título da Aula</label>
+                    <input type="text" id="edit-chapter-title-input" required class="w-full bg-charcoal-800 border border-gold/20 rounded-lg p-2.5 text-sand-100 font-sans text-sm focus:border-gold outline-none">
+                </div>
+
+                <div>
+                    <label class="block font-mono text-xs text-gold uppercase mb-1">Conteúdo Ministrado (Suporta parágrafos e HTML básico)</label>
+                    <textarea id="edit-chapter-content" rows="6" required class="w-full bg-charcoal-800 border border-gold/20 rounded-lg p-2.5 text-sand-100 font-sans text-sm focus:border-gold outline-none leading-relaxed"></textarea>
+                </div>
+
+                <!-- Highlight Formula / Concept -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 rounded-xl bg-charcoal-800 border border-gold/15">
+                    <div>
+                        <label class="block font-mono text-xs text-gold uppercase mb-1">Conceito em Destaque</label>
+                        <input type="text" id="edit-chapter-concept-title" placeholder="Ex: Lei de Ohm" class="w-full bg-mineral-800 border border-gold/20 rounded-lg p-2 text-sand-100 font-sans text-xs focus:border-gold outline-none mb-2">
+                        <textarea id="edit-chapter-concept-desc" placeholder="Explicação do conceito..." rows="2" class="w-full bg-mineral-800 border border-gold/20 rounded-lg p-2 text-sand-100 font-sans text-xs focus:border-gold outline-none"></textarea>
+                    </div>
+                    <div>
+                        <label class="block font-mono text-xs text-gold uppercase mb-1">Fórmula em Destaque</label>
+                        <input type="text" id="edit-chapter-formula" placeholder="Ex: V = R × I" class="w-full bg-mineral-800 border border-gold/20 rounded-lg p-2 text-gold font-mono text-base font-bold focus:border-gold outline-none mb-2">
+                        <input type="text" id="edit-chapter-formula-note" placeholder="Nota sobre a fórmula..." class="w-full bg-mineral-800 border border-gold/20 rounded-lg p-2 text-sand-300 font-sans text-xs focus:border-gold outline-none">
+                    </div>
+                </div>
+
+                <!-- Practical Measurement Panel Optional -->
+                <div class="p-4 rounded-xl bg-charcoal-800 border border-gold/15 space-y-3">
+                    <span class="font-mono text-xs text-gold uppercase font-semibold block">Painel de Medição Prática (Opcional)</span>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                        <div>
+                            <label class="block font-mono text-[10px] text-sand-400">Grandeza</label>
+                            <input type="text" id="edit-meas-grand" placeholder="Tensão CC" class="w-full bg-mineral-800 border border-gold/20 rounded p-1.5 text-xs text-sand-100">
+                        </div>
+                        <div>
+                            <label class="block font-mono text-[10px] text-sand-400">Valor</label>
+                            <input type="text" id="edit-meas-val" placeholder="12.4" class="w-full bg-mineral-800 border border-gold/20 rounded p-1.5 text-xs text-sand-100">
+                        </div>
+                        <div>
+                            <label class="block font-mono text-[10px] text-sand-400">Unidade</label>
+                            <input type="text" id="edit-meas-unit" placeholder="Volts (V)" class="w-full bg-mineral-800 border border-gold/20 rounded p-1.5 text-xs text-sand-100">
+                        </div>
+                        <div>
+                            <label class="block font-mono text-[10px] text-sand-400">Instrumento</label>
+                            <input type="text" id="edit-meas-inst" placeholder="Multímetro Fluke" class="w-full bg-mineral-800 border border-gold/20 rounded p-1.5 text-xs text-sand-100">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Qualitative Sections -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-mono text-xs text-gold uppercase mb-1">O Que Foi Bom?</label>
+                        <textarea id="edit-chapter-good" rows="3" class="w-full bg-charcoal-800 border border-gold/20 rounded-lg p-2.5 text-sand-100 font-sans text-xs focus:border-gold outline-none"></textarea>
+                    </div>
+                    <div>
+                        <label class="block font-mono text-xs text-gold uppercase mb-1">O Que Foi Ruim / Desafios?</label>
+                        <textarea id="edit-chapter-bad" rows="3" class="w-full bg-charcoal-800 border border-gold/20 rounded-lg p-2.5 text-sand-100 font-sans text-xs focus:border-gold outline-none"></textarea>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-xs font-semibold text-slate-700 mb-1">Categoria</label>
-                        <select id="form-category" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-brand-500">
-                            <option value="Teoria">Teoria & Conceitos</option>
-                            <option value="Prática">Prática em Bancada</option>
-                            <option value="Exercício">Listas & Exercícios</option>
-                        </select>
+                        <label class="block font-mono text-xs text-gold uppercase mb-1">Evolução Pessoal</label>
+                        <textarea id="edit-chapter-evolution" rows="3" class="w-full bg-charcoal-800 border border-gold/20 rounded-lg p-2.5 text-sand-100 font-sans text-xs focus:border-gold outline-none"></textarea>
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold text-slate-700 mb-1">Ícone Visual</label>
-                        <select id="form-icon" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-brand-500">
-                            <option value="fa-bolt">⚡ Circuitos & Energia</option>
-                            <option value="fa-music">🎵 Música & Despertar</option>
-                            <option value="fa-network-wired">🌐 Associação de Resistores</option>
-                            <option value="fa-microchip">🔬 Multímetro / Bancada</option>
-                            <option value="fa-calculator">🧮 Exercícios / Cálculos</option>
-                        </select>
+                        <label class="block font-mono text-xs text-gold uppercase mb-1">Relação com a Disciplina</label>
+                        <textarea id="edit-chapter-discipline" rows="3" class="w-full bg-charcoal-800 border border-gold/20 rounded-lg p-2.5 text-sand-100 font-sans text-xs focus:border-gold outline-none"></textarea>
                     </div>
                 </div>
 
-                <div>
-                    <label class="block text-xs font-semibold text-slate-700 mb-1">Conteúdo Ministrado *</label>
-                    <textarea id="form-conteudo" required rows="3" placeholder="Tópicos teóricos apresentados na aula pelo Prof. Elialdo Chibério..." class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-brand-500"></textarea>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-semibold text-slate-700 mb-1">O que foi trabalhado (Atividades práticas e resoluções)</label>
-                    <textarea id="form-trabalhado" rows="3" placeholder="Detalhamento das atividades, lista de exercícios resolvida, experimentos..." class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-brand-500"></textarea>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-semibold text-slate-700 mb-1">Reflexão do Aluno (Flávio Augusto)</label>
-                    <textarea id="form-reflexao" rows="2" placeholder="Sua observação pessoal sobre o aprendizado da aula..." class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-brand-500"></textarea>
-                </div>
-
-                <!-- Photos URL Input List -->
-                <div>
-                    <label class="block text-xs font-semibold text-slate-700 mb-1">Fotos / Imagens (URL de Imagens Externa)</label>
-                    <div class="flex gap-2 mb-2">
-                        <input type="url" id="form-photo-input" placeholder="https://exemplo.com/imagem.jpg" class="flex-grow p-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs focus:ring-2 focus:ring-brand-500">
-                        <button type="button" onclick="addPhotoUrl()" class="bg-slate-900 hover:bg-slate-800 text-white px-3.5 py-2.5 rounded-xl text-xs font-bold transition">
-                            <i class="fa-solid fa-plus"></i> Adicionar Foto
-                        </button>
+                <!-- Photos Array Edit -->
+                <div class="p-4 rounded-xl bg-charcoal-800 border border-gold/15 space-y-3">
+                    <span class="font-mono text-xs text-gold uppercase font-semibold block">Fotos da Aula (URLs e Legendas)</span>
+                    <div id="edit-photos-container" class="space-y-3">
+                        <!-- Dynamic photo rows -->
                     </div>
-                    <div id="photos-preview-list" class="flex flex-wrap gap-2 pt-2">
-                        <!-- Preview thumbs -->
-                    </div>
-                </div>
-
-                <div class="flex justify-end gap-2 pt-4 border-t border-slate-200">
-                    <button type="button" onclick="closeLessonModal()" class="px-4 py-2.5 text-slate-600 hover:bg-slate-100 rounded-xl text-xs font-semibold transition">
-                        Cancelar
+                    <button type="button" onclick="addPhotoRowToEdit()" class="px-3 py-1.5 rounded bg-gold/20 text-gold font-mono text-xs flex items-center gap-1">
+                        <i data-lucide="plus" class="w-3 h-3"></i> Adicionar Foto
                     </button>
-                    <button type="submit" class="px-6 py-2.5 bg-brand-600 hover:bg-brand-700 text-white rounded-xl text-xs font-bold shadow-md transition flex items-center gap-2">
-                        <i class="fa-solid fa-floppy-disk"></i> Salvar no Portfólio
-                    </button>
+                </div>
+
+                <div class="flex justify-end gap-3 pt-4 border-t border-gold/20">
+                    <button type="button" onclick="closeSingleChapterModal()" class="px-4 py-2 rounded-lg bg-mineral-700 text-sand-200 font-mono text-xs">Cancelar</button>
+                    <button type="submit" class="px-6 py-2 rounded-lg bg-gold hover:bg-gold-light text-charcoal-900 font-mono text-xs font-bold">Salvar Alterações</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- MODAL 3: LIGHTBOX VISUALIZADOR DE FOTOS -->
-    <div id="modal-lightbox" class="fixed inset-0 bg-slate-950/90 z-50 flex items-center justify-center hidden p-4" onclick="closeLightbox()">
-        <div class="relative max-w-4xl w-full flex flex-col items-center" onclick="event.stopPropagation()">
-            <button onclick="closeLightbox()" class="absolute -top-10 right-0 text-white hover:text-slate-300 text-2xl">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <img id="lightbox-img" src="" alt="Foto da Aula" class="max-h-[80vh] w-auto rounded-2xl shadow-2xl object-contain border border-slate-800">
-            <p id="lightbox-caption" class="text-slate-300 text-xs mt-3 font-mono"></p>
-        </div>
-    </div>
-
-    <!-- MODAL 4: FIREBASE CONFIG MANAGER MODAL -->
-    <div id="modal-config" class="fixed inset-0 bg-slate-950/75 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
-        <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 relative">
-            <button onclick="closeConfigModal()" class="absolute right-5 top-5 text-slate-400 hover:text-slate-600 text-lg">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-
-            <div class="flex items-center gap-3 mb-4">
-                <div class="w-10 h-10 bg-yellow-100 text-yellow-700 rounded-2xl flex items-center justify-center text-lg font-bold">
-                    <i class="fa-solid fa-sliders"></i>
+    <!-- REFLECTION EDIT MODAL -->
+    <div id="reflection-modal" class="fixed inset-0 z-50 hidden bg-charcoal-900/90 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-mineral-800 border border-gold/30 rounded-2xl max-w-2xl w-full p-6 space-y-6 shadow-2xl">
+            <h3 class="font-cinzel text-xl font-bold text-sand-100">Editar Reflexão Final</h3>
+            
+            <div class="space-y-4 font-sans text-xs">
+                <div>
+                    <label class="block font-mono text-gold uppercase mb-1">1. O que aprendi?</label>
+                    <textarea id="edit-ref-learned" rows="3" class="w-full bg-charcoal-800 border border-gold/20 rounded p-2 text-sand-100"></textarea>
                 </div>
                 <div>
-                    <h3 class="text-lg font-bold text-slate-900">Configurar Firebase Privado</h3>
-                    <p class="text-xs text-slate-500">Cole suas chaves de API do console do Firebase se desejar.</p>
-                </div>
-            </div>
-
-            <div class="space-y-3">
-                <p class="text-xs text-slate-600 leading-relaxed">
-                    Você pode colar o objeto <code>firebaseConfig</code> gerado no console do Firebase para salvar suas aulas em sua própria conta Google:
-                </p>
-                <textarea id="config-json-input" rows="6" placeholder='{
-  "apiKey": "SUA_API_KEY",
-  "authDomain": "seu-projeto.firebaseapp.com",
-  "projectId": "seu-projeto",
-  "storageBucket": "seu-projeto.appspot.com",
-  "messagingSenderId": "123456...",
-  "appId": "1:12345..."
-}' class="w-full p-3 bg-slate-900 text-cyan-300 rounded-xl font-mono text-xs focus:ring-2 focus:ring-brand-500"></textarea>
-
-                <div class="flex justify-end gap-2 pt-2">
-                    <button onclick="closeConfigModal()" class="px-4 py-2 text-slate-600 text-xs font-semibold">Cancelar</button>
-                    <button onclick="saveCustomFirebaseConfig()" class="px-5 py-2 bg-brand-600 hover:bg-brand-700 text-white rounded-xl text-xs font-bold shadow-sm">
-                        Salvar Configuração
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL 5: DETAILED FIREBASE TUTORIAL MODAL -->
-    <div id="modal-tutorial" class="fixed inset-0 bg-slate-950/75 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4 overflow-y-auto">
-        <div class="bg-white rounded-3xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative my-8">
-            <button onclick="closeTutorialModal()" class="absolute right-5 top-5 text-slate-400 hover:text-slate-600 text-lg">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-
-            <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-200">
-                <div class="w-12 h-12 bg-ifrn-emerald/10 text-ifrn-emerald rounded-2xl flex items-center justify-center text-xl font-bold">
-                    <i class="fa-solid fa-graduation-cap"></i>
+                    <label class="block font-mono text-gold uppercase mb-1">2. Minha Evolução</label>
+                    <textarea id="edit-ref-evolution" rows="3" class="w-full bg-charcoal-800 border border-gold/20 rounded p-2 text-sand-100"></textarea>
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold text-slate-900">Passo a Passo Oficial para o Aluno (Flávio)</h3>
-                    <p class="text-xs text-slate-500">Como colocar e manter seu portfólio no ar de forma 100% gratuita.</p>
+                    <label class="block font-mono text-gold uppercase mb-1">3. Principais Desafios</label>
+                    <textarea id="edit-ref-challenges" rows="3" class="w-full bg-charcoal-800 border border-gold/20 rounded p-2 text-sand-100"></textarea>
+                </div>
+                <div>
+                    <label class="block font-mono text-gold uppercase mb-1">4. O que levo desta disciplina?</label>
+                    <textarea id="edit-ref-takeaway" rows="3" class="w-full bg-charcoal-800 border border-gold/20 rounded p-2 text-sand-100"></textarea>
                 </div>
             </div>
 
-            <div class="space-y-5 text-xs sm:text-sm text-slate-700 leading-relaxed">
-                <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-1.5">
-                    <h4 class="font-bold text-slate-900 text-sm flex items-center gap-2">
-                        <span class="w-6 h-6 rounded-full bg-brand-600 text-white text-xs flex items-center justify-center font-bold">1</span>
-                        Criar o Banco no Firebase Console
-                    </h4>
-                    <p>Acesse <a href="https://console.firebase.google.com" target="_blank" class="text-brand-600 underline font-semibold">console.firebase.google.com</a>, crie um projeto chamado <code>portfolio-flavio-ifrn</code>.</p>
-                </div>
-
-                <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-1.5">
-                    <h4 class="font-bold text-slate-900 text-sm flex items-center gap-2">
-                        <span class="w-6 h-6 rounded-full bg-brand-600 text-white text-xs flex items-center justify-center font-bold">2</span>
-                        Ativar Firestore & Regras de Segurança
-                    </h4>
-                    <p>Em <strong>Build &gt; Firestore Database</strong>, crie o banco de dados. Configure as Regras de Segurança para:</p>
-                    <pre class="bg-slate-900 text-cyan-300 p-3 rounded-xl font-mono text-[11px] overflow-x-auto">
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /{document=**} {
-      allow read: if true;
-      allow write: if request.auth != null;
-    }
-  }
-}</pre>
-                </div>
-
-                <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-1.5">
-                    <h4 class="font-bold text-slate-900 text-sm flex items-center gap-2">
-                        <span class="w-6 h-6 rounded-full bg-brand-600 text-white text-xs flex items-center justify-center font-bold">3</span>
-                        Criar Conta de Administrador
-                    </h4>
-                    <p>Em <strong>Build &gt; Authentication</strong>, ative E-mail/Senha e adicione seu usuário (ex: <code>flavio.augusto@ifrn.edu.br</code>).</p>
-                </div>
-
-                <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-1.5">
-                    <h4 class="font-bold text-slate-900 text-sm flex items-center gap-2">
-                        <span class="w-6 h-6 rounded-full bg-ifrn-emerald text-white text-xs flex items-center justify-center font-bold">4</span>
-                        Publicar o Link do Portfólio
-                    </h4>
-                    <p>Suba este único arquivo <code>index.html</code> no GitHub Pages ou Vercel. Envie o link para o <strong>Prof. Elialdo Chibério</strong>!</p>
-                </div>
-            </div>
-
-            <div class="mt-6 pt-4 border-t border-slate-200 flex justify-end">
-                <button onclick="closeTutorialModal()" class="px-5 py-2.5 bg-slate-900 text-white rounded-xl text-xs font-bold hover:bg-slate-800">
-                    Entendi, Fechar Guia
-                </button>
+            <div class="flex justify-end gap-3">
+                <button onclick="closeReflectionModal()" class="px-4 py-2 rounded bg-mineral-700 text-sand-200 font-mono text-xs">Cancelar</button>
+                <button onclick="saveReflectionForm()" class="px-6 py-2 rounded bg-gold text-charcoal-900 font-mono text-xs font-bold">Salvar Reflexão</button>
             </div>
         </div>
     </div>
 
-    <!-- MODAL 6: CUSTOM CONFIRMATION DIALOG -->
-    <div id="modal-confirm" class="fixed inset-0 bg-slate-950/75 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
-        <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl border border-slate-200 text-center space-y-4">
-            <div class="w-12 h-12 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center mx-auto text-xl font-bold">
-                <i class="fa-solid fa-triangle-exclamation"></i>
-            </div>
-            <h3 class="text-base font-bold text-slate-900">Excluir Aula do Portfólio?</h3>
-            <p class="text-xs text-slate-500">Esta ação não poderá ser desfeita após a confirmação.</p>
-            <div class="flex justify-center gap-2 pt-2">
-                <button onclick="closeConfirmModal(false)" class="px-4 py-2 bg-slate-100 text-slate-700 rounded-xl text-xs font-semibold">Cancelar</button>
-                <button onclick="closeConfirmModal(true)" class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-xl text-xs font-bold shadow-sm">Confirmar Exclusão</button>
-            </div>
-        </div>
-    </div>
+    <script>
+        /* ==========================================================================
+           PORTFÓLIO ACADÊMICO - JORNADA DE ELETRICIDADE INSTRUMENTAL (4º BIMESTRE)
+           ========================================================================== */
 
-    <!-- TOAST NOTIFICATIONS CONTAINER -->
-    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
-
-    <!-- APPLICATION JAVASCRIPT & FIREBASE ENGINE -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged, signInWithCustomToken, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, collection, doc, addDoc, updateDoc, deleteDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-        // Environment variables or fallback default
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'ifrn-eletricidade-portfolio';
-        
-        let firebaseConfig = {
-            apiKey: "AIzaSyDemoKeyForIFRNEletricidadePortfolio2026",
-            authDomain: "ifrn-portfolio.firebaseapp.com",
-            projectId: "ifrn-portfolio",
-            storageBucket: "ifrn-portfolio.appspot.com",
-            messagingSenderId: "1234567890",
-            appId: "1:1234567890:web:abcdef123456"
-        };
-
-        // Check if custom user config exists in localStorage
-        const customSavedConfig = localStorage.getItem('ifrn_firebase_config');
-        if (customSavedConfig) {
-            try { firebaseConfig = JSON.parse(customSavedConfig); } catch(e){}
-        } else if (typeof __firebase_config !== 'undefined') {
-            try { firebaseConfig = JSON.parse(__firebase_config); } catch(e){}
-        }
-
-        // Initialize Firebase SDK
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
-
-        // Global Application State
-        window.appState = {
-            isAdmin: false,
-            lessons: [],
-            editingPhotoList: [],
-            isDemoMode: false,
-            pendingDeleteId: null
-        };
-
-        // Initial Pre-seeded Lessons with Prof. Elialdo Chibério Content
-        const SEED_LESSONS = [
+        // Default Sample Chapters Data Structure
+        const DEFAULT_CHAPTERS = [
             {
-                id: "lesson-seed-1",
-                title: "Despertar para o Aprender e Associação em Paralelo",
-                date: "2026-10-01",
-                category: "Teoria",
-                icon: "fa-music",
-                conteudo: "Atividade de preparação para a aprendizagem e foco mental ministrada pelo Prof. Elialdo Chibério. Análise lírica e audição da música 'Somos Quem Podemos Ser' (Engenheiros do Hawaí). Exercícios de relaxamento e alongamentos orientados para concentração. Revisão teórica da fórmula da Associação de Resistores em Paralelo.",
-                trabalhado: "1. Atividade inicial 'Despertar para o Aprender';\n2. Execução e reflexão da canção 'Somos Quem Podemos Ser';\n3. Sessão de relaxamento e alongamento corporal;\n4. Revisão e fundamentação teórica da associação paralela (1/Req = 1/R1 + 1/R2);\n5. Resolução orientada da lista de exercícios prática até a questão número 9.",
-                reflexao: "A integração de dinâmicas de concentração e música com o estudo técnico de circuitos elétricos facilitou a compreensão da divisão de corrente em ramos paralelos. Percebi que no circuito em paralelo a tensão é igual em todos os componentes.",
-                fotos: [
-                    "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1517420704952-d9f39e95b43e?auto=format&fit=crop&w=600&q=80"
-                ],
-                createdAt: Date.now() - 100000
+                id: "cap-01",
+                num: 1,
+                date: "24 · 09 · 2026",
+                title: "Introdução à Eletricidade Instrumental e Segurança em Laboratório",
+                status: "normal",
+                content: "Apresentação detalhada da disciplina de Eletricidade Instrumental referente ao 4º Bimestre. O professor Elialdo Chibério apresentou os objetivos do bimestre, métodos de avaliação e os protocolos essenciais de segurança para manuseio de bancadas elétricas no IFRN.\n\nDiscutimos a diferença entre grandezas elétricas fundamentais (Tensão, Corrente, Resistência e Potência) e conhecemos os instrumentos de medição que utilizaremos ao longo do bimestre.",
+                conceptTitle: "Grandeza Elétrica Fundamental",
+                conceptDesc: "Tensão (DDP) é a força que impulsiona os elétrons, enquanto Corrente é o fluxo ordenado de cargas pelo condutor.",
+                formula: "V = I \u00d7 R",
+                formulaNote: "Primeira Lei de Ohm - Relação fundamental de circuitos elétricos.",
+                measurement: {
+                    grandezza: "Tensão de Bancada",
+                    valor: "220.5",
+                    unidade: "Volts (V)",
+                    instrumento: "Multímetro Digital Protek"
+                },
+                good: "A clareza do professor nas explicações práticas e a demonstração imediata do uso correto das pontas de prova do multímetro.",
+                bad: "Ainda temos limitação de tempo para que todos testem individualmente todos os equipamentos no mesmo horário.",
+                evolution: "Compreendi com clareza a importância do rigor na escolha da escala do multímetro antes de realizar qualquer medição direta.",
+                discipline: "Esta aula estabeleceu a base de confiança e segurança técnica para todas as práticas subsequentes no laboratório do IFRN.",
+                photos: [
+                    { url: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80", caption: "Bancada de ensaios do laboratório de Eletricidade do IFRN." },
+                    { url: "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80", caption: "Ajuste de escalas e calibração inicial do instrumento de medição." }
+                ]
             },
             {
-                id: "lesson-seed-2",
-                title: "Associação de Resistores (Série, Paralelo e Mista)",
-                date: "2026-10-05",
-                category: "Prática",
-                icon: "fa-network-wired",
-                conteudo: "Análise detalhada de circuitos com associação mista de resistores. Aplicação das Leis de Kirchhoff (Lei das Malhas - KVL e Lei dos Nós - KCL). Medições experimentais de resistência equivalente (Req), tensão e corrente com o multímetro digital na bancada do laboratório.",
-                trabalhado: "1. Identificação visual de nós e ramos na lousa pelo Prof. Elialdo Chibério;\n2. Cálculo analítico simplificando blocos em paralelo e série;\n3. Montagem prática em matriz de contatos (protoboard);\n4. Verificação com multímetro digital e análise do desvio percentual por tolerância dos componentes.",
-                reflexao: "A verificação prática com o multímetro mostrou na prática como a tolerância dos resistores (5% no código de cores) e a resistência de contato dos cabos geram pequenas variações em relação ao valor ideal calculado no caderno.",
-                fotos: [
-                    "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80"
-                ],
-                createdAt: Date.now() - 50000
+                id: "cap-02",
+                num: 2,
+                date: "01 · 10 · 2026",
+                title: "Lei de Ohm na Prática e Medição com Multímetro Digital",
+                status: "pratica",
+                content: "Realização da primeira prática de bancada do 4º Bimestre. Montamos circuitos simples utilizando protoboard, resistores de filme de carbono de diversos valores comerciais e uma fonte CC regulável.\n\nEfetuamos medições diretas de corrente elétrica intercalando o amperímetro em série com o circuito, confirmando experimentalmente os valores teóricos calculados pela Lei de Ohm.",
+                conceptTitle: "Medição de Corrente Elétrica",
+                conceptDesc: "O amperímetro DEVE SEMPRE ser ligado em SÉRIE com o ramo onde se deseja medir a corrente.",
+                formula: "I = V / R",
+                formulaNote: "Cálculo da corrente a partir da tensão aplicada e resistência total.",
+                measurement: {
+                    grandezza: "Corrente Contínua",
+                    valor: "45.2",
+                    unidade: "Miliamperes (mA)",
+                    instrumento: "Multímetro Minipa ET-2082C"
+                },
+                good: "A perfeita concordância entre o valor calculado no papel e o valor medido na tela do multímetro.",
+                bad: "Pequenas oscilações no potenciômetro da fonte de tensão geraram pequenas variações na leitura inicial.",
+                evolution: "Desenvolvi habilidade manual e raciocínio rápido para identificar a malha do circuito na protoboard sem confundir nós.",
+                discipline: "Validar a teoria através do instrumento prático reforçou a utilidade direta da matemática na engenharia elétrica.",
+                photos: [
+                    { url: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=800&q=80", caption: "Montagem do circuito com resistores em protoboard." },
+                    { url: "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=800&q=80", caption: "Leitura de corrente em miliamperes no multímetro." },
+                    { url: "https://images.unsplash.com/photo-1581092162384-8987c1d64718?auto=format&fit=crop&w=800&q=80", caption: "Anotação das medições e cálculo de tolerância dos resistores." }
+                ]
+            },
+            {
+                id: "cap-03",
+                num: 3,
+                date: "08 · 10 · 2026",
+                title: "Associação de Resistores em Série e Paralelo",
+                status: "normal",
+                content: "Estudo aprofundado sobre leis de Kirchhoff (KVL e KCL) aplicadas a associações mistas de resistores. Analisamos como a tensão se divide em componentes em série e como a corrente se divide em nós em paralelo.\n\nCalculamos as resistências equivalentes (Req) teóricas e em seguida montamos o circuito equivalente para testar a divergência devido às tolerâncias dos componentes (5%).",
+                conceptTitle: "Divisor de Tensão",
+                conceptDesc: "Em resistores em série, a queda de tensão sobre cada um é proporcional ao seu valor ôhmico relativo.",
+                formula: "Req(paralelo) = (R1 \u00d7 R2) / (R1 + R2)",
+                formulaNote: "Fórmula simplificada para dois resistores associados em paralelo.",
+                measurement: {
+                    grandezza: "Resistência Equivalente",
+                    valor: "328.6",
+                    unidade: "Ohms (\u03a9)",
+                    instrumento: "Ponte LCR / Ohmmétrico Digital"
+                },
+                good: "A metodologia didática utilizada para resolver circuitos complexos dividindo em blocos menores.",
+                bad: "Confusão inicial ao medir a resistência equivalente sem desligar a fonte de alimentação (cuja prática pode danificar o instrumento).",
+                evolution: "Aprendi a ver o circuito como um fluxo lógico de nós e malhas, simplificando diagnósticos de defeitos.",
+                discipline: "Associações de resistores são a fundação para qualquer projeto eletrônico instrumental.",
+                photos: [
+                    { url: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80", caption: "Circuito impresso com malha de resistores em estudo." }
+                ]
             }
         ];
 
-        async function initAuth() {
-            try {
-                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                    await signInWithCustomToken(auth, __initial_auth_token);
-                } else {
-                    await signInAnonymously(auth);
-                }
-            } catch(e) {
-                console.log("Autenticação autônoma ativada.");
+        const DEFAULT_REFLECTION = {
+            learned: "Durante este 4º Bimestre em Eletricidade Instrumental no IFRN, consolidei a transição entre os conceitos teóricos de circuitos elétricos e a prática de medição com instrumentos profissionais de bancada.",
+            evolution: "Aprendi a manusear multímetros com total autonomia, realizar medições de tensão, corrente e resistência com segurança, e diagnosticar erros em montagens de protoboard.",
+            challenges: "O principal desafio foi dominar a medição de corrente em série sem interromper inadequadamente os nós do circuito e compreender as tolerâncias reais dos componentes.",
+            takeaway: "A precisão e a segurança técnica na instrumentação elétrica são competências indispensáveis para a minha trajetória profissional no IFRN."
+        };
+
+        // ============================================================
+        // PUBLICAÇÃO ONLINE — GITHUB PAGES
+        // Os dados publicados ficam embutidos nesta mesma página.
+        // O token do GitHub NUNCA fica salvo no código: ele é informado
+        // pelo próprio dono do site e usado somente durante a publicação.
+        // ============================================================
+        const GITHUB_OWNER = 'flaviolyra-jpg';
+        const GITHUB_REPO = 'index.html';
+        const GITHUB_BRANCH = 'main';
+        const GITHUB_FILE = 'index.html';
+        const GITHUB_RAW_URL = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/${GITHUB_BRANCH}/${GITHUB_FILE}`;
+        const PUBLISHED_PORTFOLIO_DATA = null;
+        let isPublishing = false;
+
+        // State Variables
+        let chapters = [];
+        let reflection = {};
+        let activeGalleryIndex = 0;
+        let activeGalleryPhotos = [];
+
+        // Initialize App on DOM Content Loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            loadPortfolioData();
+            renderApp();
+            lucide.createIcons();
+        });
+
+        // Load Data from this published page, then allow local drafts to override it.
+        function loadPortfolioData() {
+            const savedChapters = localStorage.getItem('ifrn_portfolio_chapters_v4');
+            const savedRef = localStorage.getItem('ifrn_portfolio_reflection_v4');
+
+            const published = PUBLISHED_PORTFOLIO_DATA || {};
+            const publishedChapters = Array.isArray(published.chapters) ? published.chapters : DEFAULT_CHAPTERS;
+            const publishedReflection = published.reflection && typeof published.reflection === 'object' ? published.reflection : DEFAULT_REFLECTION;
+
+            if (savedChapters) {
+                try { chapters = JSON.parse(savedChapters); } catch(e) { chapters = JSON.parse(JSON.stringify(publishedChapters)); }
+            } else {
+                chapters = JSON.parse(JSON.stringify(publishedChapters));
+            }
+
+            if (savedRef) {
+                try { reflection = JSON.parse(savedRef); } catch(e) { reflection = JSON.parse(JSON.stringify(publishedReflection)); }
+            } else {
+                reflection = JSON.parse(JSON.stringify(publishedReflection));
             }
         }
-        initAuth();
 
-        // Auth state observer
-        onAuthStateChanged(auth, (user) => {
-            if (user && !user.isAnonymous) {
-                window.appState.isAdmin = true;
-                showAdminUI(true);
-            } else if (!window.appState.isDemoMode) {
-                window.appState.isAdmin = false;
-                showAdminUI(false);
+        // Save Data locally as a draft. This does NOT publish to GitHub.
+        function saveData() {
+            localStorage.setItem('ifrn_portfolio_chapters_v4', JSON.stringify(chapters));
+            localStorage.setItem('ifrn_portfolio_reflection_v4', JSON.stringify(reflection));
+            renderApp();
+            showToast("Rascunho salvo neste computador.");
+        }
+
+        // Data that will become the public version of the portfolio.
+        function getPublicationPayload() {
+            return {
+                version: 2,
+                site: 'ifrn-eletricidade-instrumental',
+                bimestre: '4º BIMESTRE',
+                ano: 2026,
+                aluno: 'Flávio Augusto',
+                disciplina: 'Eletricidade Instrumental',
+                chapters: chapters,
+                reflection: reflection,
+                publishedAt: new Date().toISOString()
+            };
+        }
+
+        function githubBase64(text) {
+            const bytes = new TextEncoder().encode(text);
+            let binary = '';
+            const chunkSize = 0x8000;
+            for (let i = 0; i < bytes.length; i += chunkSize) {
+                binary += String.fromCharCode(...bytes.subarray(i, i + chunkSize));
             }
-        });
+            return btoa(binary);
+        }
 
-        // Firestore Public Collection Listener (MANDATORY RULE 1 PATH)
-        const lessonsCollection = collection(db, 'artifacts', appId, 'public', 'data', 'lessons');
+        function safePublishedJson(data) {
+            return JSON.stringify(data, null, 2)
+                .replace(/</g, '\\u003c')
+                .replace(/>/g, '\\u003e')
+                .replace(/&/g, '\\u0026');
+        }
 
-        onSnapshot(lessonsCollection, (snapshot) => {
-            if (!snapshot.empty) {
-                const loaded = [];
-                snapshot.forEach(doc => {
-                    loaded.push({ id: doc.id, ...doc.data() });
-                });
-                window.appState.lessons = loaded;
-            } else {
-                window.appState.lessons = SEED_LESSONS;
+        async function getGithubToken() {
+            const token = prompt('Cole seu token do GitHub (ele não será salvo neste site).\n\nEle precisa ter permissão de escrita no conteúdo deste repositório.');
+            if (!token) throw new Error('TOKEN_CANCELADO');
+            return token.trim();
+        }
+
+        // Publica no mesmo index.html do mesmo repositório. A URL não muda.
+        async function publishChanges() {
+            if (isPublishing) return;
+
+            isPublishing = true;
+            const button = document.getElementById('publish-changes-btn');
+            if (button) {
+                button.disabled = true;
+                button.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i> Publicando...';
+                lucide.createIcons();
             }
-            renderLessonsGrid();
-            updateTotalBadge();
-        }, (err) => {
-            console.warn("Utilizando armazenamento local de fallback:", err.message);
-            const saved = localStorage.getItem('ifrn_portfolio_lessons');
-            window.appState.lessons = saved ? JSON.parse(saved) : SEED_LESSONS;
-            renderLessonsGrid();
-            updateTotalBadge();
-        });
-
-        // UI Helpers
-        window.showAdminUI = function(active) {
-            const banner = document.getElementById('admin-banner');
-            const loginBtn = document.getElementById('admin-login-btn');
-            if (active) {
-                banner.classList.remove('hidden');
-                loginBtn.innerHTML = `<i class="fa-solid fa-user-check text-emerald-400"></i> <span>Modo Editor</span>`;
-            } else {
-                banner.classList.add('hidden');
-                loginBtn.innerHTML = `<i class="fa-solid fa-lock text-brand-500"></i> <span>Painel do Aluno</span>`;
-            }
-            renderLessonsGrid();
-        };
-
-        window.enableDemoMode = function() {
-            window.appState.isDemoMode = true;
-            window.appState.isAdmin = true;
-            showAdminUI(true);
-            closeLoginModal();
-            showToast("Modo Editor ativado em modo de testes!", "success");
-        };
-
-        window.handleLogin = async function(e) {
-            e.preventDefault();
-            const email = document.getElementById('login-email').value;
-            const password = document.getElementById('login-password').value;
 
             try {
-                await signInWithEmailAndPassword(auth, email, password);
-                closeLoginModal();
-                showToast("Login de Administrador efetuado!", "success");
-            } catch(err) {
-                showToast("Credenciais incorretas ou não cadastradas no Firebase.", "error");
-            }
-        };
+                const token = await getGithubToken();
+                const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`;
+                const headers = {
+                    'Accept': 'application/vnd.github+json',
+                    'Authorization': `Bearer ${token}`,
+                    'X-GitHub-Api-Version': '2022-11-28',
+                    'Content-Type': 'application/json'
+                };
 
-        window.logoutAdmin = function() {
-            signOut(auth);
-            window.appState.isDemoMode = false;
-            window.appState.isAdmin = false;
-            showAdminUI(false);
-            showToast("Você saiu da área administrativa.", "info");
-        };
+                // Busca a versão atual do arquivo para obter o SHA exigido pelo GitHub.
+                const currentResponse = await fetch(apiUrl + `?ref=${encodeURIComponent(GITHUB_BRANCH)}`, { headers });
+                if (!currentResponse.ok) throw new Error('GET_' + currentResponse.status);
+                const current = await currentResponse.json();
 
-        window.renderLessonsGrid = function() {
-            const container = document.getElementById('lessons-grid');
-            const searchVal = (document.getElementById('search-input')?.value || '').toLowerCase();
-            const categoryVal = document.getElementById('category-filter')?.value || 'ALL';
-            const sortVal = document.getElementById('sort-order')?.value || 'DESC';
+                const currentHtmlResponse = await fetch(GITHUB_RAW_URL + `?t=${Date.now()}`);
+                if (!currentHtmlResponse.ok) throw new Error('RAW_' + currentHtmlResponse.status);
+                let html = await currentHtmlResponse.text();
 
-            let filtered = window.appState.lessons.filter(item => {
-                const matchSearch = item.title.toLowerCase().includes(searchVal) || 
-                                    item.conteudo.toLowerCase().includes(searchVal) ||
-                                    (item.trabalhado && item.trabalhado.toLowerCase().includes(searchVal));
-                const matchCat = categoryVal === 'ALL' || item.category === categoryVal;
-                return matchSearch && matchCat;
-            });
+                const marker = 'const PUBLISHED_PORTFOLIO_DATA = null;';
+                if (!html.includes(marker)) {
+                    throw new Error('MARCADOR_NAO_ENCONTRADO');
+                }
 
-            // Sorting in memory (MANDATORY RULE 2)
-            filtered.sort((a, b) => {
-                const dateA = new Date(a.date);
-                const dateB = new Date(b.date);
-                return sortVal === 'DESC' ? dateB - dateA : dateA - dateB;
-            });
+                html = html.replace(marker, `const PUBLISHED_PORTFOLIO_DATA = ${safePublishedJson(getPublicationPayload())};`);
 
-            if (filtered.length === 0) {
-                container.innerHTML = `
-                    <div class="col-span-full bg-white rounded-3xl p-12 text-center border border-slate-200 shadow-xs">
-                        <i class="fa-solid fa-folder-open text-4xl text-slate-300 mb-3"></i>
-                        <p class="text-slate-600 font-semibold text-sm">Nenhuma aula encontrada com os critérios buscados.</p>
-                        ${window.appState.isAdmin ? `
-                            <button onclick="openLessonModal()" class="mt-4 bg-brand-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-xs">
-                                <i class="fa-solid fa-plus mr-1"></i> Cadastrar Nova Aula
-                            </button>
-                        ` : ''}
-                    </div>
-                `;
-                return;
-            }
+                const body = {
+                    message: 'Atualizar portfólio pelo editor online',
+                    content: githubBase64(html),
+                    sha: current.sha,
+                    branch: GITHUB_BRANCH
+                };
 
-            container.innerHTML = filtered.map(lesson => {
-                const formattedDate = new Date(lesson.date + 'T00:00:00').toLocaleDateString('pt-BR', {
-                    day: '2-digit', month: 'short', year: 'numeric'
+                const updateResponse = await fetch(apiUrl, {
+                    method: 'PUT',
+                    headers,
+                    body: JSON.stringify(body)
                 });
 
-                return `
-                    <div class="card-tech rounded-3xl overflow-hidden flex flex-col justify-between relative group">
+                if (!updateResponse.ok) {
+                    let detail = '';
+                    try { detail = (await updateResponse.json()).message || ''; } catch (_) {}
+                    throw new Error('PUT_' + updateResponse.status + '_' + detail);
+                }
+
+                showToast('Publicado no GitHub! A mesma URL será atualizada.');
+                localStorage.setItem('ifrn_portfolio_last_published_v4', new Date().toISOString());
+            } catch (error) {
+                console.error('Falha na publicação:', error);
+                if (error.message === 'TOKEN_CANCELADO') {
+                    showToast('Publicação cancelada.');
+                } else if (error.message.includes('401')) {
+                    showToast('Token inválido ou sem permissão para este repositório.');
+                } else if (error.message.includes('403')) {
+                    showToast('GitHub recusou a publicação. Verifique a permissão do token.');
+                } else if (error.message === 'MARCADOR_NAO_ENCONTRADO') {
+                    showToast('Este index.html ainda não é a versão preparada para publicação.');
+                } else {
+                    showToast('Não foi possível publicar. Veja o console para detalhes.');
+                }
+            } finally {
+                isPublishing = false;
+                if (button) {
+                    button.disabled = false;
+                    button.innerHTML = '<i data-lucide="cloud-upload" class="w-4 h-4"></i> Publicar alterações';
+                    lucide.createIcons();
+                }
+            }
+        }
+
+        // Render Entire Application
+        function renderApp() {
+            renderCircuitTimeline();
+            renderSummaryGrid();
+            renderDetailedChapters();
+            renderGeneralGallery();
+            renderReflectionSection();
+            renderModalChaptersList();
+            lucide.createIcons();
+        }
+
+        // Render Circuit Timeline Track
+        function renderCircuitTimeline() {
+            const container = document.getElementById('circuit-nodes-container');
+            if(!container) return;
+
+            container.innerHTML = '';
+            
+            // Sort chapters by num
+            chapters.sort((a,b) => a.num - b.num);
+
+            chapters.forEach((cap, idx) => {
+                const node = document.createElement('div');
+                node.className = 'flex flex-col items-center group cursor-pointer relative z-10';
+                node.onclick = () => scrollToChapter(cap.id);
+
+                node.innerHTML = `
+                    <div class="w-8 h-8 rounded-full bg-mineral-800 border-2 border-gold flex items-center justify-center font-mono text-xs font-bold text-gold group-hover:scale-125 group-hover:bg-gold group-hover:text-charcoal-900 transition-all duration-300 shadow-lg ${idx === 0 ? 'led-glow-active' : 'led-glow'}">
+                        ${cap.num}
+                    </div>
+                    <span class="font-mono text-[10px] text-sand-300 mt-2 tracking-wider uppercase group-hover:text-gold transition-colors">AULA ${cap.num}</span>
+                    <span class="font-mono text-[9px] text-sand-400 font-light">${cap.date}</span>
+                `;
+                container.appendChild(node);
+            });
+
+            // Update Progress Line width
+            const line = document.getElementById('circuit-progress-line');
+            if(line && chapters.length > 1) {
+                line.style.width = '100%';
+            }
+        }
+
+        // Render Summary Cards Grid
+        function renderSummaryGrid() {
+            const container = document.getElementById('chapters-summary-grid');
+            if(!container) return;
+
+            container.innerHTML = '';
+
+            chapters.forEach(cap => {
+                const card = document.createElement('div');
+                card.className = 'p-6 rounded-2xl bg-mineral-800/80 border border-gold/20 hover:border-gold/50 transition-all duration-300 shadow-xl flex flex-col justify-between group hover:-translate-y-1';
+                
+                let statusBadge = '';
+                if(cap.status === 'pratica') {
+                    statusBadge = `<span class="px-2 py-0.5 rounded bg-copper/20 text-copper border border-copper/30 font-mono text-[10px]">AULA PRÁTICA</span>`;
+                } else if(cap.status === 'cancelada') {
+                    statusBadge = `<span class="px-2 py-0.5 rounded bg-red-900/30 text-red-300 border border-red-500/30 font-mono text-[10px]">REGISTRO ESPECIAL</span>`;
+                } else {
+                    statusBadge = `<span class="px-2 py-0.5 rounded bg-gold/10 text-gold border border-gold/30 font-mono text-[10px]">AULA TEÓRICA</span>`;
+                }
+
+                card.innerHTML = `
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="font-mono text-xs text-gold font-bold">CAPÍTULO 0${cap.num}</span>
+                            ${statusBadge}
+                        </div>
+                        <span class="block font-mono text-xs text-sand-400">${cap.date}</span>
+                        <h3 class="font-cinzel text-lg font-bold text-sand-100 group-hover:text-gold transition-colors line-clamp-2">${cap.title}</h3>
+                        <p class="text-sand-300 text-xs line-clamp-3 font-sans leading-relaxed">${cap.content}</p>
+                    </div>
+
+                    <div class="pt-6 mt-6 border-t border-gold/10 flex items-center justify-between">
+                        <span class="font-mono text-[10px] text-sand-400">${cap.photos ? cap.photos.length : 0} Registros Visuais</span>
+                        <button onclick="scrollToChapter('${cap.id}')" class="inline-flex items-center gap-1.5 font-mono text-xs text-gold hover:text-sand-100 font-semibold group-hover:translate-x-1 transition-all">
+                            <span>Ler Capítulo</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Render Detailed Chapters (Main Academic Content)
+        function renderDetailedChapters() {
+            const container = document.getElementById('detailed-chapters-container');
+            if(!container) return;
+
+            container.innerHTML = '';
+
+            chapters.forEach((cap, index) => {
+                const article = document.createElement('article');
+                article.id = cap.id;
+                article.className = 'p-8 sm:p-12 rounded-3xl bg-mineral-800/90 border border-gold/25 shadow-2xl space-y-10 relative overflow-hidden backdrop-blur-md';
+
+                // Status Badge & Header
+                let isCancel = cap.status === 'cancelada';
+
+                // Photo Grid HTML
+                let photosHTML = '';
+                if(cap.photos && cap.photos.length > 0) {
+                    const photoItems = cap.photos.map((p, pIdx) => `
+                        <div onclick="openImageModal('${p.url}', '${escapeQuotes(p.caption)}', 'Capítulo 0${cap.num} · Foto ${pIdx+1}')" class="group relative rounded-xl overflow-hidden border border-gold/30 bg-charcoal-900 cursor-pointer shadow-lg aspect-video">
+                            <img src="${p.url}" alt="${p.caption}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-charcoal-900/90 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity"></div>
+                            <div class="absolute bottom-3 left-3 right-3 text-left">
+                                <span class="font-mono text-[10px] text-gold uppercase block">FOTO 0${pIdx+1}</span>
+                                <p class="text-sand-200 text-xs font-sans truncate">${p.caption}</p>
+                            </div>
+                        </div>
+                    `).join('');
+
+                    photosHTML = `
+                        <div class="space-y-4 pt-6 border-t border-gold/15">
+                            <div class="flex items-center gap-2 font-mono text-xs text-gold uppercase tracking-wider">
+                                <i data-lucide="camera" class="w-4 h-4 text-gold"></i>
+                                <span>GALERIA DA AULA</span>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                                ${photoItems}
+                            </div>
+                        </div>
+                    `;
+                }
+
+                // Practical Measurement Panel HTML
+                let measHTML = '';
+                if(cap.measurement && cap.measurement.valor) {
+                    measHTML = `
+                        <div class="p-6 rounded-2xl bg-charcoal-900 border border-gold/20 space-y-4">
+                            <div class="flex items-center gap-2 font-mono text-xs text-copper uppercase tracking-wider">
+                                <i data-lucide="gauge" class="w-4 h-4 text-copper"></i>
+                                <span>PAINEL DE MEDIÇÃO PRÁTICA</span>
+                            </div>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                                <div class="p-3 rounded-lg bg-mineral-800 border border-gold/10">
+                                    <span class="block font-mono text-[10px] text-sand-400 uppercase">Grandeza</span>
+                                    <span class="font-sans font-bold text-sand-100 text-sm">${cap.measurement.grandezza || 'Tensão CC'}</span>
+                                </div>
+                                <div class="p-3 rounded-lg bg-mineral-800 border border-gold/10">
+                                    <span class="block font-mono text-[10px] text-sand-400 uppercase">Valor Lido</span>
+                                    <span class="font-mono font-extrabold text-gold text-lg">${cap.measurement.valor}</span>
+                                </div>
+                                <div class="p-3 rounded-lg bg-mineral-800 border border-gold/10">
+                                    <span class="block font-mono text-[10px] text-sand-400 uppercase">Unidade</span>
+                                    <span class="font-mono font-bold text-sand-200 text-xs">${cap.measurement.unidade || 'V'}</span>
+                                </div>
+                                <div class="p-3 rounded-lg bg-mineral-800 border border-gold/10">
+                                    <span class="block font-mono text-[10px] text-sand-400 uppercase">Instrumento</span>
+                                    <span class="font-sans font-medium text-sand-300 text-xs">${cap.measurement.instrumento || 'Multímetro'}</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                // Prev / Next Buttons
+                const prevCap = index > 0 ? chapters[index-1] : null;
+                const nextCap = index < chapters.length - 1 ? chapters[index+1] : null;
+
+                article.innerHTML = `
+                    <!-- Chapter Top Ribbon -->
+                    <div class="flex flex-wrap items-center justify-between gap-4 border-b border-gold/20 pb-6">
+                        <div class="flex items-center gap-3">
+                            <span class="px-3 py-1 rounded-full bg-gold/15 text-gold border border-gold/30 font-mono text-xs font-bold">CAPÍTULO 0${cap.num}</span>
+                            <span class="font-mono text-xs text-sand-300">${cap.date}</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button onclick="editSingleChapter('${cap.id}')" class="px-3 py-1.5 rounded-lg bg-gold/10 hover:bg-gold/20 border border-gold/30 text-gold font-mono text-xs flex items-center gap-1.5 transition-all">
+                                <i data-lucide="edit-2" class="w-3.5 h-3.5"></i> Editar Aula
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Title & Content -->
+                    <div class="space-y-4">
+                        <h2 class="font-cinzel text-2xl sm:text-4xl font-bold text-sand-100 leading-tight">${cap.title}</h2>
                         
-                        <!-- Top Gradient Accent Line -->
-                        <div class="h-1.5 w-full bg-gradient-to-r from-brand-600 via-brand-500 to-ifrn-emerald"></div>
-
-                        <div class="p-6 space-y-4 flex-grow">
-                            <!-- Category Badge & Date -->
-                            <div class="flex items-center justify-between gap-2">
-                                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold bg-brand-50 text-brand-700 border border-brand-100">
-                                    <i class="fa-solid ${lesson.icon || 'fa-bolt'}"></i> ${lesson.category || 'Teoria'}
-                                </span>
-                                <span class="text-xs text-slate-400 font-mono font-medium flex items-center gap-1">
-                                    <i class="fa-regular fa-calendar"></i> ${formattedDate}
-                                </span>
+                        <div class="space-y-2">
+                            <span class="font-mono text-[11px] text-gold uppercase tracking-wider block">CONTEÚDO MINISTRADO</span>
+                            <div class="text-sand-200 font-sans text-base leading-relaxed space-y-4 whitespace-pre-line bg-charcoal-900/50 p-6 rounded-2xl border border-gold/10">
+                                ${cap.content}
                             </div>
+                        </div>
+                    </div>
 
-                            <!-- Title -->
-                            <h3 class="text-lg font-extrabold text-slate-900 group-hover:text-brand-600 transition leading-snug">
-                                ${lesson.title}
-                            </h3>
-
-                            <!-- Conteúdo Ministrado -->
-                            <div class="space-y-1">
-                                <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 font-mono block">Conteúdo Ministrado:</span>
-                                <p class="text-xs text-slate-600 leading-relaxed bg-slate-50 p-3 rounded-2xl border border-slate-100">
-                                    ${lesson.conteudo}
-                                </p>
-                            </div>
-
-                            <!-- O que foi trabalhado -->
-                            ${lesson.trabalhado ? `
-                                <div class="space-y-1">
-                                    <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 font-mono block">Atividades & Exercícios:</span>
-                                    <p class="text-xs text-slate-700 whitespace-pre-line leading-relaxed">
-                                        ${lesson.trabalhado}
-                                    </p>
+                    <!-- Highlighted Concept & Formula Grid -->
+                    ${(cap.conceptTitle || cap.formula) ? `
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            ${cap.conceptTitle ? `
+                                <div class="p-6 rounded-2xl bg-charcoal-900 border border-gold/20 space-y-2">
+                                    <span class="font-mono text-[10px] text-gold uppercase tracking-widest block">CONCEITO-CHAVE</span>
+                                    <h4 class="font-cinzel font-bold text-sand-100 text-base">${cap.conceptTitle}</h4>
+                                    <p class="text-sand-300 font-sans text-xs leading-relaxed">${cap.conceptDesc}</p>
                                 </div>
                             ` : ''}
 
-                            <!-- Student Reflection Box -->
-                            ${lesson.reflexao ? `
-                                <div class="p-3.5 bg-gradient-to-r from-brand-50/80 to-blue-50/50 rounded-2xl border-l-4 border-brand-600 text-xs text-slate-700 italic space-y-1">
-                                    <span class="not-italic font-extrabold text-brand-800 text-[11px] block uppercase font-mono">
-                                        <i class="fa-solid fa-lightbulb text-yellow-500 mr-1"></i> Reflexão de Flávio Augusto:
-                                    </span>
-                                    "${lesson.reflexao}"
-                                </div>
-                            ` : ''}
-
-                            <!-- Photos Thumbnail List -->
-                            ${lesson.fotos && lesson.fotos.length > 0 ? `
-                                <div class="pt-2">
-                                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider font-mono block mb-2">Fotos e Esquemas (${lesson.fotos.length})</span>
-                                    <div class="flex flex-wrap gap-2">
-                                        ${lesson.fotos.map((url, idx) => `
-                                            <img src="${url}" alt="Registro ${idx+1}" onclick="openLightbox('${url}', '${lesson.title}')" class="w-12 h-12 rounded-xl object-cover border border-slate-200 hover:scale-105 transition cursor-pointer shadow-xs" onerror="this.src='https://placehold.co/100x100/0284c7/white?text=Foto'">
-                                        `).join('')}
+                            ${cap.formula ? `
+                                <div class="p-6 rounded-2xl bg-charcoal-900 border border-gold/20 space-y-2 flex flex-col justify-between">
+                                    <div>
+                                        <span class="font-mono text-[10px] text-copper uppercase tracking-widest block">EXPRESSÃO / FÓRMULA</span>
+                                        <div class="my-2 font-mono text-2xl font-bold text-gold tracking-widest">${cap.formula}</div>
                                     </div>
+                                    <p class="text-sand-400 font-mono text-[11px]">${cap.formulaNote || ''}</p>
                                 </div>
                             ` : ''}
                         </div>
+                    ` : ''}
 
-                        <!-- Admin Management Footer -->
-                        ${window.appState.isAdmin ? `
-                            <div class="bg-slate-100/80 px-6 py-3 border-t border-slate-200 flex items-center justify-between text-xs font-medium">
-                                <span class="text-slate-400 font-mono text-[10px]">Prof. Elialdo Chibério</span>
-                                <div class="flex items-center gap-2">
-                                    <button onclick="editLesson('${lesson.id}')" class="text-brand-600 hover:text-brand-800 bg-white px-3 py-1 rounded-lg border border-slate-200 transition font-bold">
-                                        <i class="fa-solid fa-pen mr-1"></i> Editar
-                                    </button>
-                                    <button onclick="promptDeleteLesson('${lesson.id}')" class="text-red-600 hover:text-red-800 bg-white px-3 py-1 rounded-lg border border-slate-200 transition font-bold">
-                                        <i class="fa-solid fa-trash mr-1"></i> Excluir
-                                    </button>
-                                </div>
+                    <!-- Measurement Panel -->
+                    ${measHTML}
+
+                    <!-- Qualitative Reflection Grid (Bom / Ruim / Evolução / Disciplina) -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+                        <div class="p-5 rounded-2xl bg-charcoal-900/70 border border-green-500/20 space-y-2">
+                            <div class="flex items-center gap-2 font-mono text-xs text-green-400 uppercase">
+                                <i data-lucide="check-circle" class="w-4 h-4"></i>
+                                <span>O QUE FOI BOM?</span>
                             </div>
-                        ` : ''}
+                            <p class="text-sand-200 font-sans text-xs leading-relaxed">${cap.good || '[Ainda não registrado]'}</p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-charcoal-900/70 border border-amber-500/20 space-y-2">
+                            <div class="flex items-center gap-2 font-mono text-xs text-amber-400 uppercase">
+                                <i data-lucide="alert-circle" class="w-4 h-4"></i>
+                                <span>O QUE FOI RUIM / DESAFIOS</span>
+                            </div>
+                            <p class="text-sand-200 font-sans text-xs leading-relaxed">${cap.bad || '[Ainda não registrado]'}</p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-charcoal-900/70 border border-gold/20 space-y-2">
+                            <div class="flex items-center gap-2 font-mono text-xs text-gold uppercase">
+                                <i data-lucide="trending-up" class="w-4 h-4"></i>
+                                <span>EVOLUÇÃO PESSOAL</span>
+                            </div>
+                            <p class="text-sand-200 font-sans text-xs leading-relaxed">${cap.evolution || '[Ainda não registrado]'}</p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-charcoal-900/70 border border-gold/20 space-y-2">
+                            <div class="flex items-center gap-2 font-mono text-xs text-sand-300 uppercase">
+                                <i data-lucide="book-open" class="w-4 h-4 text-gold"></i>
+                                <span>RELAÇÃO COM A DISCIPLINA</span>
+                            </div>
+                            <p class="text-sand-200 font-sans text-xs leading-relaxed">${cap.discipline || '[Ainda não registrado]'}</p>
+                        </div>
+                    </div>
+
+                    <!-- Photos Gallery -->
+                    ${photosHTML}
+
+                    <!-- Prev/Next Navigation Bar -->
+                    <div class="pt-6 border-t border-gold/15 flex items-center justify-between font-mono text-xs">
+                        ${prevCap ? `
+                            <button onclick="scrollToChapter('${prevCap.id}')" class="flex items-center gap-2 text-sand-300 hover:text-gold transition-colors">
+                                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                                <span>Capítulo 0${prevCap.num}</span>
+                            </button>
+                        ` : `<div></div>`}
+
+                        ${nextCap ? `
+                            <button onclick="scrollToChapter('${nextCap.id}')" class="flex items-center gap-2 text-sand-300 hover:text-gold transition-colors">
+                                <span>Capítulo 0${nextCap.num}</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </button>
+                        ` : `<div></div>`}
                     </div>
                 `;
-            }).join('');
-        };
 
-        window.filterLessons = function() {
-            renderLessonsGrid();
-        };
-
-        window.openLessonModal = function(lessonData = null) {
-            const modal = document.getElementById('modal-lesson');
-            document.getElementById('modal-lesson-title').innerHTML = lessonData ? `<i class="fa-solid fa-pen-to-square"></i> Editar Aula` : `<i class="fa-solid fa-plus-circle"></i> Adicionar Nova Aula`;
-            
-            document.getElementById('form-lesson-id').value = lessonData ? lessonData.id : '';
-            document.getElementById('form-title').value = lessonData ? lessonData.title : '';
-            document.getElementById('form-date').value = lessonData ? lessonData.date : new Date().toISOString().split('T')[0];
-            document.getElementById('form-category').value = lessonData ? lessonData.category : 'Teoria';
-            document.getElementById('form-icon').value = lessonData ? lessonData.icon : 'fa-bolt';
-            document.getElementById('form-conteudo').value = lessonData ? lessonData.conteudo : '';
-            document.getElementById('form-trabalhado').value = lessonData ? lessonData.trabalhado : '';
-            document.getElementById('form-reflexao').value = lessonData ? lessonData.reflexao : '';
-
-            window.appState.editingPhotoList = lessonData && lessonData.fotos ? [...lessonData.fotos] : [];
-            renderPhotoPreviewList();
-
-            modal.classList.remove('hidden');
-        };
-
-        window.closeLessonModal = function() {
-            document.getElementById('modal-lesson').classList.add('hidden');
-        };
-
-        window.addPhotoUrl = function() {
-            const input = document.getElementById('form-photo-input');
-            const url = input.value.trim();
-            if (url) {
-                window.appState.editingPhotoList.push(url);
-                input.value = '';
-                renderPhotoPreviewList();
-            }
-        };
-
-        window.removePhotoUrl = function(idx) {
-            window.appState.editingPhotoList.splice(idx, 1);
-            renderPhotoPreviewList();
-        };
-
-        function renderPhotoPreviewList() {
-            const container = document.getElementById('photos-preview-list');
-            container.innerHTML = window.appState.editingPhotoList.map((url, i) => `
-                <div class="relative group">
-                    <img src="${url}" class="w-12 h-12 object-cover rounded-xl border border-slate-300">
-                    <button type="button" onclick="removePhotoUrl(${i})" class="absolute -top-1.5 -right-1.5 bg-red-600 text-white w-4 h-4 rounded-full text-[10px] flex items-center justify-center font-bold">
-                        ×
-                    </button>
-                </div>
-            `).join('');
+                container.appendChild(article);
+            });
         }
 
-        window.saveLesson = async function(e) {
-            e.preventDefault();
-            const id = document.getElementById('form-lesson-id').value;
+        // Render Consolidated General Gallery
+        function renderGeneralGallery() {
+            const container = document.getElementById('general-gallery-grid');
+            if(!container) return;
 
-            const payload = {
-                title: document.getElementById('form-title').value,
-                date: document.getElementById('form-date').value,
-                category: document.getElementById('form-category').value,
-                icon: document.getElementById('form-icon').value,
-                conteudo: document.getElementById('form-conteudo').value,
-                trabalhado: document.getElementById('form-trabalhado').value,
-                reflexao: document.getElementById('form-reflexao').value,
-                fotos: window.appState.editingPhotoList,
-                updatedAt: Date.now()
+            container.innerHTML = '';
+            
+            let allPhotos = [];
+            chapters.forEach(c => {
+                if(c.photos) {
+                    c.photos.forEach(p => {
+                        allPhotos.push({
+                            ...p,
+                            chapterNum: c.num,
+                            chapterTitle: c.title
+                        });
+                    });
+                }
+            });
+
+            if(allPhotos.length === 0) {
+                container.innerHTML = `<div class="col-span-full text-center text-sand-400 font-mono text-xs py-8">Nenhuma fotografia cadastrada na galeria.</div>`;
+                return;
+            }
+
+            allPhotos.forEach((photo, idx) => {
+                const item = document.createElement('div');
+                item.className = 'group relative rounded-xl overflow-hidden border border-gold/20 bg-charcoal-800 cursor-pointer aspect-square shadow-lg';
+                item.onclick = () => openImageModal(photo.url, photo.caption, `Aula 0${photo.chapterNum} · ${photo.chapterTitle}`);
+
+                item.innerHTML = `
+                    <img src="${photo.url}" alt="${photo.caption}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal-900/90 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="absolute bottom-3 left-3 right-3">
+                        <span class="font-mono text-[10px] text-gold uppercase block">CAPÍTULO 0${photo.chapterNum}</span>
+                        <p class="text-sand-100 text-xs font-sans truncate">${photo.caption}</p>
+                    </div>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        // Render Reflection Section
+        function renderReflectionSection() {
+            document.getElementById('ref-learned').textContent = reflection.learned || '';
+            document.getElementById('ref-evolution').textContent = reflection.evolution || '';
+            document.getElementById('ref-challenges').textContent = reflection.challenges || '';
+            document.getElementById('ref-takeaway').textContent = reflection.takeaway || '';
+        }
+
+        // Render Modal Chapters Manager List
+        function renderModalChaptersList() {
+            const container = document.getElementById('modal-chapters-list');
+            const badge = document.getElementById('chapters-count-badge');
+            if(!container) return;
+
+            if(badge) badge.textContent = chapters.length;
+            container.innerHTML = '';
+
+            chapters.forEach(c => {
+                const row = document.createElement('div');
+                row.className = 'p-4 rounded-xl bg-charcoal-800 border border-gold/15 flex items-center justify-between gap-4 font-mono text-xs';
+
+                row.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <span class="w-7 h-7 rounded bg-gold/20 text-gold flex items-center justify-center font-bold">0${c.num}</span>
+                        <div>
+                            <span class="font-bold text-sand-100 block">${c.title}</span>
+                            <span class="text-sand-400 text-[10px]">${c.date} · ${c.photos ? c.photos.length : 0} fotos</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <button onclick="editSingleChapter('${c.id}')" class="p-2 rounded bg-gold/10 text-gold hover:bg-gold/20" title="Editar">
+                            <i data-lucide="edit-2" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="duplicateChapter('${c.id}')" class="p-2 rounded bg-mineral-700 text-sand-200 hover:bg-mineral-600" title="Duplicar">
+                            <i data-lucide="copy" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="deleteChapter('${c.id}')" class="p-2 rounded bg-red-900/30 text-red-300 hover:bg-red-900/50" title="Excluir">
+                            <i data-lucide="trash-2" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                `;
+                container.appendChild(row);
+            });
+        }
+
+        /* --- Scroll Helper --- */
+        function scrollToChapter(id) {
+            const el = document.getElementById(id);
+            if(el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        /* --- Image Modal Lightbox --- */
+        function openImageModal(url, caption, subtext) {
+            document.getElementById('modal-img').src = url;
+            document.getElementById('modal-caption').textContent = caption || '';
+            document.getElementById('modal-subtext').textContent = subtext || '';
+            document.getElementById('image-modal').classList.remove('hidden');
+        }
+
+        function closeImageModal() {
+            document.getElementById('image-modal').classList.add('hidden');
+        }
+
+        function navigateModalImage(dir) {
+            // Placeholder for next/prev photo
+        }
+
+        /* --- Editor Modals & Actions --- */
+        function openEditorModal() {
+            renderModalChaptersList();
+            document.getElementById('editor-modal').classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        function closeEditorModal() {
+            document.getElementById('editor-modal').classList.add('hidden');
+        }
+
+        function createNewChapter() {
+            const nextNum = chapters.length + 1;
+            const newCap = {
+                id: 'cap-' + Date.now(),
+                num: nextNum,
+                date: new Date().toLocaleDateString('pt-BR').replace(/\//g, ' · '),
+                title: `Nova Aula ${nextNum} - Título da Aula`,
+                status: 'normal',
+                content: '[Escreva aqui o conteúdo detalhado ministrado durante a aula.]',
+                conceptTitle: '',
+                conceptDesc: '',
+                formula: '',
+                formulaNote: '',
+                measurement: { grandezza: '', valor: '', unidade: '', instrumento: '' },
+                good: '[Registre os aspectos positivos da aula.]',
+                bad: '[Registre as dificuldades ou aspectos a melhorar.]',
+                evolution: '[Explique como a aula contribuiu para sua evolução.]',
+                discipline: '[Relacione a aula com seu aprendizado geral.]',
+                photos: []
             };
 
-            try {
-                if (id) {
-                    if (!window.appState.isDemoMode) {
-                        const lessonRef = doc(db, 'artifacts', appId, 'public', 'data', 'lessons', id);
-                        await updateDoc(lessonRef, payload);
-                    } else {
-                        const idx = window.appState.lessons.findIndex(l => l.id === id);
-                        if (idx !== -1) window.appState.lessons[idx] = { id, ...payload };
-                    }
-                    showToast("Aula atualizada no portfólio!", "success");
-                } else {
-                    if (!window.appState.isDemoMode) {
-                        payload.createdAt = Date.now();
-                        await addDoc(lessonsCollection, payload);
-                    } else {
-                        window.appState.lessons.unshift({ id: 'demo-' + Date.now(), ...payload });
-                    }
-                    showToast("Nova aula salva no portfólio!", "success");
-                }
-
-                localStorage.setItem('ifrn_portfolio_lessons', JSON.stringify(window.appState.lessons));
-                closeLessonModal();
-                renderLessonsGrid();
-                updateTotalBadge();
-            } catch(err) {
-                showToast("Erro ao salvar dados no banco.", "error");
-            }
-        };
-
-        window.editLesson = function(id) {
-            const lesson = window.appState.lessons.find(l => l.id === id);
-            if (lesson) openLessonModal(lesson);
-        };
-
-        window.promptDeleteLesson = function(id) {
-            window.appState.pendingDeleteId = id;
-            document.getElementById('modal-confirm').classList.remove('hidden');
-        };
-
-        window.closeConfirmModal = async function(confirmed) {
-            document.getElementById('modal-confirm').classList.add('hidden');
-            if (confirmed && window.appState.pendingDeleteId) {
-                const id = window.appState.pendingDeleteId;
-                try {
-                    if (!window.appState.isDemoMode) {
-                        const lessonRef = doc(db, 'artifacts', appId, 'public', 'data', 'lessons', id);
-                        await deleteDoc(lessonRef);
-                    } else {
-                        window.appState.lessons = window.appState.lessons.filter(l => l.id !== id);
-                    }
-                    localStorage.setItem('ifrn_portfolio_lessons', JSON.stringify(window.appState.lessons));
-                    showToast("Aula excluída do portfólio.", "info");
-                    renderLessonsGrid();
-                    updateTotalBadge();
-                } catch(e) {
-                    showToast("Não foi possível excluir.", "error");
-                }
-            }
-            window.appState.pendingDeleteId = null;
-        };
-
-        function updateTotalBadge() {
-            const badge = document.getElementById('total-lessons-badge');
-            if (badge) badge.textContent = `${window.appState.lessons.length} Aulas Registradas`;
+            chapters.push(newCap);
+            saveData();
+            editSingleChapter(newCap.id);
         }
 
-        // Modals handlers
-        window.openLoginModal = () => document.getElementById('modal-login').classList.remove('hidden');
-        window.closeLoginModal = () => document.getElementById('modal-login').classList.add('hidden');
+        function duplicateChapter(id) {
+            const target = chapters.find(c => c.id === id);
+            if(!target) return;
 
-        window.openConfigModal = () => document.getElementById('modal-config').classList.remove('hidden');
-        window.closeConfigModal = () => document.getElementById('modal-config').classList.add('hidden');
+            const copy = JSON.parse(JSON.stringify(target));
+            copy.id = 'cap-' + Date.now();
+            copy.num = chapters.length + 1;
+            copy.title = copy.title + ' (Cópia)';
 
-        window.openTutorialModal = () => document.getElementById('modal-tutorial').classList.remove('hidden');
-        window.closeTutorialModal = () => document.getElementById('modal-tutorial').classList.add('hidden');
+            chapters.push(copy);
+            saveData();
+        }
 
-        window.openLightbox = (url, caption) => {
-            document.getElementById('lightbox-img').src = url;
-            document.getElementById('lightbox-caption').textContent = caption;
-            document.getElementById('modal-lightbox').classList.remove('hidden');
-        };
-        window.closeLightbox = () => document.getElementById('modal-lightbox').classList.add('hidden');
-
-        window.saveCustomFirebaseConfig = function() {
-            const raw = document.getElementById('config-json-input').value.trim();
-            try {
-                const parsed = JSON.parse(raw);
-                localStorage.setItem('ifrn_firebase_config', JSON.stringify(parsed));
-                showToast("Configurações salvas! Recarregando a página...", "success");
-                setTimeout(() => window.location.reload(), 1500);
-            } catch(e) {
-                showToast("JSON inválido. Verifique o formato.", "error");
+        function deleteChapter(id) {
+            if(chapters.length <= 1) {
+                showToast("É necessário manter ao menos 1 capítulo no portfólio.");
+                return;
             }
-        };
+            chapters = chapters.filter(c => c.id !== id);
+            saveData();
+        }
 
-        window.calculateOhm = function() {
-            const vInput = document.getElementById('calc-v');
-            const iInput = document.getElementById('calc-i');
-            const rInput = document.getElementById('calc-r');
-            const powerEl = document.getElementById('calc-power');
+        function editSingleChapter(id) {
+            const cap = chapters.find(c => c.id === id);
+            if(!cap) return;
 
-            let v = parseFloat(vInput.value);
-            let i = parseFloat(iInput.value);
-            let r = parseFloat(rInput.value);
+            document.getElementById('edit-chapter-id').value = cap.id;
+            document.getElementById('edit-chapter-num').value = cap.num;
+            document.getElementById('edit-chapter-date').value = cap.date;
+            document.getElementById('edit-chapter-status').value = cap.status || 'normal';
+            document.getElementById('edit-chapter-title-input').value = cap.title;
+            document.getElementById('edit-chapter-content').value = cap.content;
 
-            if (!isNaN(v) && !isNaN(i) && isNaN(r)) {
-                r = v / i;
-                rInput.value = r.toFixed(2);
-            } else if (!isNaN(v) && !isNaN(r) && isNaN(i)) {
-                i = v / r;
-                iInput.value = i.toFixed(2);
-            } else if (!isNaN(i) && !isNaN(r) && isNaN(v)) {
-                v = i * r;
-                vInput.value = v.toFixed(2);
+            document.getElementById('edit-chapter-concept-title').value = cap.conceptTitle || '';
+            document.getElementById('edit-chapter-concept-desc').value = cap.conceptDesc || '';
+            document.getElementById('edit-chapter-formula').value = cap.formula || '';
+            document.getElementById('edit-chapter-formula-note').value = cap.formulaNote || '';
+
+            if(cap.measurement) {
+                document.getElementById('edit-meas-grand').value = cap.measurement.grandezza || '';
+                document.getElementById('edit-meas-val').value = cap.measurement.valor || '';
+                document.getElementById('edit-meas-unit').value = cap.measurement.unidade || '';
+                document.getElementById('edit-meas-inst').value = cap.measurement.instrumento || '';
             }
 
-            if (!isNaN(v) && !isNaN(i)) {
-                powerEl.textContent = `P = ${(v * i).toFixed(2)} W`;
-            }
-        };
+            document.getElementById('edit-chapter-good').value = cap.good || '';
+            document.getElementById('edit-chapter-bad').value = cap.bad || '';
+            document.getElementById('edit-chapter-evolution').value = cap.evolution || '';
+            document.getElementById('edit-chapter-discipline').value = cap.discipline || '';
 
-        window.calculateResistorAssociation = function() {
-            const raw = document.getElementById('resistors-input').value;
-            const values = raw.split(',').map(v => parseFloat(v.trim())).filter(v => !isNaN(v) && v > 0);
+            // Render Photos
+            renderEditPhotosList(cap.photos || []);
 
-            if (values.length === 0) return;
+            closeEditorModal();
+            document.getElementById('single-chapter-modal').classList.remove('hidden');
+        }
 
-            const reqSerie = values.reduce((acc, curr) => acc + curr, 0);
-            const sumInverse = values.reduce((acc, curr) => acc + (1 / curr), 0);
-            const reqParalelo = sumInverse > 0 ? (1 / sumInverse) : 0;
+        function renderEditPhotosList(photos) {
+            const container = document.getElementById('edit-photos-container');
+            container.innerHTML = '';
 
-            document.getElementById('req-serie-result').textContent = `${reqSerie.toFixed(2)} Ω`;
-            document.getElementById('req-paralelo-result').textContent = `${reqParalelo.toFixed(2)} Ω`;
-        };
+            photos.forEach((p, idx) => {
+                const row = document.createElement('div');
+                row.className = 'grid grid-cols-1 sm:grid-cols-2 gap-2 p-2 rounded bg-mineral-800 border border-gold/10 relative';
+                row.innerHTML = `
+                    <input type="text" placeholder="URL da foto" value="${p.url}" class="photo-url-input bg-charcoal-800 p-2 rounded text-xs text-sand-100 border border-gold/20">
+                    <input type="text" placeholder="Legenda da foto" value="${p.caption}" class="photo-caption-input bg-charcoal-800 p-2 rounded text-xs text-sand-100 border border-gold/20">
+                    <button type="button" onclick="this.parentElement.remove()" class="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-red-900 text-white font-mono text-[10px] flex items-center justify-center">x</button>
+                `;
+                container.appendChild(row);
+            });
+        }
 
-        // Toast notifications engine
-        function showToast(msg, type = 'info') {
+        function addPhotoRowToEdit() {
+            const container = document.getElementById('edit-photos-container');
+            const row = document.createElement('div');
+            row.className = 'grid grid-cols-1 sm:grid-cols-2 gap-2 p-2 rounded bg-mineral-800 border border-gold/10 relative';
+            row.innerHTML = `
+                <input type="text" placeholder="URL da foto (ex: https://...)" class="photo-url-input bg-charcoal-800 p-2 rounded text-xs text-sand-100 border border-gold/20">
+                <input type="text" placeholder="Legenda da foto" class="photo-caption-input bg-charcoal-800 p-2 rounded text-xs text-sand-100 border border-gold/20">
+                <button type="button" onclick="this.parentElement.remove()" class="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-red-900 text-white font-mono text-[10px] flex items-center justify-center">x</button>
+            `;
+            container.appendChild(row);
+        }
+
+        function closeSingleChapterModal() {
+            document.getElementById('single-chapter-modal').classList.add('hidden');
+        }
+
+        function saveChapterForm(e) {
+            e.preventDefault();
+            const id = document.getElementById('edit-chapter-id').value;
+            const cap = chapters.find(c => c.id === id);
+            if(!cap) return;
+
+            cap.num = parseInt(document.getElementById('edit-chapter-num').value) || 1;
+            cap.date = document.getElementById('edit-chapter-date').value;
+            cap.status = document.getElementById('edit-chapter-status').value;
+            cap.title = document.getElementById('edit-chapter-title-input').value;
+            cap.content = document.getElementById('edit-chapter-content').value;
+
+            cap.conceptTitle = document.getElementById('edit-chapter-concept-title').value;
+            cap.conceptDesc = document.getElementById('edit-chapter-concept-desc').value;
+            cap.formula = document.getElementById('edit-chapter-formula').value;
+            cap.formulaNote = document.getElementById('edit-chapter-formula-note').value;
+
+            cap.measurement = {
+                grandezza: document.getElementById('edit-meas-grand').value,
+                valor: document.getElementById('edit-meas-val').value,
+                unidade: document.getElementById('edit-meas-unit').value,
+                instrumento: document.getElementById('edit-meas-inst').value
+            };
+
+            cap.good = document.getElementById('edit-chapter-good').value;
+            cap.bad = document.getElementById('edit-chapter-bad').value;
+            cap.evolution = document.getElementById('edit-chapter-evolution').value;
+            cap.discipline = document.getElementById('edit-chapter-discipline').value;
+
+            // Collect Photos
+            const photoRows = document.querySelectorAll('#edit-photos-container > div');
+            cap.photos = [];
+            photoRows.forEach(row => {
+                const url = row.querySelector('.photo-url-input').value;
+                const caption = row.querySelector('.photo-caption-input').value;
+                if(url) {
+                    cap.photos.push({ url, caption });
+                }
+            });
+
+            closeSingleChapterModal();
+            saveData();
+        }
+
+        /* --- Reflection Edit Modal --- */
+        function openReflectionEditModal() {
+            document.getElementById('edit-ref-learned').value = reflection.learned || '';
+            document.getElementById('edit-ref-evolution').value = reflection.evolution || '';
+            document.getElementById('edit-ref-challenges').value = reflection.challenges || '';
+            document.getElementById('edit-ref-takeaway').value = reflection.takeaway || '';
+            document.getElementById('reflection-modal').classList.remove('hidden');
+        }
+
+        function closeReflectionModal() {
+            document.getElementById('reflection-modal').classList.add('hidden');
+        }
+
+        function saveReflectionForm() {
+            reflection.learned = document.getElementById('edit-ref-learned').value;
+            reflection.evolution = document.getElementById('edit-ref-evolution').value;
+            reflection.challenges = document.getElementById('edit-ref-challenges').value;
+            reflection.takeaway = document.getElementById('edit-ref-takeaway').value;
+
+            closeReflectionModal();
+            saveData();
+        }
+
+        /* --- Export & Import Backup JSON --- */
+        function exportDataJSON() {
+            const dataPayload = {
+                bimestre: "4º BIMESTRE",
+                ano: 2026,
+                aluno: "Flávio Augusto",
+                disciplina: "Eletricidade Instrumental",
+                prof: "Elialdo Chibério da Silva",
+                chapters: chapters,
+                reflection: reflection
+            };
+
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(dataPayload, null, 2));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", `portfolio_eletricidade_4bimestre_flavio.json`);
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+            showToast("Exportação do backup concluída!");
+        }
+
+        function importDataJSON(event) {
+            const file = event.target.files[0];
+            if(!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const parsed = JSON.parse(e.target.result);
+                    if(parsed.chapters) chapters = parsed.chapters;
+                    if(parsed.reflection) reflection = parsed.reflection;
+                    saveData();
+                    closeEditorModal();
+                    showToast("Backup JSON importado com sucesso!");
+                } catch(err) {
+                    showToast("Erro ao importar arquivo JSON.");
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        function resetDataToDefault() {
+            chapters = JSON.parse(JSON.stringify(DEFAULT_CHAPTERS));
+            reflection = JSON.parse(JSON.stringify(DEFAULT_REFLECTION));
+            saveData();
+            closeEditorModal();
+            showToast("Exemplo padrão restaurado!");
+        }
+
+        /* --- Toast Notification Utility --- */
+        function showToast(msg) {
             const container = document.getElementById('toast-container');
             const toast = document.createElement('div');
-            
-            const colorClass = type === 'success' ? 'bg-emerald-800 border-emerald-600' :
-                             type === 'error' ? 'bg-red-800 border-red-600' : 'bg-slate-800 border-slate-600';
-
-            toast.className = `${colorClass} text-white border px-4 py-3 rounded-2xl shadow-xl text-xs font-semibold flex items-center gap-2 transition-all duration-300 transform translate-y-4 opacity-0 pointer-events-auto`;
-            toast.innerHTML = `<i class="fa-solid ${type === 'success' ? 'fa-check' : 'fa-info-circle'}"></i> <span>${msg}</span>`;
-
+            toast.className = 'px-4 py-3 rounded-xl bg-mineral-800 border border-gold/40 text-gold font-mono text-xs shadow-2xl flex items-center gap-2 animate-bounce';
+            toast.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4"></i> <span>${msg}</span>`;
             container.appendChild(toast);
-            setTimeout(() => toast.classList.remove('translate-y-4', 'opacity-0'), 50);
+            lucide.createIcons();
+
             setTimeout(() => {
-                toast.classList.add('opacity-0', 'translate-y-4');
-                setTimeout(() => toast.remove(), 300);
-            }, 3000);
+                toast.remove();
+            }, 3500);
         }
 
-        window.addEventListener('DOMContentLoaded', () => {
-            calculateResistorAssociation();
-        });
+        /* --- Helper Functions --- */
+        function escapeQuotes(str) {
+            return (str || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
     </script>
 </body>
 </html>
