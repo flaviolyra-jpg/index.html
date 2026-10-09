@@ -1300,15 +1300,47 @@ function stepLightbox(d) {
 /* =====================================================================
    8. MODO ADMINISTRADOR
    ===================================================================== */
+async function sha256Hex(text) {
+    const data = new TextEncoder().encode(text);
+    const hash = await crypto.subtle.digest("SHA-256", data);
+
+    return [...new Uint8Array(hash)]
+        .map(b => b.toString(16).padStart(2, "0"))
+        .join("");
+}
+
 async function enterAdmin() {
-  state.admin = true;
-  try { sessionStorage.setItem(SS_ADMIN, '1'); } catch {}
-  /* usa o rascunho (local ou Firebase) apenas se partiu da versão publicada atual */
-  const cands = [readDraft(), await remoteLoad()]
-    .filter(d => d && d.baseVersion === currentBase())
-    .sort((a, b) => String(b.savedAt).localeCompare(String(a.savedAt)));
-  if (cands[0]) applySnapshot(cands[0]);
-  renderAll();
+    const password = prompt("🔐 Acesso do administrador\nDigite a senha:");
+
+    if (password === null) return;
+
+    try {
+        const hash = await sha256Hex(password);
+
+        if (hash !== "b52f0b0d13f6a8661bc164a0e84ad7e2891eff3e45ec0efbdb732f24a17c1bb9") {
+            alert("❌ Senha incorreta.");
+            return;
+        }
+    } catch (err) {
+        console.error(err);
+        alert("Não foi possível validar a senha neste navegador.");
+        return;
+    }
+
+    state.admin = true;
+
+    try {
+        sessionStorage.setItem(SS_ADMIN, '1');
+    } catch {}
+
+    /* usa o rascunho apenas se partir da versão publicada atual */
+    const cands = [readDraft(), await remoteLoad()]
+        .filter(d => d && d.baseVersion === currentBase())
+        .sort((a, b) => String(b.savedAt).localeCompare(String(a.savedAt)));
+
+    if (cands[0]) applySnapshot(cands[0]);
+
+    renderAll();
 }
 function exitAdmin() {
   const dirty = isDirty();
