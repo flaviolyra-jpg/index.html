@@ -1317,7 +1317,7 @@ async function enterAdmin() {
     try {
         const hash = await sha256Hex(password);
 
-        if (hash !== "b52f0b0d13f6a8661bc164a0e84ad7e2891eff3e45ec0efbdb732f24a17c1bb9") {
+        if (hash !== "edae03d49778ed64658956c0da93f994dc62e8cd41bb13d65760ce926c878f05") {
             alert("❌ Senha incorreta.");
             return;
         }
