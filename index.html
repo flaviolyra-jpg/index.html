@@ -1,1631 +1,1772 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio Acadêmico | Eletricidade Instrumental · 4º Bimestre</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfólio Acadêmico • Eletricidade Instrumental • Flávio Augusto</title>
+<meta name="description" content="Portfólio Acadêmico de Eletricidade Instrumental, 4º Bimestre. Flávio Augusto, INFO 1M, IFRN.">
+<meta name="theme-color" content="#0a1d4a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230a1d4a'/%3E%3Cpath d='M56 12 24 56h22l-6 32 36-48H54z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+<style>
+/* =====================================================================
+   1. TOKENS (cores, fontes, raios)
+   ===================================================================== */
+:root{
+  --navy-950:#06122e; --navy-900:#0a1d4a; --navy-800:#0f2b68; --navy-700:#173a85;
+  --blue-600:#2457c5; --blue-500:#3b74e0; --blue-400:#6a9bef; --blue-300:#9fbff6;
+  --blue-200:#cfe0fb; --blue-100:#e6effd; --blue-50:#f4f8ff;
+  --ink:#0c1a3a; --text:#26324f; --muted:#5f6b87; --faint:#8b95ae; --line:#dbe4f4;
+  --ok:#0f8f62; --danger:#c8372d;
+  --font-display:'Archivo','Segoe UI',system-ui,sans-serif;
+  --font-body:'Source Sans 3','Segoe UI',system-ui,sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,Consolas,monospace;
+  --shadow:0 1px 2px rgba(10,29,74,.06),0 10px 26px -14px rgba(10,29,74,.28);
+  --tile-light:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.12'%3E%3Cpath d='M0 40h50l10 10h40M100 50v40h60M20 160v-50h40l10-10M120 0v30h40'/%3E%3C/g%3E%3Cg fill='%23ffffff' fill-opacity='.18'%3E%3Ccircle cx='50' cy='40' r='2.5'/%3E%3Ccircle cx='100' cy='90' r='2.5'/%3E%3Ccircle cx='60' cy='100' r='2.5'/%3E%3Ccircle cx='120' cy='30' r='2.5'/%3E%3C/g%3E%3C/svg%3E");
+}
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        charcoal: {
-                            900: '#0B0B0D',
-                            800: '#121215',
-                            700: '#18181C',
-                            600: '#222228'
-                        },
-                        mineral: {
-                            800: '#191512',
-                            700: '#221C18',
-                            600: '#2D2621'
-                        },
-                        gold: {
-                            DEFAULT: '#C59B27',
-                            light: '#E2BD52',
-                            dark: '#9E7B1A',
-                            bright: '#F3D268'
-                        },
-                        copper: {
-                            DEFAULT: '#B87333',
-                            light: '#D48B47'
-                        },
-                        sand: {
-                            100: '#FAF6EE',
-                            200: '#EAE3D2',
-                            300: '#C8BEA7',
-                            400: '#8A8270'
-                        }
-                    },
-                    fontFamily: {
-                        cinzel: ['Cinzel', 'serif'],
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace']
-                    }
-                }
-            }
-        }
-    </script>
+/* =====================================================================
+   2. BASE
+   ===================================================================== */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+[hidden]{display:none !important}
+body{
+  margin:0; font:400 1.05rem/1.55 var(--font-body); color:var(--text); background-color:#fff;
+  /* trilhas de circuito discretas no fundo branco */
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='none' stroke='%232457c5' stroke-opacity='.07'%3E%3Cpath d='M0 40h50l10 10h40M100 50v40h60M20 160v-50h40l10-10M120 0v30h40'/%3E%3C/g%3E%3Cg fill='%232457c5' fill-opacity='.10'%3E%3Ccircle cx='50' cy='40' r='2.5'/%3E%3Ccircle cx='100' cy='90' r='2.5'/%3E%3Ccircle cx='60' cy='100' r='2.5'/%3E%3Ccircle cx='120' cy='30' r='2.5'/%3E%3C/g%3E%3C/svg%3E");
+}
+body:has(dialog[open]){overflow:hidden}
+h1,h2,h3{font-family:var(--font-display);color:var(--navy-900);margin:0}
+p{margin:0}
+img{max-width:100%;display:block}
+code{font-family:var(--font-mono);font-size:.88em;background:var(--blue-100);color:var(--navy-800);padding:1px 6px;border-radius:6px}
+:focus-visible{outline:3px solid var(--blue-400);outline-offset:2px}
+.icon{width:1em;height:1em;vertical-align:-.125em}
 
-    <style>
-        /* Custom Circuit & Aesthetic Styling */
-        body {
-            background-color: #0B0B0D;
-            color: #EAE3D2;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            overflow-x: hidden;
-        }
+/* Botões */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 16px;
+  border-radius:10px;border:1px solid transparent;font:600 .95rem/1.2 var(--font-body);
+  cursor:pointer;text-decoration:none;transition:transform .15s,background .15s,color .15s,border-color .15s,box-shadow .15s;
+}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--navy-900);color:#fff}
+.btn-primary:hover{background:var(--navy-700)}
+.btn-ghost{background:#fff;color:var(--navy-900);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--blue-400);background:var(--blue-50)}
+.btn-danger{background:#fff;color:var(--danger);border-color:#efc4c0}
+.btn-danger:hover{background:#fdf0ee}
+.btn-danger-solid{background:var(--danger);color:#fff}
+.btn-danger-solid:hover{background:#a82c24}
+.btn-light{background:#fff;color:var(--navy-900)}
+.btn-light:hover{background:var(--blue-100)}
+.btn-outline-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
+.btn-outline-light:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.btn-sm{padding:7px 12px;font-size:.88rem;border-radius:9px}
+.btn-caps{text-transform:uppercase;letter-spacing:.04em}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
 
-        /* Ambient Glow & Background Textures */
-        .bg-grid-pattern {
-            background-image: radial-gradient(rgba(197, 155, 39, 0.08) 1px, transparent 1px);
-            background-size: 32px 32px;
-        }
+/* =====================================================================
+   3. CABEÇALHO E BARRA DO ADMINISTRADOR
+   ===================================================================== */
+.top{z-index:40}
+@media (min-width:900px){.top{position:sticky;top:0}}
+.site-header{background:rgba(255,255,255,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.header-inner{max-width:1180px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none}
+.brand-mark{width:42px;height:42px;border-radius:11px;background:var(--navy-900);color:#fff;display:grid;place-items:center;flex:none}
+.brand-mark svg{width:22px;height:22px}
+.brand-text small{display:block;font:700 .7rem/1.2 var(--font-display);letter-spacing:.16em;color:var(--blue-600)}
+.brand-text strong{display:block;font:700 1.1rem/1.2 var(--font-display);color:var(--navy-900)}
+.nav{display:flex;gap:2px;margin-left:8px}
+.nav a{padding:8px 12px;border-radius:9px;color:var(--text);text-decoration:none;font-weight:600;font-size:.95rem;transition:background .15s,color .15s}
+.nav a:hover{background:var(--blue-100);color:var(--navy-900)}
+.header-info{margin-left:auto;color:var(--muted);font-size:.92rem;font-weight:500}
+.lock-btn{width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:1rem;transition:background .15s,border-color .15s}
+.lock-btn:hover{background:var(--blue-50);border-color:var(--blue-400)}
+@media (max-width:820px){
+  .nav{display:none}
+  .header-info{order:3;flex-basis:100%;margin:0;font-size:.85rem}
+  .lock-btn{margin-left:auto}
+}
 
-        .bg-vignette {
-            background: radial-gradient(circle at center, transparent 30%, rgba(11, 11, 13, 0.85) 100%);
-        }
+.admin-bar{background:var(--navy-950);color:#fff;border-bottom:1px solid rgba(255,255,255,.1);animation:slideDown .28s ease}
+.admin-inner{max-width:1180px;margin:0 auto;padding:10px 20px;display:flex;gap:12px 18px;align-items:center;flex-wrap:wrap}
+.admin-inner strong{font-family:var(--font-display);font-size:.98rem}
+.dirty{font-size:.86rem;color:var(--blue-200)}
+.dirty.is-dirty{color:#ffd98a;font-weight:600}
+.admin-actions{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto}
+.admin-actions .btn{font-size:.88rem;padding:8px 12px}
+.btn-publish{background:var(--blue-500);color:#fff}
+.btn-publish:hover{background:var(--blue-400)}
+.btn-publish.is-dirty{animation:glow 2s ease-in-out infinite}
+@media (max-width:640px){.admin-actions{margin-left:0;width:100%}.admin-actions .btn{flex:1 1 calc(50% - 8px)}}
 
-        /* Gold Gradient Text */
-        .text-gold-gradient {
-            background: linear-gradient(135deg, #FFF0CA 0%, #D4AF37 50%, #9E7B1A 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+/* =====================================================================
+   4. HERO (página inicial)
+   ===================================================================== */
+.hero{
+  position:relative;overflow:hidden;color:#fff;border-radius:0 0 28px 28px;
+  background:radial-gradient(1100px 480px at 88% -8%,#1d4aa8 0%,transparent 62%),
+             linear-gradient(135deg,var(--navy-950),var(--navy-900) 55%,var(--navy-800));
+}
+.hero-canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
+.hero-wire{position:absolute;left:0;bottom:14px;width:100%;height:40px;opacity:.4}
+.hero-wire path{fill:none;stroke:var(--blue-300);stroke-width:2;stroke-dasharray:7 13;animation:flow 1.1s linear infinite}
+.hero-inner{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:64px 20px 84px;display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+.hero-label{display:flex;align-items:center;gap:12px;font:700 .85rem/1 var(--font-display);letter-spacing:.22em;color:var(--blue-300);margin-bottom:16px}
+.hero-label svg{width:44px;height:15px;flex:none}
+.hero h1{color:#fff;font:800 clamp(2rem,5.4vw,4.1rem)/1.02 var(--font-display);letter-spacing:-.015em;text-transform:uppercase}
+.hero-term{display:inline-block;margin:20px 0 26px;padding:7px 16px;border:1px solid var(--blue-300);border-radius:999px;font:700 .92rem/1 var(--font-display);letter-spacing:.16em;color:#fff;background:rgba(255,255,255,.06)}
+.hero-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 28px;margin:0 0 26px;max-width:480px}
+.hero-meta dt{font-size:.82rem;color:var(--blue-300);font-weight:600}
+.hero-meta dd{margin:2px 0 0;font:700 1.12rem/1.25 var(--font-display);color:#fff}
+.hero-quote{max-width:46ch;padding-left:16px;border-left:3px solid var(--blue-400);color:var(--blue-100);font-size:1.12rem;margin-bottom:28px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
 
-        .text-copper-gradient {
-            background: linear-gradient(135deg, #F0A875 0%, #B87333 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+/* Osciloscópio (leitura do progresso no hero) */
+.scope{background:rgba(3,10,30,.62);border:1px solid rgba(159,191,246,.28);border-radius:18px;padding:16px;box-shadow:0 28px 60px -26px rgba(0,0,0,.7);backdrop-filter:blur(3px)}
+.scope-top{display:flex;align-items:center;gap:7px;color:var(--blue-300);font:500 .8rem var(--font-mono);margin-bottom:12px}
+.scope-top i{width:9px;height:9px;border-radius:50%;background:rgba(159,191,246,.45)}
+.scope-top span{margin-left:auto}
+.scope-screen{width:100%;height:auto;border-radius:10px;background:#030a1e;border:1px solid rgba(159,191,246,.18)}
+.scope-screen .wave path{fill:none;stroke-linecap:round}
+.scope-screen .w1{stroke:#7fb0ff;stroke-width:2.4;filter:drop-shadow(0 0 4px rgba(106,155,239,.9));animation:scope 3.6s linear infinite}
+.scope-screen .w2{stroke:rgba(159,191,246,.38);stroke-width:1.4;animation:scope 5.4s linear infinite}
+.scope-read{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.scope-read div{background:rgba(255,255,255,.05);border-radius:10px;padding:9px 12px}
+.scope-read span{display:block;font-size:.78rem;color:var(--blue-300)}
+.scope-read b{font:600 1.35rem/1.2 var(--font-mono);color:#fff}
+@media (max-width:900px){.hero-inner{grid-template-columns:1fr;padding:44px 20px 70px;gap:32px}}
 
-        /* Circuit Lines & LED Nodes */
-        .circuit-line {
-            position: relative;
-        }
-        .circuit-line::before {
-            content: '';
-            position: absolute;
-            background: linear-gradient(90deg, transparent, rgba(197, 155, 39, 0.4), transparent);
-            height: 1px;
-            width: 100%;
-        }
+/* =====================================================================
+   5. SEÇÕES GERAIS
+   ===================================================================== */
+.section{max-width:1180px;margin:0 auto;padding:64px 20px 0}
+.section-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:24px}
+.section-head h2{font:800 clamp(1.35rem,3vw,1.8rem)/1.15 var(--font-display);text-transform:uppercase;letter-spacing:.015em}
+.section-head h2 svg{width:42px;height:14px;color:var(--blue-500);margin-right:10px;vertical-align:middle}
+.section-head p{color:var(--muted);margin-top:6px;max-width:60ch}
+.head-tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 
-        .led-glow {
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.6), 0 0 20px rgba(212, 175, 55, 0.3);
-        }
+/* Evolução / gamificação */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;border-top:3px solid var(--navy-900)}
+.stat b{display:block;font:600 2rem/1.1 var(--font-mono);color:var(--navy-900)}
+.stat span{color:var(--muted);font-size:.92rem}
+.circuit{display:flex;align-items:center;gap:12px;margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}
+.cp-end{flex:none;width:40px;height:40px;border-radius:11px;display:grid;place-items:center;background:var(--navy-900);color:#fff}
+.cp-end svg{width:22px;height:22px}
+.cp-end.lamp{background:var(--blue-100);color:var(--faint);transition:background .5s,color .5s,box-shadow .5s}
+.cp-end.lamp.on{background:var(--blue-500);color:#fff;box-shadow:0 0 0 6px rgba(59,116,224,.2),0 0 26px rgba(59,116,224,.55)}
+.cp-mid{flex:1;min-width:0}
+.cp-label{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-weight:600;color:var(--navy-900);margin-bottom:10px;font-size:.95rem}
+.cp-label span:last-child{font-family:var(--font-mono);font-weight:500;color:var(--muted)}
+.cp-track{position:relative;height:10px;border-radius:999px;background:var(--blue-100)}
+.cp-fill{position:absolute;inset:0 auto 0 0;width:0;border-radius:inherit;background:linear-gradient(90deg,var(--blue-600),var(--blue-400));transition:width 1.1s cubic-bezier(.2,.8,.2,1);overflow:hidden}
+.cp-fill::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent);transform:translateX(-100%);animation:pulse 2.2s linear infinite}
+.cp-nodes{display:flex;justify-content:space-between;margin-top:9px}
+.cp-nodes i{width:8px;height:8px;border-radius:50%;background:var(--blue-200);transition:background .4s,transform .4s}
+.cp-nodes i.on{background:var(--blue-600);transform:scale(1.15)}
+.badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:1px solid var(--blue-200);background:#fff;color:var(--navy-900);font-weight:600;font-size:.92rem}
+.badge.locked{filter:grayscale(1);opacity:.55;border-style:dashed}
+.badge.pop{animation:pop .6s cubic-bezier(.2,1.4,.4,1)}
+.goal-edit{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--navy-900);font-size:.92rem}
+.goal-edit input{width:76px}
 
-        .led-glow-active {
-            box-shadow: 0 0 15px rgba(243, 210, 104, 0.9), 0 0 30px rgba(212, 175, 55, 0.6);
-            background-color: #F3D268 !important;
-        }
+/* Aulas */
+.search{position:relative}
+.search input{padding-left:38px;min-width:240px}
+.search::before{content:"🔎";position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:.9rem;opacity:.6;pointer-events:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:20px}
+.card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);animation:cardIn .45s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0) * 55ms);transition:transform .2s,box-shadow .2s,border-color .2s}
+.card:hover{transform:translateY(-3px);border-color:var(--blue-300);box-shadow:0 2px 4px rgba(10,29,74,.06),0 18px 34px -16px rgba(10,29,74,.4)}
+.cover{position:relative;height:136px;display:flex;align-items:flex-end;padding:14px 16px;color:#fff;overflow:hidden;background-image:var(--tile-light),linear-gradient(135deg,var(--navy-900),var(--navy-700))}
+.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.card:hover .cover img{transform:scale(1.05)}
+.cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(6,18,46,.72))}
+.cover .ghost{position:absolute;right:12px;top:-6px;font:800 5.4rem/1 var(--font-display);color:rgba(255,255,255,.1);z-index:1}
+.cover .num{position:relative;z-index:2;font:500 .92rem var(--font-mono);background:rgba(6,18,46,.72);padding:4px 10px;border-radius:8px}
+.card-body{padding:16px 18px 6px;flex:1}
+.card-body time{font-size:.86rem;color:var(--muted);font-weight:600}
+.card-body h3{font:700 1.18rem/1.25 var(--font-display);margin:4px 0 8px}
+.card-body p{color:var(--text);font-size:.98rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card-photos{padding:0 18px;font-size:.86rem;color:var(--muted);margin-top:8px}
+.card-actions{display:flex;gap:8px;flex-wrap:wrap;padding:14px 18px 18px}
+.card-actions .open{flex:1 1 100%}
+.card-actions .btn-sm{flex:1}
+.empty{grid-column:1/-1;text-align:center;padding:44px 20px;border:2px dashed var(--blue-200);border-radius:16px;background:rgba(244,248,255,.8);color:var(--muted)}
+.empty svg{width:90px;height:30px;color:var(--blue-400);margin:0 auto 10px}
+.empty strong{display:block;font:700 1.15rem var(--font-display);color:var(--navy-900);margin-bottom:6px}
+.empty .btn{margin-top:16px}
 
-        /* Scrollbar Styling */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0B0B0D;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #221C18;
-            border: 1px solid rgba(197, 155, 39, 0.3);
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #C59B27;
-        }
+/* =====================================================================
+   6. CALCULADORA DE RESISTORES
+   ===================================================================== */
+.calc{display:grid;grid-template-columns:1.25fr .75fr;gap:20px;align-items:start}
+.calc-panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:var(--shadow)}
+.seg{display:flex;gap:6px;padding:5px;background:var(--blue-100);border-radius:12px;margin-bottom:16px}
+.seg button{flex:1;padding:9px 8px;border:0;border-radius:9px;background:transparent;font:600 .93rem var(--font-body);color:var(--navy-800);cursor:pointer;transition:background .2s,color .2s,box-shadow .2s}
+.seg button[aria-pressed="true"]{background:var(--navy-900);color:#fff;box-shadow:0 4px 12px -4px rgba(10,29,74,.6)}
+.calc-help{color:var(--muted);font-size:.93rem;margin-bottom:12px}
+.rrow{display:grid;grid-template-columns:34px 1fr 92px 36px;gap:8px;align-items:center;margin-bottom:8px}
+.rlabel{font:500 .9rem var(--font-mono);color:var(--blue-600)}
+.icon-btn{width:36px;height:36px;border-radius:9px;border:1px solid var(--line);background:#fff;color:var(--muted);cursor:pointer;transition:background .15s,color .15s}
+.icon-btn:hover:not([disabled]){background:#fdf0ee;color:var(--danger);border-color:#efc4c0}
+.icon-btn[disabled]{opacity:.35;cursor:not-allowed}
+.group{border:1.5px dashed var(--blue-300);border-radius:14px;padding:12px;margin-bottom:12px;background:var(--blue-50);animation:cardIn .3s ease both}
+.group-head{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+.group-head strong{font:700 .98rem var(--font-display);color:var(--navy-900);margin-right:auto}
+.group-head select{width:auto}
+.top-conn{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px;font-weight:600;color:var(--navy-900)}
+.top-conn select{width:auto}
+.calc-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.calc-volts{margin:18px 0 0;padding-top:16px;border-top:1px solid var(--line)}
+.inline{display:flex;align-items:center;gap:8px}
+.inline .unit{font:500 .95rem var(--font-mono);color:var(--muted)}
+.calc-result{position:sticky;top:96px;background:linear-gradient(145deg,var(--navy-950),var(--navy-800));background-image:var(--tile-light),linear-gradient(145deg,var(--navy-950),var(--navy-800));color:#fff;border-radius:16px;padding:22px;box-shadow:0 24px 50px -24px rgba(6,18,46,.8)}
+.res-label{color:var(--blue-300);font-size:.9rem;font-weight:600}
+.res-value{font:600 clamp(1.9rem,4vw,2.6rem)/1.15 var(--font-mono);color:#fff;margin:4px 0 6px;word-break:break-word}
+.res-value.tick{animation:tick .45s ease}
+.res-formula{font:500 .92rem var(--font-mono);color:var(--blue-200);margin-bottom:14px;word-break:break-word}
+.res-steps{margin:0 0 14px;padding:12px 14px 12px 30px;background:rgba(255,255,255,.07);border-radius:10px;font:400 .85rem/1.6 var(--font-mono);color:var(--blue-100);word-break:break-word}
+.res-elec{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.res-elec div{background:rgba(255,255,255,.07);border-radius:10px;padding:9px 12px}
+.res-elec span{display:block;font-size:.78rem;color:var(--blue-300)}
+.res-elec b{font:600 1.05rem var(--font-mono)}
+.res-table{width:100%;border-collapse:collapse;font:400 .85rem var(--font-mono);color:var(--blue-100)}
+.res-table td{padding:5px 0;border-top:1px solid rgba(255,255,255,.12)}
+.res-table td:last-child{text-align:right;color:#fff}
+.res-error{color:#ffd98a;font-weight:600}
+@media (max-width:900px){.calc{grid-template-columns:1fr}.calc-result{position:static}}
+@media (max-width:420px){.rrow{grid-template-columns:28px 1fr 80px 34px}}
 
-        /* Print / Presentation Utilities */
-        @media print {
-            .no-print { display: none !important; }
-            body { background: white; color: black; }
-        }
-    </style>
+/* =====================================================================
+   7. FORMULÁRIOS
+   ===================================================================== */
+input,textarea,select{
+  font:inherit;font-size:1rem;color:var(--ink);width:100%;padding:10px 12px;background:#fff;
+  border:1px solid var(--line);border-radius:10px;transition:border-color .15s,box-shadow .15s;
+}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--blue-500);box-shadow:0 0 0 3px rgba(59,116,224,.2)}
+textarea{min-height:110px;resize:vertical;line-height:1.5}
+.field{display:grid;gap:6px;margin-bottom:14px}
+.field>label{font-weight:700;color:var(--navy-900);font-size:.93rem}
+.hint{font-size:.84rem;color:var(--muted)}
+.row2{display:grid;grid-template-columns:120px 1fr;gap:12px}
+@media (max-width:420px){.row2{grid-template-columns:1fr}}
+.photo-add{display:flex;gap:8px}
+.thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:10px;margin-top:10px}
+.thumb{position:relative;aspect-ratio:4/3;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:var(--blue-50);animation:pop .35s ease}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.thumb button{position:absolute;top:5px;right:5px;width:26px;height:26px;border-radius:50%;border:0;background:rgba(6,18,46,.8);color:#fff;cursor:pointer;font-size:.8rem;transition:background .15s}
+.thumb button:hover{background:var(--danger)}
+
+/* =====================================================================
+   8. MODAIS (dialog nativo)
+   ===================================================================== */
+dialog{
+  border:0;padding:0;border-radius:18px;width:100%;max-width:min(900px,calc(100vw - 24px));
+  max-height:calc(100dvh - 24px);background:#fff;color:var(--text);overflow:hidden;
+  box-shadow:0 30px 80px -20px rgba(6,18,46,.6);
+}
+dialog[open]{animation:dlgIn .26s cubic-bezier(.2,.9,.3,1.1)}
+dialog::backdrop{background:rgba(6,18,46,.58);backdrop-filter:blur(3px);animation:fadeIn .2s ease}
+#dlgForm,#dlgPublish,#dlgFirebase{max-width:min(720px,calc(100vw - 24px))}
+#dlgConfirm{max-width:min(440px,calc(100vw - 24px))}
+.dlg{display:flex;flex-direction:column;max-height:calc(100dvh - 24px);margin:0}
+.dlg-head{display:flex;gap:14px;align-items:flex-start;justify-content:space-between;padding:18px 22px;color:#fff;background-image:var(--tile-light),linear-gradient(135deg,var(--navy-950),var(--navy-800))}
+.dlg-head h2{color:#fff;font:700 1.35rem/1.25 var(--font-display)}
+.dlg-head p{color:var(--blue-200);font-size:.92rem;margin-top:4px}
+.chip{display:inline-block;font:500 .86rem var(--font-mono);padding:3px 10px;border-radius:8px;background:rgba(255,255,255,.14);margin-right:8px}
+.x{flex:none;width:34px;height:34px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;cursor:pointer;font-size:1rem;transition:background .15s}
+.x:hover{background:rgba(255,255,255,.28)}
+.dlg-body{padding:20px 22px;overflow:auto;flex:1}
+.dlg-foot{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;padding:14px 22px;border-top:1px solid var(--line);background:var(--blue-50)}
+.lv-sec{margin-bottom:22px}
+.lv-sec h3{font:700 1.05rem var(--font-display);margin-bottom:8px;padding-bottom:6px;border-bottom:2px solid var(--blue-100)}
+.prose{white-space:pre-wrap;line-height:1.7;max-width:72ch}
+.muted{color:var(--faint);font-style:italic}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+.gallery button{padding:0;border:0;border-radius:12px;overflow:hidden;aspect-ratio:4/3;cursor:zoom-in;background:var(--blue-50)}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.gallery button:hover img{transform:scale(1.07)}
+.alert{padding:12px 14px;border-radius:10px;font-size:.95rem}
+.alert-err{background:#fdf0ee;border:1px solid #efc4c0;color:#8f2a22}
+.alert-ok{background:#e9f7f1;border:1px solid #b7e2cf;color:#0b6b49}
+.alert p+p{margin-top:6px}
+.pub-target{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px 16px;margin:0 0 16px;padding:12px 14px;background:var(--blue-50);border:1px solid var(--blue-200);border-radius:10px;font-size:.9rem}
+.pub-target dt{color:var(--muted);font-size:.8rem}
+.pub-target dd{margin:0;font-family:var(--font-mono);font-weight:500;color:var(--navy-900);word-break:break-all}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.steps li{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:10px;background:var(--blue-50);color:var(--muted)}
+.steps li.active{color:var(--navy-900);font-weight:600;background:var(--blue-100)}
+.steps li.done{color:var(--ok)}
+.steps .st{width:22px;text-align:center;flex:none}
+.spin{display:inline-block;width:16px;height:16px;border:2.5px solid var(--blue-300);border-top-color:var(--navy-900);border-radius:50%;animation:spin .8s linear infinite}
+#dlgLightbox{max-width:min(1100px,100vw);background:var(--navy-950);border-radius:16px}
+.lb{position:relative;display:grid;place-items:center;padding:14px;min-height:200px}
+.lb img{max-height:calc(100dvh - 120px);width:auto;max-width:100%;object-fit:contain;border-radius:8px}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:0;background:rgba(255,255,255,.16);color:#fff;cursor:pointer;font-size:1.2rem}
+.lb-nav:hover{background:rgba(255,255,255,.3)}
+.lb-prev{left:14px}.lb-next{right:14px}
+.lb-close{position:absolute;top:14px;right:14px;z-index:2}
+.lb-count{color:var(--blue-200);text-align:center;padding:0 0 12px;font:500 .9rem var(--font-mono)}
+@media (max-width:600px){
+  dialog{max-width:100vw !important;max-height:calc(100dvh - 8px);margin:auto 0 0;border-radius:18px 18px 0 0}
+  .dlg{max-height:calc(100dvh - 8px)}
+  .dlg-head,.dlg-body,.dlg-foot{padding-left:16px;padding-right:16px}
+}
+
+/* =====================================================================
+   9. RODAPÉ E AVISOS
+   ===================================================================== */
+.footer{margin-top:72px;background:var(--navy-950);color:var(--blue-200);background-image:var(--tile-light)}
+.footer-inner{max-width:1180px;margin:0 auto;padding:34px 20px;display:flex;gap:18px 32px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.footer strong{color:#fff;font:700 1.05rem var(--font-display);display:block}
+.footer small{display:block;margin-top:4px;color:var(--blue-300)}
+.footer .btn{font-size:.88rem}
+.toasts{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);display:grid;gap:8px;z-index:100;width:min(440px,calc(100vw - 24px));pointer-events:none}
+.toast{padding:12px 16px;border-radius:12px;background:var(--navy-900);color:#fff;font-weight:600;font-size:.95rem;box-shadow:0 14px 30px -10px rgba(6,18,46,.6);animation:toastIn .3s ease both}
+.toast.out{animation:toastOut .3s ease both}
+.toast.err{background:var(--danger)}
+
+/* =====================================================================
+   10. ANIMAÇÕES
+   ===================================================================== */
+@keyframes cardIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes slideDown{from{opacity:0;transform:translateY(-100%)}to{opacity:1;transform:none}}
+@keyframes dlgIn{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes pop{0%{transform:scale(.7);opacity:0}60%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
+@keyframes pulse{to{transform:translateX(100%)}}
+@keyframes flow{to{stroke-dashoffset:-20}}
+@keyframes scope{to{transform:translateX(-200px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes tick{0%{transform:scale(.96);opacity:.5}100%{transform:none;opacity:1}}
+@keyframes glow{0%,100%{box-shadow:0 0 0 0 rgba(106,155,239,.55)}50%{box-shadow:0 0 0 7px rgba(106,155,239,0)}}
+@keyframes toastIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes toastOut{to{opacity:0;transform:translateY(8px)}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
+}
+</style>
 </head>
-<body class="bg-grid-pattern relative min-h-screen selection:bg-gold selection:text-charcoal-900">
 
-    <!-- Custom Toast Container -->
-    <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-3 pointer-events-none"></div>
+<body>
 
-    <!-- Navigation Bar -->
-    <header class="sticky top-0 z-40 bg-charcoal-900/90 backdrop-blur-md border-b border-gold/20 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            
-            <!-- Logo & Academic Badge -->
-            <a href="#inicio" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-lg bg-mineral-800 border border-gold/40 flex items-center justify-center text-gold group-hover:border-gold group-hover:scale-105 transition-all shadow-md relative">
-                    <i data-lucide="zap" class="w-5 h-5 text-gold"></i>
-                    <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-gold rounded-full led-glow"></span>
-                </div>
-                <div class="flex flex-col">
-                    <span class="font-cinzel font-bold text-sm text-sand-100 tracking-wider group-hover:text-gold transition-colors">FLÁVIO AUGUSTO</span>
-                    <span class="font-mono text-[10px] text-sand-400 tracking-widest uppercase">IFRN · ELETRICIDADE INSTRUMENTAL</span>
-                </div>
-            </a>
+<!-- Ícones SVG reutilizáveis -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="ic-bolt" viewBox="0 0 24 24"><path d="M13.5 2 4.5 14H10l-1 8 9-12h-5.5z" fill="currentColor"/></symbol>
+  <symbol id="ic-resistor" viewBox="0 0 48 16"><path d="M0 8h8l3-6 6 12 6-12 6 12 6-12 3 6h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+  <symbol id="ic-battery" viewBox="0 0 24 24"><rect x="2" y="7" width="17" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M22 10v4M8 12h6M11 9v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></symbol>
+  <symbol id="ic-lamp" viewBox="0 0 24 24"><path d="M9 21h6M10 17.5h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
 
-            <!-- Desktop Links -->
-            <nav class="hidden lg:flex items-center gap-8 font-mono text-xs uppercase tracking-widest text-sand-300">
-                <a href="#inicio" class="hover:text-gold transition-colors py-2 relative group">
-                    Início
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="#jornada" class="hover:text-gold transition-colors py-2 relative group">
-                    A Jornada
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="#capitulos" class="hover:text-gold transition-colors py-2 relative group">
-                    Capítulos
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="#galeria-geral" class="hover:text-gold transition-colors py-2 relative group">
-                    Galeria
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="#reflexao-final" class="hover:text-gold transition-colors py-2 relative group">
-                    Reflexão
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
-                </a>
-            </nav>
+<noscript><p style="padding:20px;text-align:center">Este portfólio precisa de JavaScript para funcionar. Ative o JavaScript no navegador.</p></noscript>
 
-            <!-- Actions & Bimestre Badge -->
-            <div class="flex items-center gap-3">
-                <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-mineral-800 border border-gold/30 text-sand-200 font-mono text-xs">
-                    <span class="w-2 h-2 rounded-full bg-gold led-glow"></span>
-                    <span class="font-semibold text-gold">4º BIMESTRE</span>
-                    <span class="text-sand-400">· 2026</span>
-                </div>
+<!-- ===================== CABEÇALHO ===================== -->
+<div class="top" id="topbar">
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#inicio" aria-label="Ir para o início">
+        <span class="brand-mark"><svg><use href="#ic-bolt"/></svg></span>
+        <span class="brand-text">
+          <small>PORTFÓLIO ACADÊMICO</small>
+          <strong>Eletricidade Instrumental</strong>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Seções do site">
+        <a href="#evolucao">Evolução</a>
+        <a href="#aulas">Aulas</a>
+        <a href="#calculadora">Calculadora</a>
+      </nav>
+      <p class="header-info">Flávio Augusto • INFO 1M • 4º Bimestre</p>
+      <button class="lock-btn" id="btnAdminEnter" type="button" title="Entrar no modo administrador" aria-label="Entrar no modo administrador">🔐</button>
+    </div>
+  </header>
 
-                <button onclick="openEditorModal()" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-gold/10 hover:bg-gold/20 border border-gold/40 text-gold font-mono text-xs font-semibold transition-all shadow-lg active:scale-95" title="Gerenciar Aulas e Dados">
-                    <i data-lucide="edit-3" class="w-4 h-4"></i>
-                    <span class="hidden md:inline">GERENCIAR</span>
-                </button>
+  <!-- Barra do modo administrador (só aparece para o administrador) -->
+  <div class="admin-bar" id="adminBar" hidden>
+    <div class="admin-inner">
+      <strong>🔐 Modo administrador</strong>
+      <span class="dirty" id="dirtyFlag"></span>
+      <div class="admin-actions">
+        <button class="btn btn-light btn-caps" type="button" data-admin="new">+ Nova Aula</button>
+        <button class="btn btn-outline-light" type="button" data-admin="firebase">⚙️ Configurar Firebase</button>
+        <button class="btn btn-publish btn-caps" id="btnPublish" type="button" data-admin="publish">🚀 Publicar Alterações</button>
+        <button class="btn btn-outline-light" type="button" data-admin="exit">🚪 Sair</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-                <!-- Mobile Menu Button -->
-                <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-sand-200 hover:text-gold focus:outline-none">
-                    <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
-                </button>
-            </div>
-        </div>
+<main>
+<!-- ===================== PÁGINA INICIAL ===================== -->
+<section class="hero" id="inicio">
+  <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+  <svg class="hero-wire" viewBox="0 0 1400 40" preserveAspectRatio="xMinYMid slice" aria-hidden="true">
+    <path d="M0 20H420l8 0 8-14 14 28 14-28 14 28 14-28 14 28 8-14H1400"/>
+  </svg>
 
-        <!-- Mobile Menu Drawer -->
-        <div id="mobile-menu" class="hidden lg:hidden border-b border-gold/20 bg-charcoal-800 px-6 py-4 flex flex-col gap-4 font-mono text-sm">
-            <a href="#inicio" onclick="toggleMobileMenu()" class="text-sand-200 hover:text-gold py-1">Início</a>
-            <a href="#jornada" onclick="toggleMobileMenu()" class="text-sand-200 hover:text-gold py-1">A Jornada</a>
-            <a href="#capitulos" onclick="toggleMobileMenu()" class="text-sand-200 hover:text-gold py-1">Capítulos / Aulas</a>
-            <a href="#galeria-geral" onclick="toggleMobileMenu()" class="text-sand-200 hover:text-gold py-1">Galeria Geral</a>
-            <a href="#reflexao-final" onclick="toggleMobileMenu()" class="text-sand-200 hover:text-gold py-1">Reflexão Final</a>
-            <div class="pt-2 border-t border-sand-400/20 flex items-center justify-between text-xs text-sand-400">
-                <span>IFRN · Prof. Elialdo Chibério</span>
-                <span class="text-gold font-bold">4º BIMESTRE</span>
-            </div>
-        </div>
-    </header>
+  <div class="hero-inner">
+    <div>
+      <p class="hero-label"><svg><use href="#ic-resistor"/></svg>PORTFÓLIO ACADÊMICO</p>
+      <h1>Eletricidade<br>Instrumental</h1>
+      <span class="hero-term">4º BIMESTRE</span>
 
-    <!-- HERO SECTION / CAPA CINEMATOGRÁFICA -->
-    <section id="inicio" class="relative min-h-[90vh] flex items-center justify-center pt-12 pb-20 px-4 sm:px-6 lg:px-8 bg-vignette overflow-hidden">
-        
-        <!-- Background Electrical Circuit SVG Art -->
-        <div class="absolute inset-0 opacity-15 pointer-events-none flex items-center justify-center">
-            <svg class="w-full h-full max-w-6xl" viewBox="0 0 1000 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M100 300 H 300 L 400 200 H 600 L 700 300 H 900" stroke="#C59B27" stroke-width="2" stroke-dasharray="6 6"/>
-                <path d="M200 150 V 450 L 350 450 H 650 L 800 150" stroke="#B87333" stroke-width="1.5"/>
-                <circle cx="300" cy="300" r="8" fill="#C59B27" class="animate-pulse"/>
-                <circle cx="700" cy="300" r="8" fill="#C59B27" class="animate-pulse"/>
-                <circle cx="400" cy="200" r="6" fill="#B87333"/>
-                <circle cx="600" cy="200" r="6" fill="#B87333"/>
-            </svg>
-        </div>
+      <dl class="hero-meta">
+        <div><dt>Aluno</dt><dd>Flávio Augusto</dd></div>
+        <div><dt>Turma</dt><dd>INFO 1M</dd></div>
+        <div><dt>Professor</dt><dd>Humberto Araújo</dd></div>
+        <div><dt>Instituição</dt><dd>IFRN</dd></div>
+      </dl>
 
-        <div class="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center">
-            
-            <!-- Chapter Tagline -->
-            <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-mineral-800/80 border border-gold/30 text-gold font-mono text-xs tracking-widest uppercase mb-8 shadow-2xl backdrop-blur-md">
-                <i data-lucide="compass" class="w-4 h-4 text-gold animate-spin-slow"></i>
-                <span>THE FOURTH JOURNEY · SEASON 04</span>
-            </div>
+      <p class="hero-quote">Aula a aula, a teoria virou circuito fechado: cada conceito novo fez a corrente do aprendizado aumentar.</p>
 
-            <!-- Main Title Header -->
-            <h1 class="font-cinzel text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-4 text-sand-100 leading-tight">
-                PORTFÓLIO ACADÊMICO
-            </h1>
-            <div class="font-cinzel text-xl sm:text-3xl font-semibold text-gold-gradient tracking-widest uppercase mb-8">
-                ELETRICIDADE INSTRUMENTAL
-            </div>
-
-            <div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent mb-8"></div>
-
-            <!-- Academic Credits Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-3xl mb-12 text-left">
-                <div class="p-4 rounded-xl bg-charcoal-800/80 border border-gold/15 backdrop-blur-sm">
-                    <span class="block font-mono text-[11px] text-sand-400 uppercase tracking-wider mb-1">Aluno</span>
-                    <span class="font-cinzel font-bold text-sand-100 text-lg">Flávio Augusto</span>
-                </div>
-                <div class="p-4 rounded-xl bg-charcoal-800/80 border border-gold/15 backdrop-blur-sm">
-                    <span class="block font-mono text-[11px] text-sand-400 uppercase tracking-wider mb-1">Professor</span>
-                    <span class="font-cinzel font-bold text-sand-100 text-base">Elialdo Chibério</span>
-                    <span class="block font-mono text-[10px] text-sand-400">da Silva</span>
-                </div>
-                <div class="p-4 rounded-xl bg-charcoal-800/80 border border-gold/15 backdrop-blur-sm sm:col-span-2 md:col-span-1">
-                    <span class="block font-mono text-[11px] text-sand-400 uppercase tracking-wider mb-1">Instituição</span>
-                    <span class="font-cinzel font-bold text-sand-100 text-base">IFRN</span>
-                    <span class="block font-mono text-[10px] text-sand-400">Campus Rio Grande do Norte</span>
-                </div>
-            </div>
-
-            <!-- Period Banner -->
-            <div class="flex items-center gap-4 text-sand-300 font-mono text-xs sm:text-sm tracking-widest uppercase mb-10">
-                <span class="text-gold font-bold">4º BIMESTRE</span>
-                <span>•</span>
-                <span>ANO LETIVO 2026</span>
-            </div>
-
-            <!-- CTA Scroll Button -->
-            <a href="#jornada" class="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-mineral-700 hover:bg-mineral-600 border border-gold/50 text-sand-100 font-cinzel font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:scale-105 hover:border-gold hover:shadow-[0_0_25px_rgba(197,155,39,0.3)] group">
-                <span>INICIAR A JORNADA</span>
-                <i data-lucide="arrow-down" class="w-4 h-4 text-gold group-hover:translate-y-1 transition-transform"></i>
-            </a>
-
-        </div>
-    </section>
-
-    <!-- SECTION 2: A JORNADA (INTRODUÇÃO) -->
-    <section id="jornada" class="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto border-t border-gold/10">
-        <div class="bg-mineral-800/60 rounded-2xl border border-gold/20 p-8 sm:p-12 shadow-2xl relative overflow-hidden backdrop-blur-sm">
-            
-            <div class="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
-                <i data-lucide="compass" class="w-48 h-48 text-gold"></i>
-            </div>
-
-            <div class="flex items-center gap-3 font-mono text-xs text-gold uppercase tracking-widest mb-3">
-                <span class="w-8 h-px bg-gold"></span>
-                <span>CAPÍTULO PREFÁCIO</span>
-            </div>
-
-            <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-sand-100 mb-6">
-                A JORNADA DO CONHECIMENTO
-            </h2>
-
-            <div class="space-y-4 text-sand-200 leading-relaxed font-sans text-base sm:text-lg">
-                <p>
-                    Bem-vindo ao registro oficial da jornada acadêmica em <strong class="text-gold font-semibold">Eletricidade Instrumental</strong> no IFRN durante o <strong class="text-gold font-semibold">4º Bimestre de 2026</strong>.
-                </p>
-                <p class="text-sand-300 text-sm sm:text-base">
-                    Este portfólio não é apenas um relatório técnico: é um diário contínuo de descobertas, práticas de laboratório, medições elétricas, desafios superados e evolução conceitual. Cada aula representa um novo ponto de conexão nesta trilha de aprendizado guiada pelo Prof. Elialdo Chibério da Silva.
-                </p>
-            </div>
-
-            <div class="mt-8 pt-6 border-t border-gold/15 flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-sand-400">
-                <div class="flex items-center gap-2">
-                    <i data-lucide="book-open" class="w-4 h-4 text-gold"></i>
-                    <span>REGISTRO ACADÊMICO REUTILIZÁVEL E DINÂMICO</span>
-                </div>
-                <div class="flex items-center gap-2">
-                    <i data-lucide="cpu" class="w-4 h-4 text-copper"></i>
-                    <span>SISTEMA DE CIRCUITO INTERATIVO</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 3: SUMÁRIO / MAPA DA JORNADA (CIRCUITO ELÉTRICO) -->
-    <section id="capitulos" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-gold/10">
-        
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <span class="font-mono text-xs text-gold uppercase tracking-widest block mb-2">● CIRCUITO DE AULAS</span>
-            <h2 class="font-cinzel text-3xl sm:text-5xl font-bold text-sand-100 mb-4">NOSSA JORNADA</h2>
-            <p class="text-sand-300 font-sans text-sm sm:text-base">
-                Navegue pelas aulas do 4º Bimestre como capítulos interativos conectados por uma trilha elétrica de aprendizagem.
-            </p>
-        </div>
-
-        <!-- Interactive Circuit Board Navigation Bar -->
-        <div class="mb-12 p-6 rounded-2xl bg-charcoal-800 border border-gold/20 shadow-2xl overflow-x-auto">
-            <div class="min-w-[650px] flex items-center justify-between relative py-4" id="circuit-timeline-track">
-                <!-- Circuit Track Background Line -->
-                <div class="absolute left-0 right-0 top-1/2 h-0.5 bg-mineral-600 -translate-y-1/2 z-0"></div>
-                <div class="absolute left-0 top-1/2 h-0.5 bg-gold -translate-y-1/2 z-0 transition-all duration-500" id="circuit-progress-line" style="width: 0%;"></div>
-
-                <!-- Dynamic Nodes appended via JavaScript -->
-                <div id="circuit-nodes-container" class="w-full flex justify-between relative z-10">
-                    <!-- Nodes rendered dynamically -->
-                </div>
-            </div>
-        </div>
-
-        <!-- Chapters Cards Summary Grid -->
-        <div id="chapters-summary-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Dynamic Chapter Preview Cards appended via JS -->
-        </div>
-    </section>
-
-    <!-- SECTION 4: CAPÍTULOS DE AULAS DETALHADOS -->
-    <section class="py-12 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto space-y-24" id="detailed-chapters-container">
-        <!-- Rendered by JavaScript dynamically -->
-    </section>
-
-    <!-- SECTION 5: GALERIA GERAL DA JORNADA -->
-    <section id="galeria-geral" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-gold/10">
-        <div class="text-center max-w-3xl mx-auto mb-12">
-            <span class="font-mono text-xs text-gold uppercase tracking-widest block mb-2">● REGISTROS VISUAIS</span>
-            <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-sand-100 mb-4">GALERIA DA JORNADA</h2>
-            <p class="text-sand-300 font-sans text-sm">
-                Exposição fotográfica consolidada dos experimentos, circuitos e registros do 4º Bimestre.
-            </p>
-        </div>
-
-        <!-- Gallery Filter Buttons -->
-        <div id="gallery-filters" class="flex flex-wrap items-center justify-center gap-2 mb-8 font-mono text-xs">
-            <!-- Rendered by JS -->
-        </div>
-
-        <!-- General Gallery Grid -->
-        <div id="general-gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            <!-- Rendered by JS -->
-        </div>
-    </section>
-
-    <!-- SECTION 6: REFLEXÃO FINAL DO BIMESTRE -->
-    <section id="reflexao-final" class="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto border-t border-gold/10">
-        <div class="p-8 sm:p-12 rounded-2xl bg-mineral-800/80 border border-gold/30 shadow-2xl backdrop-blur-md">
-            
-            <div class="flex items-center gap-3 font-mono text-xs text-gold uppercase tracking-widest mb-3">
-                <i data-lucide="award" class="w-4 h-4 text-gold"></i>
-                <span>SÍNTESE ACADÊMICA</span>
-            </div>
-
-            <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-sand-100 mb-8">
-                REFLEXÃO FINAL DO 4º BIMESTRE
-            </h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="reflection-fields-container">
-                <!-- Editable via JS / Modal -->
-                <div class="p-6 rounded-xl bg-charcoal-800 border border-gold/15 space-y-2">
-                    <span class="font-mono text-xs text-gold uppercase tracking-wider block">1. O que aprendi?</span>
-                    <p id="ref-learned" class="text-sand-200 font-sans text-sm leading-relaxed whitespace-pre-line">
-                        [Registre aqui a síntese de todo o aprendizado obtido durante o 4º Bimestre na disciplina de Eletricidade Instrumental.]
-                    </p>
-                </div>
-
-                <div class="p-6 rounded-xl bg-charcoal-800 border border-gold/15 space-y-2">
-                    <span class="font-mono text-xs text-gold uppercase tracking-wider block">2. Minha Evolução</span>
-                    <p id="ref-evolution" class="text-sand-200 font-sans text-sm leading-relaxed whitespace-pre-line">
-                        [Descreva como o seu raciocínio técnico, capacidade de medição e análise de circuitos evoluíram ao longo deste período.]
-                    </p>
-                </div>
-
-                <div class="p-6 rounded-xl bg-charcoal-800 border border-gold/15 space-y-2">
-                    <span class="font-mono text-xs text-gold uppercase tracking-wider block">3. Principais Desafios</span>
-                    <p id="ref-challenges" class="text-sand-200 font-sans text-sm leading-relaxed whitespace-pre-line">
-                        [Registre as maiores dificuldades encontradas nas aulas teóricas ou práticas e como foram superadas.]
-                    </p>
-                </div>
-
-                <div class="p-6 rounded-xl bg-charcoal-800 border border-gold/15 space-y-2">
-                    <span class="font-mono text-xs text-gold uppercase tracking-wider block">4. O que levo desta disciplina?</span>
-                    <p id="ref-takeaway" class="text-sand-200 font-sans text-sm leading-relaxed whitespace-pre-line">
-                        [Reflexão pessoal sobre a relevância prática desses conhecimentos para sua formação técnica no IFRN.]
-                    </p>
-                </div>
-            </div>
-
-            <div class="mt-8 flex justify-end">
-                <button onclick="openReflectionEditModal()" class="px-4 py-2 rounded-lg bg-gold/10 hover:bg-gold/20 border border-gold/40 text-gold font-mono text-xs font-semibold flex items-center gap-2 transition-all">
-                    <i data-lucide="edit-2" class="w-4 h-4"></i>
-                    <span>EDITAR REFLEXÃO FINAL</span>
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 7: ENCERRAMENTO CINEMATOGRÁFICO -->
-    <footer class="py-20 px-4 sm:px-6 lg:px-8 border-t border-gold/20 bg-charcoal-900 text-center relative overflow-hidden">
-        
-        <!-- Fading Circuit Line -->
-        <div class="max-w-md mx-auto mb-8 relative">
-            <div class="h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent opacity-50"></div>
-            <div class="w-3 h-3 bg-gold rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 led-glow"></div>
-        </div>
-
-        <div class="max-w-2xl mx-auto space-y-4">
-            <h3 class="font-cinzel text-2xl sm:text-3xl font-bold text-sand-100 tracking-wider">
-                FIM DA JORNADA
-            </h3>
-            <p class="font-mono text-xs text-gold uppercase tracking-widest">
-                4º BIMESTRE · 2026 · ELETRICIDADE INSTRUMENTAL
-            </p>
-            <p class="text-sand-400 font-sans text-xs">
-                Aluno: Flávio Augusto · Professor: Elialdo Chibério da Silva · IFRN
-            </p>
-            
-            <div class="pt-8 text-sand-400 font-mono text-[11px]">
-                "Esta etapa terminou, mas a jornada continua."
-            </div>
-        </div>
-    </footer>
-
-    <!-- IMAGE LIGHTBOX MODAL -->
-    <div id="image-modal" class="fixed inset-0 z-50 hidden bg-charcoal-900/95 backdrop-blur-xl flex items-center justify-center p-4">
-        <button onclick="closeImageModal()" class="absolute top-6 right-6 p-3 rounded-full bg-mineral-800 text-sand-100 hover:text-gold border border-gold/30 transition-all">
-            <i data-lucide="x" class="w-6 h-6"></i>
-        </button>
-
-        <button onclick="navigateModalImage(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-mineral-800/80 text-sand-100 hover:text-gold border border-gold/30 transition-all">
-            <i data-lucide="chevron-left" class="w-6 h-6"></i>
-        </button>
-
-        <button onclick="navigateModalImage(1)" class="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-mineral-800/80 text-sand-100 hover:text-gold border border-gold/30 transition-all">
-            <i data-lucide="chevron-right" class="w-6 h-6"></i>
-        </button>
-
-        <div class="max-w-4xl w-full flex flex-col items-center gap-4">
-            <img id="modal-img" src="" alt="" class="max-h-[75vh] w-auto rounded-xl border border-gold/30 shadow-2xl object-contain">
-            <div class="text-center space-y-1">
-                <span id="modal-caption" class="font-sans text-sand-200 text-sm font-medium"></span>
-                <span id="modal-subtext" class="block font-mono text-xs text-gold"></span>
-            </div>
-        </div>
+      <div class="hero-cta">
+        <a class="btn btn-light" href="#aulas">Ver as aulas</a>
+        <a class="btn btn-outline-light" href="#calculadora">⚡ Calculadora de resistores</a>
+      </div>
     </div>
 
-    <!-- MANAGER / EDITOR MODAL -->
-    <div id="editor-modal" class="fixed inset-0 z-50 hidden bg-charcoal-900/90 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
-        <div class="bg-mineral-800 border border-gold/30 rounded-2xl max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl my-8">
-            
-            <!-- Modal Header -->
-            <div class="p-6 border-b border-gold/20 flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                    <div class="p-2 rounded-lg bg-gold/10 text-gold border border-gold/30">
-                        <i data-lucide="sliders" class="w-5 h-5"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-cinzel text-xl font-bold text-sand-100">GERENCIADOR DA JORNADA</h3>
-                        <p class="font-mono text-xs text-sand-400">Adicione, edite, duplique ou faça backup do seu portfólio</p>
-                    </div>
-                </div>
-                <button onclick="closeEditorModal()" class="text-sand-400 hover:text-gold p-2">
-                    <i data-lucide="x" class="w-6 h-6"></i>
-                </button>
-            </div>
+    <!-- Osciloscópio: mostra o progresso do bimestre -->
+    <aside class="scope" aria-label="Leitura do progresso do bimestre">
+      <div class="scope-top"><i></i><i></i><i></i><span>CH1 • 60 Hz</span></div>
+      <svg class="scope-screen" viewBox="0 0 400 120" aria-hidden="true">
+        <defs><pattern id="scGrid" width="40" height="24" patternUnits="userSpaceOnUse"><path d="M40 0H0V24" fill="none" stroke="rgba(159,191,246,.16)"/></pattern></defs>
+        <rect width="400" height="120" fill="url(#scGrid)"/>
+        <path d="M0 60H400" stroke="rgba(159,191,246,.32)" stroke-dasharray="3 5"/>
+        <g class="wave">
+          <path class="w2" d="M0 60C25 38 75 38 100 60S175 82 200 60S275 38 300 60S375 82 400 60S475 38 500 60S575 82 600 60S675 38 700 60S775 82 800 60"/>
+          <path class="w1" d="M0 60C25 5 75 5 100 60S175 115 200 60S275 5 300 60S375 115 400 60S475 5 500 60S575 115 600 60S675 5 700 60S775 115 800 60"/>
+        </g>
+      </svg>
+      <div class="scope-read">
+        <div><span>Aulas</span><b id="scAulas">0</b></div>
+        <div><span>Meta</span><b id="scMeta">20</b></div>
+        <div><span>Progresso</span><b id="scPct">0%</b></div>
+      </div>
+    </aside>
+  </div>
+</section>
 
-            <!-- Modal Content Tabs -->
-            <div class="p-6 overflow-y-auto space-y-8 text-sm">
-                
-                <!-- Quick Backup & Actions -->
-                <div class="p-4 rounded-xl bg-charcoal-800 border border-gold/15 flex flex-wrap items-center justify-between gap-4">
-                    <div>
-                        <span class="font-mono text-xs text-gold uppercase block font-semibold">Ações de Backup e Dados</span>
-                        <span class="text-sand-300 text-xs">Rascunhos ficam neste navegador; “Publicar alterações” envia a versão para o servidor seguro.</span>
-                    </div>
-                    <div class="flex flex-wrap items-center gap-3 font-mono text-xs">
-                        <button onclick="exportDataJSON()" class="px-3 py-2 rounded-lg bg-gold/20 hover:bg-gold/30 text-gold border border-gold/40 flex items-center gap-2">
-                            <i data-lucide="download" class="w-4 h-4"></i> Exportar JSON
-                        </button>
-                        <button id="publish-changes-btn" onclick="publishChanges()" class="px-3 py-2 rounded-lg bg-blue-700 hover:bg-blue-600 text-white border border-blue-400/50 flex items-center gap-2 font-bold" title="Publica as alterações sem mudar a URL">
-                            <i data-lucide="cloud-upload" class="w-4 h-4"></i> Publicar alterações
-                        </button>
-                        <label class="px-3 py-2 rounded-lg bg-mineral-700 hover:bg-mineral-600 text-sand-200 border border-sand-400/30 cursor-pointer flex items-center gap-2">
-                            <i data-lucide="upload" class="w-4 h-4"></i> Importar JSON
-                            <input type="file" id="json-import-input" accept=".json" onchange="importDataJSON(event)" class="hidden">
-                        </label>
-                        <button onclick="resetDataToDefault()" class="px-3 py-2 rounded-lg bg-red-900/30 hover:bg-red-900/50 text-red-300 border border-red-500/30 flex items-center gap-2">
-                            <i data-lucide="rotate-ccw" class="w-4 h-4"></i> Restaurar Exemplo
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Add Chapter Section -->
-                <div class="space-y-4">
-                    <div class="flex items-center justify-between">
-                        <h4 class="font-cinzel font-bold text-sand-100 text-base">Aulas Cadastradas (<span id="chapters-count-badge">0</span>)</h4>
-                        <button onclick="createNewChapter()" class="px-4 py-2 rounded-lg bg-gold hover:bg-gold-light text-charcoal-900 font-mono text-xs font-bold flex items-center gap-2 transition-all">
-                            <i data-lucide="plus" class="w-4 h-4"></i> Nova Aula
-                        </button>
-                    </div>
-
-                    <!-- Chapters List in Modal -->
-                    <div id="modal-chapters-list" class="space-y-3">
-                        <!-- Appended by JS -->
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Modal Footer -->
-            <div class="p-4 border-t border-gold/20 bg-charcoal-800 flex justify-end">
-                <button onclick="closeEditorModal()" class="px-6 py-2 rounded-lg bg-mineral-700 text-sand-100 hover:bg-mineral-600 font-mono text-xs">
-                    Fechar
-                </button>
-            </div>
-        </div>
+<!-- ===================== EVOLUÇÃO / GAMIFICAÇÃO ===================== -->
+<section class="section" id="evolucao">
+  <div class="section-head">
+    <div>
+      <h2><svg><use href="#ic-resistor"/></svg>Evolução no bimestre</h2>
+      <p>Quanto mais aulas registradas, mais o circuito se completa.</p>
     </div>
+    <label class="goal-edit admin-only" hidden>Meta de aulas
+      <input type="number" id="goalInput" min="1" max="200" inputmode="numeric">
+    </label>
+  </div>
 
-    <!-- CHAPTER EDIT MODAL -->
-    <div id="single-chapter-modal" class="fixed inset-0 z-50 hidden bg-charcoal-900/90 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
-        <div class="bg-mineral-800 border border-gold/30 rounded-2xl max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl my-8">
-            <div class="p-6 border-b border-gold/20 flex items-center justify-between">
-                <h3 class="font-cinzel text-xl font-bold text-sand-100" id="chapter-edit-title">Editar Aula</h3>
-                <button onclick="closeSingleChapterModal()" class="text-sand-400 hover:text-gold p-2">
-                    <i data-lucide="x" class="w-6 h-6"></i>
-                </button>
-            </div>
+  <div class="stats">
+    <div class="stat"><b id="stCount">0</b><span>aulas registradas</span></div>
+    <div class="stat"><b id="stGoal">0</b><span>meta do bimestre</span></div>
+    <div class="stat"><b id="stPct">0%</b><span>do bimestre registrado</span></div>
+    <div class="stat"><b id="stPhotos">0</b><span>fotos na galeria</span></div>
+  </div>
 
-            <form id="chapter-edit-form" onsubmit="saveChapterForm(event)" class="p-6 overflow-y-auto space-y-6 text-sm">
-                <input type="hidden" id="edit-chapter-id">
-
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <div>
-                        <label class="block font-mono text-xs text-gold uppercase mb-1">Nº do Capítulo</label>
-                        <input type="number" id="edit-chapter-num" required class="w-full bg-charcoal-800 border border-gold/20 rounded-lg p-2.5 text-sand-100 font-mono text-sm focus:border-gold outline-none">
-                    </div>
-                    <div>
-                        <label class="block font-mono text-xs text-gold uppercase mb-1">Data (DD · MM · AAAA)</label>
-                        <input type="text" id="edit-chapter-date" placeholder="24 · 09 · 2026" required class="w-full bg-charcoal-800 border border-gold/20 rounded-lg p-2.5 text-sand-100 font-mono text-sm focus:border-gold outline-none">
-                    </div>
-                    <div>
-                        <label class="block font-mono text-xs text-gold uppercase mb-1">Status da Aula</label>
-                        <select id="edit-chapter-status" class="w-full bg-charcoal-800 border border-gold/20 rounded-lg p-2.5 text-sand-100 font-mono text-sm focus:border-gold outline-none">
-                            <option value="normal">Normal / Presencial</option>
-                            <option value="pratica">Aula Prática / Laboratório</option>
-                            <option value="cancelada">Aula Cancelada / Sem Conteúdo</option>
-                            <option value="ausente">Ausência / Reposição</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block font-mono text-xs text-gold uppercase mb-1">Título da Aula</label>
-                    <input type="text" id="edit-chapter-title-input" required class="w-full bg-charcoal-800 border border-gold/20 rounded-lg p-2.5 text-sand-100 font-sans text-sm focus:border-gold outline-none">
-                </div>
-
-                <div>
-                    <label class="block font-mono text-xs text-gold uppercase mb-1">Conteúdo Ministrado (Suporta parágrafos e HTML básico)</label>
-                    <textarea id="edit-chapter-content" rows="6" required class="w-full bg-charcoal-800 border border-gold/20 rounded-lg p-2.5 text-sand-100 font-sans text-sm focus:border-gold outline-none leading-relaxed"></textarea>
-                </div>
-
-                <!-- Highlight Formula / Concept -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 rounded-xl bg-charcoal-800 border border-gold/15">
-                    <div>
-                        <label class="block font-mono text-xs text-gold uppercase mb-1">Conceito em Destaque</label>
-                        <input type="text" id="edit-chapter-concept-title" placeholder="Ex: Lei de Ohm" class="w-full bg-mineral-800 border border-gold/20 rounded-lg p-2 text-sand-100 font-sans text-xs focus:border-gold outline-none mb-2">
-                        <textarea id="edit-chapter-concept-desc" placeholder="Explicação do conceito..." rows="2" class="w-full bg-mineral-800 border border-gold/20 rounded-lg p-2 text-sand-100 font-sans text-xs focus:border-gold outline-none"></textarea>
-                    </div>
-                    <div>
-                        <label class="block font-mono text-xs text-gold uppercase mb-1">Fórmula em Destaque</label>
-                        <input type="text" id="edit-chapter-formula" placeholder="Ex: V = R × I" class="w-full bg-mineral-800 border border-gold/20 rounded-lg p-2 text-gold font-mono text-base font-bold focus:border-gold outline-none mb-2">
-                        <input type="text" id="edit-chapter-formula-note" placeholder="Nota sobre a fórmula..." class="w-full bg-mineral-800 border border-gold/20 rounded-lg p-2 text-sand-300 font-sans text-xs focus:border-gold outline-none">
-                    </div>
-                </div>
-
-                <!-- Practical Measurement Panel Optional -->
-                <div class="p-4 rounded-xl bg-charcoal-800 border border-gold/15 space-y-3">
-                    <span class="font-mono text-xs text-gold uppercase font-semibold block">Painel de Medição Prática (Opcional)</span>
-                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                        <div>
-                            <label class="block font-mono text-[10px] text-sand-400">Grandeza</label>
-                            <input type="text" id="edit-meas-grand" placeholder="Tensão CC" class="w-full bg-mineral-800 border border-gold/20 rounded p-1.5 text-xs text-sand-100">
-                        </div>
-                        <div>
-                            <label class="block font-mono text-[10px] text-sand-400">Valor</label>
-                            <input type="text" id="edit-meas-val" placeholder="12.4" class="w-full bg-mineral-800 border border-gold/20 rounded p-1.5 text-xs text-sand-100">
-                        </div>
-                        <div>
-                            <label class="block font-mono text-[10px] text-sand-400">Unidade</label>
-                            <input type="text" id="edit-meas-unit" placeholder="Volts (V)" class="w-full bg-mineral-800 border border-gold/20 rounded p-1.5 text-xs text-sand-100">
-                        </div>
-                        <div>
-                            <label class="block font-mono text-[10px] text-sand-400">Instrumento</label>
-                            <input type="text" id="edit-meas-inst" placeholder="Multímetro Fluke" class="w-full bg-mineral-800 border border-gold/20 rounded p-1.5 text-xs text-sand-100">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Qualitative Sections -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block font-mono text-xs text-gold uppercase mb-1">O Que Foi Bom?</label>
-                        <textarea id="edit-chapter-good" rows="3" class="w-full bg-charcoal-800 border border-gold/20 rounded-lg p-2.5 text-sand-100 font-sans text-xs focus:border-gold outline-none"></textarea>
-                    </div>
-                    <div>
-                        <label class="block font-mono text-xs text-gold uppercase mb-1">O Que Foi Ruim / Desafios?</label>
-                        <textarea id="edit-chapter-bad" rows="3" class="w-full bg-charcoal-800 border border-gold/20 rounded-lg p-2.5 text-sand-100 font-sans text-xs focus:border-gold outline-none"></textarea>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block font-mono text-xs text-gold uppercase mb-1">Evolução Pessoal</label>
-                        <textarea id="edit-chapter-evolution" rows="3" class="w-full bg-charcoal-800 border border-gold/20 rounded-lg p-2.5 text-sand-100 font-sans text-xs focus:border-gold outline-none"></textarea>
-                    </div>
-                    <div>
-                        <label class="block font-mono text-xs text-gold uppercase mb-1">Relação com a Disciplina</label>
-                        <textarea id="edit-chapter-discipline" rows="3" class="w-full bg-charcoal-800 border border-gold/20 rounded-lg p-2.5 text-sand-100 font-sans text-xs focus:border-gold outline-none"></textarea>
-                    </div>
-                </div>
-
-                <!-- Photos Array Edit -->
-                <div class="p-4 rounded-xl bg-charcoal-800 border border-gold/15 space-y-3">
-                    <span class="font-mono text-xs text-gold uppercase font-semibold block">Fotos da Aula (URLs e Legendas)</span>
-                    <div id="edit-photos-container" class="space-y-3">
-                        <!-- Dynamic photo rows -->
-                    </div>
-                    <button type="button" onclick="addPhotoRowToEdit()" class="px-3 py-1.5 rounded bg-gold/20 text-gold font-mono text-xs flex items-center gap-1">
-                        <i data-lucide="plus" class="w-3 h-3"></i> Adicionar Foto
-                    </button>
-                </div>
-
-                <div class="flex justify-end gap-3 pt-4 border-t border-gold/20">
-                    <button type="button" onclick="closeSingleChapterModal()" class="px-4 py-2 rounded-lg bg-mineral-700 text-sand-200 font-mono text-xs">Cancelar</button>
-                    <button type="submit" class="px-6 py-2 rounded-lg bg-gold hover:bg-gold-light text-charcoal-900 font-mono text-xs font-bold">Salvar Alterações</button>
-                </div>
-            </form>
-        </div>
+  <div class="circuit">
+    <div class="cp-end" aria-hidden="true"><svg><use href="#ic-battery"/></svg></div>
+    <div class="cp-mid">
+      <div class="cp-label"><span>Progresso do bimestre</span><span id="cpText">0 de 0 aulas</span></div>
+      <div class="cp-track" id="cpTrack" role="progressbar" aria-label="Progresso do bimestre" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div class="cp-fill" id="cpFill"></div>
+      </div>
+      <div class="cp-nodes" id="cpNodes" aria-hidden="true"></div>
     </div>
+    <div class="cp-end lamp" id="cpLamp" aria-hidden="true"><svg><use href="#ic-lamp"/></svg></div>
+  </div>
 
-    <!-- REFLECTION EDIT MODAL -->
-    <div id="reflection-modal" class="fixed inset-0 z-50 hidden bg-charcoal-900/90 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="bg-mineral-800 border border-gold/30 rounded-2xl max-w-2xl w-full p-6 space-y-6 shadow-2xl">
-            <h3 class="font-cinzel text-xl font-bold text-sand-100">Editar Reflexão Final</h3>
-            
-            <div class="space-y-4 font-sans text-xs">
-                <div>
-                    <label class="block font-mono text-gold uppercase mb-1">1. O que aprendi?</label>
-                    <textarea id="edit-ref-learned" rows="3" class="w-full bg-charcoal-800 border border-gold/20 rounded p-2 text-sand-100"></textarea>
-                </div>
-                <div>
-                    <label class="block font-mono text-gold uppercase mb-1">2. Minha Evolução</label>
-                    <textarea id="edit-ref-evolution" rows="3" class="w-full bg-charcoal-800 border border-gold/20 rounded p-2 text-sand-100"></textarea>
-                </div>
-                <div>
-                    <label class="block font-mono text-gold uppercase mb-1">3. Principais Desafios</label>
-                    <textarea id="edit-ref-challenges" rows="3" class="w-full bg-charcoal-800 border border-gold/20 rounded p-2 text-sand-100"></textarea>
-                </div>
-                <div>
-                    <label class="block font-mono text-gold uppercase mb-1">4. O que levo desta disciplina?</label>
-                    <textarea id="edit-ref-takeaway" rows="3" class="w-full bg-charcoal-800 border border-gold/20 rounded p-2 text-sand-100"></textarea>
-                </div>
-            </div>
+  <div class="badges" id="badges" aria-label="Conquistas"></div>
+</section>
 
-            <div class="flex justify-end gap-3">
-                <button onclick="closeReflectionModal()" class="px-4 py-2 rounded bg-mineral-700 text-sand-200 font-mono text-xs">Cancelar</button>
-                <button onclick="saveReflectionForm()" class="px-6 py-2 rounded bg-gold text-charcoal-900 font-mono text-xs font-bold">Salvar Reflexão</button>
-            </div>
-        </div>
+<!-- ===================== AULAS ===================== -->
+<section class="section" id="aulas">
+  <div class="section-head">
+    <div>
+      <h2><svg><use href="#ic-resistor"/></svg>Aulas do bimestre</h2>
+      <p id="lessonSub">Clique em “Abrir aula” para ver o conteúdo completo, a reflexão e a galeria.</p>
     </div>
+    <div class="head-tools">
+      <div class="search"><input type="search" id="searchInput" placeholder="Buscar aula" aria-label="Buscar aula"></div>
+      <button class="btn btn-primary btn-caps admin-only" type="button" data-admin="new" hidden>+ Nova Aula</button>
+    </div>
+  </div>
+  <div class="grid" id="lessonGrid" aria-live="polite"></div>
+</section>
 
-    <script>
-        /* ==========================================================================
-           PORTFÓLIO ACADÊMICO - JORNADA DE ELETRICIDADE INSTRUMENTAL (4º BIMESTRE)
-           ========================================================================== */
+<!-- ===================== CALCULADORA ===================== -->
+<section class="section" id="calculadora">
+  <div class="section-head">
+    <div>
+      <h2>⚡ Calculadora de resistores</h2>
+      <p>Calcule a resistência equivalente de associações em série, em paralelo ou mistas.</p>
+    </div>
+  </div>
 
-        // Default Sample Chapters Data Structure
-        const DEFAULT_CHAPTERS = [
-            {
-                id: "cap-01",
-                num: 1,
-                date: "24 · 09 · 2026",
-                title: "Introdução à Eletricidade Instrumental e Segurança em Laboratório",
-                status: "normal",
-                content: "Apresentação detalhada da disciplina de Eletricidade Instrumental referente ao 4º Bimestre. O professor Elialdo Chibério apresentou os objetivos do bimestre, métodos de avaliação e os protocolos essenciais de segurança para manuseio de bancadas elétricas no IFRN.\n\nDiscutimos a diferença entre grandezas elétricas fundamentais (Tensão, Corrente, Resistência e Potência) e conhecemos os instrumentos de medição que utilizaremos ao longo do bimestre.",
-                conceptTitle: "Grandeza Elétrica Fundamental",
-                conceptDesc: "Tensão (DDP) é a força que impulsiona os elétrons, enquanto Corrente é o fluxo ordenado de cargas pelo condutor.",
-                formula: "V = I \u00d7 R",
-                formulaNote: "Primeira Lei de Ohm - Relação fundamental de circuitos elétricos.",
-                measurement: {
-                    grandezza: "Tensão de Bancada",
-                    valor: "220.5",
-                    unidade: "Volts (V)",
-                    instrumento: "Multímetro Digital Protek"
-                },
-                good: "A clareza do professor nas explicações práticas e a demonstração imediata do uso correto das pontas de prova do multímetro.",
-                bad: "Ainda temos limitação de tempo para que todos testem individualmente todos os equipamentos no mesmo horário.",
-                evolution: "Compreendi com clareza a importância do rigor na escolha da escala do multímetro antes de realizar qualquer medição direta.",
-                discipline: "Esta aula estabeleceu a base de confiança e segurança técnica para todas as práticas subsequentes no laboratório do IFRN.",
-                photos: [
-                    { url: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80", caption: "Bancada de ensaios do laboratório de Eletricidade do IFRN." },
-                    { url: "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80", caption: "Ajuste de escalas e calibração inicial do instrumento de medição." }
-                ]
-            },
-            {
-                id: "cap-02",
-                num: 2,
-                date: "01 · 10 · 2026",
-                title: "Lei de Ohm na Prática e Medição com Multímetro Digital",
-                status: "pratica",
-                content: "Realização da primeira prática de bancada do 4º Bimestre. Montamos circuitos simples utilizando protoboard, resistores de filme de carbono de diversos valores comerciais e uma fonte CC regulável.\n\nEfetuamos medições diretas de corrente elétrica intercalando o amperímetro em série com o circuito, confirmando experimentalmente os valores teóricos calculados pela Lei de Ohm.",
-                conceptTitle: "Medição de Corrente Elétrica",
-                conceptDesc: "O amperímetro DEVE SEMPRE ser ligado em SÉRIE com o ramo onde se deseja medir a corrente.",
-                formula: "I = V / R",
-                formulaNote: "Cálculo da corrente a partir da tensão aplicada e resistência total.",
-                measurement: {
-                    grandezza: "Corrente Contínua",
-                    valor: "45.2",
-                    unidade: "Miliamperes (mA)",
-                    instrumento: "Multímetro Minipa ET-2082C"
-                },
-                good: "A perfeita concordância entre o valor calculado no papel e o valor medido na tela do multímetro.",
-                bad: "Pequenas oscilações no potenciômetro da fonte de tensão geraram pequenas variações na leitura inicial.",
-                evolution: "Desenvolvi habilidade manual e raciocínio rápido para identificar a malha do circuito na protoboard sem confundir nós.",
-                discipline: "Validar a teoria através do instrumento prático reforçou a utilidade direta da matemática na engenharia elétrica.",
-                photos: [
-                    { url: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=800&q=80", caption: "Montagem do circuito com resistores em protoboard." },
-                    { url: "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=800&q=80", caption: "Leitura de corrente em miliamperes no multímetro." },
-                    { url: "https://images.unsplash.com/photo-1581092162384-8987c1d64718?auto=format&fit=crop&w=800&q=80", caption: "Anotação das medições e cálculo de tolerância dos resistores." }
-                ]
-            },
-            {
-                id: "cap-03",
-                num: 3,
-                date: "08 · 10 · 2026",
-                title: "Associação de Resistores em Série e Paralelo",
-                status: "normal",
-                content: "Estudo aprofundado sobre leis de Kirchhoff (KVL e KCL) aplicadas a associações mistas de resistores. Analisamos como a tensão se divide em componentes em série e como a corrente se divide em nós em paralelo.\n\nCalculamos as resistências equivalentes (Req) teóricas e em seguida montamos o circuito equivalente para testar a divergência devido às tolerâncias dos componentes (5%).",
-                conceptTitle: "Divisor de Tensão",
-                conceptDesc: "Em resistores em série, a queda de tensão sobre cada um é proporcional ao seu valor ôhmico relativo.",
-                formula: "Req(paralelo) = (R1 \u00d7 R2) / (R1 + R2)",
-                formulaNote: "Fórmula simplificada para dois resistores associados em paralelo.",
-                measurement: {
-                    grandezza: "Resistência Equivalente",
-                    valor: "328.6",
-                    unidade: "Ohms (\u03a9)",
-                    instrumento: "Ponte LCR / Ohmmétrico Digital"
-                },
-                good: "A metodologia didática utilizada para resolver circuitos complexos dividindo em blocos menores.",
-                bad: "Confusão inicial ao medir a resistência equivalente sem desligar a fonte de alimentação (cuja prática pode danificar o instrumento).",
-                evolution: "Aprendi a ver o circuito como um fluxo lógico de nós e malhas, simplificando diagnósticos de defeitos.",
-                discipline: "Associações de resistores são a fundação para qualquer projeto eletrônico instrumental.",
-                photos: [
-                    { url: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80", caption: "Circuito impresso com malha de resistores em estudo." }
-                ]
-            }
-        ];
+  <div class="calc" id="calcRoot">
+    <div class="calc-panel">
+      <div class="seg" role="group" aria-label="Tipo de associação">
+        <button type="button" data-calc="mode" data-mode="serie" aria-pressed="true">Série</button>
+        <button type="button" data-calc="mode" data-mode="paralelo" aria-pressed="false">Paralelo</button>
+        <button type="button" data-calc="mode" data-mode="mista" aria-pressed="false">Mista</button>
+      </div>
+      <div id="calcInputs"></div>
+      <div class="field calc-volts">
+        <label for="calcVolts">Tensão aplicada (opcional)</label>
+        <div class="inline"><input id="calcVolts" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex.: 12"><span class="unit">V</span></div>
+        <span class="hint">Informe a tensão para ver também a corrente e a potência.</span>
+      </div>
+    </div>
+    <aside class="calc-result" id="calcResult" aria-live="polite"></aside>
+  </div>
+</section>
+</main>
 
-        const DEFAULT_REFLECTION = {
-            learned: "Durante este 4º Bimestre em Eletricidade Instrumental no IFRN, consolidei a transição entre os conceitos teóricos de circuitos elétricos e a prática de medição com instrumentos profissionais de bancada.",
-            evolution: "Aprendi a manusear multímetros com total autonomia, realizar medições de tensão, corrente e resistência com segurança, e diagnosticar erros em montagens de protoboard.",
-            challenges: "O principal desafio foi dominar a medição de corrente em série sem interromper inadequadamente os nós do circuito e compreender as tolerâncias reais dos componentes.",
-            takeaway: "A precisão e a segurança técnica na instrumentação elétrica são competências indispensáveis para a minha trajetória profissional no IFRN."
-        };
+<!-- ===================== RODAPÉ ===================== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <strong>Flávio Augusto • INFO 1M</strong>
+      <small>Eletricidade Instrumental • Prof. Humberto Araújo • IFRN • 4º Bimestre</small>
+      <small id="dataSource"></small>
+    </div>
+    <button class="btn btn-outline-light" id="btnAdminFooter" type="button">🔐 Área do administrador</button>
+  </div>
+</footer>
 
-        // ============================================================
-        // PUBLICAÇÃO ONLINE — GITHUB PAGES
-        // Os dados publicados ficam embutidos nesta mesma página.
-        // O token do GitHub NUNCA fica salvo no código: ele é informado
-        // pelo próprio dono do site e usado somente durante a publicação.
-        // ============================================================
-        const GITHUB_OWNER = 'flaviolyra-jpg';
-        const GITHUB_REPO = 'index.html';
-        const GITHUB_BRANCH = 'main';
-        const GITHUB_FILE = 'index.html';
-        const GITHUB_RAW_URL = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/${GITHUB_BRANCH}/${GITHUB_FILE}`;
-        const PUBLISHED_PORTFOLIO_DATA = null;
-        let isPublishing = false;
+<div class="toasts" id="toasts" aria-live="polite"></div>
 
-        // State Variables
-        let chapters = [];
-        let reflection = {};
-        let activeGalleryIndex = 0;
-        let activeGalleryPhotos = [];
+<!-- ===================== MODAL: VER AULA ===================== -->
+<dialog id="dlgLesson" aria-labelledby="lvTitle">
+  <div class="dlg">
+    <div class="dlg-head">
+      <div>
+        <p style="margin:0 0 8px"><span class="chip" id="lvNum"></span><time id="lvDate" style="color:var(--blue-200)"></time></p>
+        <h2 id="lvTitle"></h2>
+      </div>
+      <button class="x" type="button" data-close aria-label="Fechar">✕</button>
+    </div>
+    <div class="dlg-body" id="lvBody"></div>
+    <div class="dlg-foot" id="lvFoot"></div>
+  </div>
+</dialog>
 
-        // Initialize App on DOM Content Loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            loadPortfolioData();
-            renderApp();
-            lucide.createIcons();
-        });
+<!-- ===================== MODAL: NOVA / EDITAR AULA ===================== -->
+<dialog id="dlgForm" data-static aria-labelledby="formTitle">
+  <form class="dlg" id="lessonForm" novalidate>
+    <div class="dlg-head">
+      <div><h2 id="formTitle">Nova aula</h2><p>Preencha os dados e salve. A aula aparece no portfólio na hora.</p></div>
+      <button class="x" type="button" data-close aria-label="Fechar">✕</button>
+    </div>
+    <div class="dlg-body">
+      <div class="row2">
+        <div class="field"><label for="fNumber">Nº da aula</label><input id="fNumber" type="number" min="1" inputmode="numeric" required></div>
+        <div class="field"><label for="fDate">Data</label><input id="fDate" type="date" required></div>
+      </div>
+      <div class="field"><label for="fTitle">Título</label><input id="fTitle" type="text" maxlength="140" placeholder="Ex.: Lei de Ohm e associação de resistores" required></div>
+      <div class="field"><label for="fSummary">Resumo (aparece no card)</label><textarea id="fSummary" style="min-height:70px" maxlength="400" placeholder="Duas ou três linhas. Se ficar vazio, usamos o começo do conteúdo."></textarea></div>
+      <div class="field"><label for="fContent">Conteúdo ministrado</label><textarea id="fContent" placeholder="O que foi ensinado nesta aula?"></textarea></div>
+      <div class="field"><label for="fReflection">Desenvolvimento e reflexão</label><textarea id="fReflection" placeholder="O que você entendeu, o que foi difícil, como aplicou na prática?"></textarea></div>
+      <div class="field">
+        <label for="fPhotoUrl">Galeria de fotos</label>
+        <div class="photo-add">
+          <input id="fPhotoUrl" type="url" inputmode="url" placeholder="Cole o link direto da imagem (https://…)">
+          <button class="btn btn-ghost" type="button" id="btnAddPhoto">Adicionar</button>
+        </div>
+        <span class="hint">Use o endereço direto da imagem (termina em .jpg, .png ou .webp). Você pode colar vários links separados por espaço.</span>
+        <div class="thumbs" id="fThumbs"></div>
+      </div>
+    </div>
+    <div class="dlg-foot">
+      <button class="btn btn-ghost" type="button" data-close>Cancelar</button>
+      <button class="btn btn-primary" type="submit">💾 Salvar aula</button>
+    </div>
+  </form>
+</dialog>
 
-        // Load Data from this published page, then allow local drafts to override it.
-        function loadPortfolioData() {
-            const savedChapters = localStorage.getItem('ifrn_portfolio_chapters_v4');
-            const savedRef = localStorage.getItem('ifrn_portfolio_reflection_v4');
+<!-- ===================== MODAL: CONFIRMAR ===================== -->
+<dialog id="dlgConfirm" aria-labelledby="cfTitle">
+  <form method="dialog" class="dlg">
+    <div class="dlg-head"><div><h2 id="cfTitle">Confirmar</h2></div></div>
+    <div class="dlg-body"><p id="cfMsg"></p></div>
+    <div class="dlg-foot">
+      <button class="btn btn-ghost" value="cancel">Cancelar</button>
+      <button class="btn btn-danger-solid" value="ok" id="cfOk">Confirmar</button>
+    </div>
+  </form>
+</dialog>
 
-            const published = PUBLISHED_PORTFOLIO_DATA || {};
-            const publishedChapters = Array.isArray(published.chapters) ? published.chapters : DEFAULT_CHAPTERS;
-            const publishedReflection = published.reflection && typeof published.reflection === 'object' ? published.reflection : DEFAULT_REFLECTION;
+<!-- ===================== MODAL: PUBLICAR NO GITHUB ===================== -->
+<dialog id="dlgPublish" data-static aria-labelledby="pubTitle">
+  <div class="dlg">
+    <div class="dlg-head">
+      <div><h2 id="pubTitle">🚀 Publicar alterações</h2><p>Envia as aulas para o seu GitHub e atualiza o portfólio público.</p></div>
+      <button class="x" type="button" data-close aria-label="Fechar" id="pubX">✕</button>
+    </div>
+    <div class="dlg-body">
+      <!-- Estado 1: pedir token -->
+      <form id="pubForm" autocomplete="off">
+        <dl class="pub-target">
+          <div><dt>Usuário</dt><dd id="pubOwner"></dd></div>
+          <div><dt>Repositório</dt><dd id="pubRepo"></dd></div>
+          <div><dt>Branch</dt><dd id="pubBranch"></dd></div>
+          <div><dt>Arquivo</dt><dd id="pubFile"></dd></div>
+        </dl>
+        <div class="field">
+          <label for="pubToken">Personal Access Token do GitHub</label>
+          <input id="pubToken" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Cole o token aqui">
+          <span class="hint">O token é usado só agora, na publicação. Ele não é salvo, não fica na tela depois e não vai para o código.</span>
+        </div>
+        <p class="hint">Permissão necessária: token clássico com o escopo <code>repo</code> (ou <code>public_repo</code> se o repositório for público), ou token fine-grained com <code>Contents: Read and write</code> neste repositório.</p>
+        <button type="submit" hidden>Publicar</button>
+      </form>
+      <!-- Estado 2: trabalhando -->
+      <ol class="steps" id="pubSteps" hidden></ol>
+      <!-- Estado 3: sucesso -->
+      <div id="pubDone" hidden>
+        <div class="alert alert-ok"><p><strong>✅ Alterações publicadas com sucesso!</strong></p><p>O GitHub Pages pode levar de 1 a 2 minutos para mostrar a nova versão. Se não aparecer, atualize a página com Ctrl+F5.</p></div>
+      </div>
+      <!-- Estado 4: erro -->
+      <div id="pubError" hidden>
+        <div class="alert alert-err"><p id="pubErrMsg"></p><p id="pubErrHint"></p></div>
+      </div>
+    </div>
+    <div class="dlg-foot" id="pubFoot"></div>
+  </div>
+</dialog>
 
-            if (savedChapters) {
-                try { chapters = JSON.parse(savedChapters); } catch(e) { chapters = JSON.parse(JSON.stringify(publishedChapters)); }
-            } else {
-                chapters = JSON.parse(JSON.stringify(publishedChapters));
-            }
+<!-- ===================== MODAL: CONFIGURAR FIREBASE ===================== -->
+<dialog id="dlgFirebase" aria-labelledby="fbTitle">
+  <form class="dlg" id="fbForm" novalidate>
+    <div class="dlg-head">
+      <div><h2 id="fbTitle">⚙️ Configurar Firebase</h2><p>Opcional. Sem Firebase, o site usa o armazenamento local do navegador.</p></div>
+      <button class="x" type="button" data-close aria-label="Fechar">✕</button>
+    </div>
+    <div class="dlg-body">
+      <div class="field">
+        <label for="fbConfig">Configuração do app web (firebaseConfig)</label>
+        <textarea id="fbConfig" style="min-height:190px;font-family:var(--font-mono);font-size:.88rem" spellcheck="false" placeholder='{
+  "apiKey": "...",
+  "authDomain": "...",
+  "projectId": "...",
+  "storageBucket": "...",
+  "messagingSenderId": "...",
+  "appId": "..."
+}'></textarea>
+        <span class="hint">No console do Firebase: Configurações do projeto → Seus apps → Config. Cole o objeto inteiro (pode ser com <code>const firebaseConfig = {…}</code>). Use o Firestore e permita leitura pública e escrita para você nas regras.</span>
+      </div>
+      <p id="fbStatus" class="hint"></p>
+    </div>
+    <div class="dlg-foot">
+      <button class="btn btn-danger" type="button" id="fbRemove">Remover configuração</button>
+      <button class="btn btn-ghost" type="button" data-close>Cancelar</button>
+      <button class="btn btn-primary" type="submit">Salvar configuração</button>
+    </div>
+  </form>
+</dialog>
 
-            if (savedRef) {
-                try { reflection = JSON.parse(savedRef); } catch(e) { reflection = JSON.parse(JSON.stringify(publishedReflection)); }
-            } else {
-                reflection = JSON.parse(JSON.stringify(publishedReflection));
-            }
+<!-- ===================== MODAL: GALERIA AMPLIADA ===================== -->
+<dialog id="dlgLightbox" aria-label="Foto ampliada">
+  <div class="lb">
+    <button class="x lb-close" type="button" data-close aria-label="Fechar foto">✕</button>
+    <button class="lb-nav lb-prev" type="button" id="lbPrev" aria-label="Foto anterior">‹</button>
+    <img id="lbImg" alt="">
+    <button class="lb-nav lb-next" type="button" id="lbNext" aria-label="Próxima foto">›</button>
+  </div>
+  <p class="lb-count" id="lbCount"></p>
+</dialog>
+
+
+<!-- =====================================================================
+     DADOS PUBLICADOS DO PORTFÓLIO
+     Este bloco é reescrito automaticamente pelo botão "Publicar alterações".
+     Não edite entre os dois marcadores abaixo. Mantenha os marcadores.
+     ===================================================================== -->
+<script id="published-data">
+/* PORTFOLIO_DATA_START */
+const PUBLISHED_PORTFOLIO_DATA = null;
+/* PORTFOLIO_DATA_END */
+</script>
+
+<!-- =====================================================================
+     APLICAÇÃO
+     ===================================================================== -->
+<script>
+(() => {
+'use strict';
+
+/* =====================================================================
+   1. CONFIGURAÇÃO DO GITHUB  (valores fixos: a branch é main)
+   ===================================================================== */
+const GITHUB_OWNER     = "flaviolyra-jpg";
+const GITHUB_REPO      = "index.html";
+const GITHUB_BRANCH    = "main";
+const GITHUB_FILE      = "index.html";
+const GITHUB_PAGES_URL = "https://flaviolyra-jpg.github.io/index.html/";
+const GITHUB_API_URL   = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`;
+const COMMIT_MESSAGE   = "Atualização do portfólio acadêmico";
+
+/* Marcadores do bloco de dados (montados por concatenação para não
+   aparecerem inteiros aqui dentro e confundirem a busca no HTML). */
+const MARK_START = '/* PORTFOLIO_DATA' + '_START */';
+const MARK_END   = '/* PORTFOLIO_DATA' + '_END */';
+
+/* =====================================================================
+   2. OUTRAS CONSTANTES
+   ===================================================================== */
+const DEFAULT_GOAL = 20;                         // meta padrão de aulas no bimestre
+const LS_DRAFT     = 'portfolio_flavio_rascunho_v1';   // rascunho do administrador
+const LS_FIREBASE  = 'portfolio_flavio_firebase_v1';   // configuração do Firebase (não é segredo)
+const SS_ADMIN     = 'portfolio_flavio_admin';         // lembra o modo admin só nesta aba
+const FIREBASE_CONFIG_EMBEDDED = null;           // opcional: cole aqui o firebaseConfig para valer em qualquer computador
+const FIREBASE_COLLECTION = 'portfolios';
+const FIREBASE_DOC        = 'flavio-eletricidade-4bim';
+
+/* =====================================================================
+   3. UTILITÁRIOS
+   ===================================================================== */
+const $  = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const pad2 = n => String(n).padStart(2, '0');
+const uid = () => 'a' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+const prefersReduced = () => !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+function todayISO() {
+  const d = new Date();
+  return `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`;
+}
+function fmtDate(iso) {                      // 2026-05-12 -> 12/05/2026 (sem problemas de fuso)
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
+  return m ? `${m[3]}/${m[2]}/${m[1]}` : '';
+}
+function isHttpUrl(u) {
+  try { const p = new URL(String(u).trim()); return p.protocol === 'http:' || p.protocol === 'https:'; }
+  catch { return false; }
+}
+const withTimeout = (p, ms = 7000) =>
+  Promise.race([p, new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), ms))]);
+
+/* Base64 com suporte total a UTF-8 (acentos, ç, ã, õ...) */
+function utf8ToBase64(str) {
+  const bytes = new TextEncoder().encode(str);
+  let bin = '';
+  for (let i = 0; i < bytes.length; i += 0x8000) {
+    bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+  }
+  return btoa(bin);
+}
+function base64ToUtf8(b64) {
+  const bin = atob(String(b64).replace(/\s/g, ''));
+  const bytes = Uint8Array.from(bin, c => c.charCodeAt(0));
+  return new TextDecoder('utf-8').decode(bytes);
+}
+
+/* JSON seguro para embutir dentro de uma tag <script> */
+function safeJson(data) {
+  return JSON.stringify(data, null, 2)
+    .replace(/</g, '\\u003c')
+    .replace(/\u2028/g, '\\u2028')
+    .replace(/\u2029/g, '\\u2029')
+    .replace(/\*\//g, '*\\/');
+}
+
+function toast(msg, type = '') {
+  const el = document.createElement('div');
+  el.className = 'toast ' + type;
+  el.textContent = msg;
+  $('#toasts').appendChild(el);
+  setTimeout(() => { el.classList.add('out'); setTimeout(() => el.remove(), 320); }, 3400);
+}
+
+function animateNumber(el, to, suffix = '') {
+  const from = el._v ?? 0;
+  el._v = to;
+  if (prefersReduced() || from === to) { el.textContent = to + suffix; return; }
+  const t0 = performance.now(), dur = 700;
+  const tick = now => {
+    const k = Math.min(1, (now - t0) / dur);
+    el.textContent = Math.round(from + (to - from) * (1 - Math.pow(1 - k, 3))) + suffix;
+    if (k < 1) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+
+/* =====================================================================
+   4. ESTADO E DADOS
+   ===================================================================== */
+const state = {
+  lessons: [],            // aulas exibidas / em edição
+  goal: DEFAULT_GOAL,     // meta de aulas do bimestre
+  published: null,        // última versão publicada ({publishedAt, goal, lessons})
+  source: 'vazio',        // de onde vieram os dados: publicado | firebase | local | vazio
+  admin: false,
+  loading: true,
+  query: '',
+  editingId: null,
+  formPhotos: [],
+  viewId: null,
+  lb: { photos: [], idx: 0 },
+  badgesSeen: null
+};
+
+function sanitizeGoal(g) {
+  const n = parseInt(g, 10);
+  return n >= 1 && n <= 200 ? n : DEFAULT_GOAL;
+}
+
+function normLesson(l) {
+  l = l || {};
+  return {
+    id: String(l.id || uid()),
+    number: Math.max(1, parseInt(l.number, 10) || 1),
+    date: /^\d{4}-\d{2}-\d{2}$/.test(l.date || '') ? l.date : todayISO(),
+    title: String(l.title || 'Aula sem título').trim(),
+    summary: String(l.summary || '').trim(),
+    content: String(l.content || '').trim(),
+    reflection: String(l.reflection || '').trim(),
+    photos: Array.isArray(l.photos) ? l.photos.map(p => String(p).trim()).filter(isHttpUrl) : []
+  };
+}
+const sortLessons = list => list.sort((a, b) => a.number - b.number || a.date.localeCompare(b.date));
+
+function normalizePublished(d) {
+  if (!d || typeof d !== 'object' || !Array.isArray(d.lessons) || !d.publishedAt) return null;
+  return { publishedAt: String(d.publishedAt), goal: sanitizeGoal(d.goal), lessons: sortLessons(d.lessons.map(normLesson)) };
+}
+
+function applySnapshot(s) {
+  state.lessons = sortLessons((s.lessons || []).map(normLesson));
+  state.goal = sanitizeGoal(s.goal);
+}
+
+const currentBase = () => state.published ? state.published.publishedAt : null;
+
+function isDirty() {
+  const p = state.published;
+  const base = p ? { goal: p.goal, lessons: p.lessons } : { goal: DEFAULT_GOAL, lessons: [] };
+  return JSON.stringify({ goal: state.goal, lessons: state.lessons }) !== JSON.stringify(base);
+}
+
+/* ---------- Rascunho local (localStorage) ----------
+   O rascunho só é lido no MODO ADMINISTRADOR e somente se tiver sido
+   criado a partir da versão publicada atual. Assim, um localStorage
+   antigo nunca sobrescreve os dados publicados. */
+function readDraft() {
+  try {
+    const raw = localStorage.getItem(LS_DRAFT);
+    if (!raw) return null;
+    const d = JSON.parse(raw);
+    if (!d || !Array.isArray(d.lessons)) return null;
+    return { baseVersion: d.baseVersion ?? null, savedAt: d.savedAt || '', goal: d.goal, lessons: d.lessons };
+  } catch { return null; }
+}
+function writeDraft() {
+  try {
+    localStorage.setItem(LS_DRAFT, JSON.stringify({
+      baseVersion: currentBase(), savedAt: new Date().toISOString(), goal: state.goal, lessons: state.lessons
+    }));
+  } catch { toast('Não foi possível guardar o rascunho neste navegador.', 'err'); }
+}
+
+/* ---------- Firebase (opcional) ---------- */
+const scriptCache = {};
+function loadScript(src) {
+  if (!scriptCache[src]) {
+    scriptCache[src] = new Promise((res, rej) => {
+      const s = document.createElement('script');
+      s.src = src; s.onload = res; s.onerror = () => rej(new Error('script'));
+      document.head.appendChild(s);
+    });
+  }
+  return scriptCache[src];
+}
+function getFirebaseConfig() {
+  if (FIREBASE_CONFIG_EMBEDDED) return FIREBASE_CONFIG_EMBEDDED;
+  try { return JSON.parse(localStorage.getItem(LS_FIREBASE) || 'null'); } catch { return null; }
+}
+let fbDb = null;
+async function initFirebase() {
+  const cfg = getFirebaseConfig();
+  if (!cfg || !cfg.apiKey || !cfg.projectId) return null;
+  if (fbDb) return fbDb;
+  await loadScript('https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js');
+  await loadScript('https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js');
+  if (!firebase.apps.length) firebase.initializeApp(cfg);
+  fbDb = firebase.firestore();
+  return fbDb;
+}
+async function remoteLoad() {
+  try {
+    if (!getFirebaseConfig()) return null;
+    const db = await withTimeout(initFirebase());
+    if (!db) return null;
+    const snap = await withTimeout(db.collection(FIREBASE_COLLECTION).doc(FIREBASE_DOC).get());
+    const d = snap.exists ? snap.data() : null;
+    return d && Array.isArray(d.lessons) ? { baseVersion: d.baseVersion ?? null, savedAt: d.savedAt || '', goal: d.goal, lessons: d.lessons } : null;
+  } catch { return null; }
+}
+async function remoteSave() {
+  try {
+    if (!getFirebaseConfig()) return;
+    const db = await withTimeout(initFirebase());
+    if (!db) return;
+    await withTimeout(db.collection(FIREBASE_COLLECTION).doc(FIREBASE_DOC).set({
+      baseVersion: currentBase(), savedAt: new Date().toISOString(), goal: state.goal,
+      lessons: JSON.parse(JSON.stringify(state.lessons))
+    }));
+  } catch { toast('Firebase indisponível. O rascunho ficou salvo só neste navegador.', 'err'); }
+}
+
+/* ---------- Carregamento ----------
+   Prioridade: 1) dados publicados no index.html  2) Firebase  3) localStorage */
+async function loadPublicData() {
+  if (state.published) {
+    applySnapshot(state.published);
+    state.source = 'publicado';
+    return;
+  }
+  const remote = await remoteLoad();
+  if (remote) { applySnapshot(remote); state.source = 'firebase'; return; }
+  const draft = readDraft();
+  if (draft) { applySnapshot(draft); state.source = 'local'; return; }
+  applySnapshot({ goal: DEFAULT_GOAL, lessons: [] });
+  state.source = 'vazio';
+}
+
+/* Salva o rascunho (local e, se configurado, no Firebase) */
+function persist() {
+  writeDraft();
+  remoteSave();
+  renderAll();
+}
+
+/* =====================================================================
+   5. MODAIS
+   ===================================================================== */
+const dlgLesson = $('#dlgLesson'), dlgForm = $('#dlgForm'), dlgConfirm = $('#dlgConfirm'),
+      dlgPublish = $('#dlgPublish'), dlgFirebase = $('#dlgFirebase'), dlgLightbox = $('#dlgLightbox');
+const openDlg = d => { if (!d.open) d.showModal(); };
+
+function askConfirm({ title, message, okLabel = 'Confirmar' }) {
+  return new Promise(resolve => {
+    $('#cfTitle').textContent = title;
+    $('#cfMsg').textContent = message;
+    $('#cfOk').textContent = okLabel;
+    dlgConfirm.returnValue = '';
+    const onClose = () => { dlgConfirm.removeEventListener('close', onClose); resolve(dlgConfirm.returnValue === 'ok'); };
+    dlgConfirm.addEventListener('close', onClose);
+    openDlg(dlgConfirm);
+  });
+}
+
+/* =====================================================================
+   6. RENDERIZAÇÃO
+   ===================================================================== */
+function stats() {
+  const count = state.lessons.length, goal = state.goal;
+  return {
+    count, goal,
+    pct: goal ? Math.min(100, Math.round(count / goal * 100)) : 0,
+    photos: state.lessons.reduce((s, l) => s + l.photos.length, 0),
+    reflections: state.lessons.filter(l => l.reflection.length >= 40).length
+  };
+}
+
+const BADGES = [
+  { id: 'first',   icon: '🔌', name: 'Primeira ligação',  desc: 'Registre a primeira aula',          test: s => s.count >= 1 },
+  { id: 'five',    icon: '⚡', name: 'Em corrente',       desc: 'Registre 5 aulas',                  test: s => s.count >= 5 },
+  { id: 'ten',     icon: '🧠', name: 'Circuito fechado',  desc: 'Registre 10 aulas',                 test: s => s.count >= 10 },
+  { id: 'photo',   icon: '📸', name: 'Registro visual',   desc: 'Adicione 5 fotos nas galerias',     test: s => s.photos >= 5 },
+  { id: 'reflect', icon: '✍️', name: 'Mente aberta',      desc: 'Escreva reflexão em 3 aulas',       test: s => s.reflections >= 3 },
+  { id: 'goal',    icon: '🏁', name: 'Meta do bimestre',  desc: 'Alcance a meta de aulas',           test: s => s.goal > 0 && s.count >= s.goal }
+];
+
+function renderStats() {
+  const s = stats();
+  animateNumber($('#stCount'), s.count);
+  animateNumber($('#stGoal'), s.goal);
+  animateNumber($('#stPct'), s.pct, '%');
+  animateNumber($('#stPhotos'), s.photos);
+  animateNumber($('#scAulas'), s.count);
+  animateNumber($('#scMeta'), s.goal);
+  animateNumber($('#scPct'), s.pct, '%');
+  $('#cpFill').style.width = s.pct + '%';
+  $('#cpTrack').setAttribute('aria-valuenow', s.pct);
+  $('#cpText').textContent = `${s.count} de ${s.goal} aulas`;
+  $('#cpLamp').classList.toggle('on', s.pct >= 100);
+
+  /* nós do circuito: um por aula da meta (até 40) */
+  const nodes = $('#cpNodes');
+  const n = s.goal <= 40 ? s.goal : 0;
+  nodes.innerHTML = Array.from({ length: n }, (_, i) => `<i class="${i < s.count ? 'on' : ''}"></i>`).join('');
+
+  /* conquistas */
+  const unlocked = BADGES.filter(b => b.test(s)).map(b => b.id);
+  const fresh = state.badgesSeen ? unlocked.filter(id => !state.badgesSeen.includes(id)) : [];
+  $('#badges').innerHTML = BADGES.map(b => {
+    const on = unlocked.includes(b.id);
+    return `<span class="badge ${on ? '' : 'locked'} ${fresh.includes(b.id) ? 'pop' : ''}" title="${esc(b.desc)}">${b.icon} ${esc(b.name)}</span>`;
+  }).join('');
+  fresh.forEach(id => toast('🏅 Nova conquista: ' + BADGES.find(b => b.id === id).name));
+  state.badgesSeen = unlocked;
+}
+
+const summaryOf = l => l.summary || (l.content.length > 150 ? l.content.slice(0, 150).trim() + '…' : l.content) || 'Sem resumo ainda.';
+
+function cardHTML(l, i) {
+  const cover = l.photos[0]
+    ? `<img src="${esc(l.photos[0])}" alt="" loading="lazy" data-photo>`
+    : `<span class="ghost" aria-hidden="true">${pad2(l.number)}</span>`;
+  const photos = l.photos.length ? `<p class="card-photos">📷 ${l.photos.length} ${l.photos.length === 1 ? 'foto' : 'fotos'}</p>` : '';
+  const admin = state.admin ? `
+      <button class="btn btn-ghost btn-sm" type="button" data-act="edit" data-id="${esc(l.id)}">✏️ Editar</button>
+      <button class="btn btn-danger btn-sm" type="button" data-act="delete" data-id="${esc(l.id)}">🗑️ Excluir</button>` : '';
+  return `
+  <article class="card" style="--i:${Math.min(i, 12)}">
+    <div class="cover">${cover}<span class="num">Aula ${pad2(l.number)}</span></div>
+    <div class="card-body">
+      <time datetime="${esc(l.date)}">${fmtDate(l.date)}</time>
+      <h3>${esc(l.title)}</h3>
+      <p>${esc(summaryOf(l))}</p>
+    </div>
+    ${photos}
+    <div class="card-actions">
+      <button class="btn btn-primary open" type="button" data-act="open" data-id="${esc(l.id)}">Abrir aula</button>${admin}
+    </div>
+  </article>`;
+}
+
+function renderLessons() {
+  const grid = $('#lessonGrid');
+  if (state.loading) { grid.innerHTML = '<div class="empty">Carregando aulas…</div>'; return; }
+  const q = state.query.trim().toLowerCase();
+  const all = state.lessons;
+  const list = q ? all.filter(l => [l.title, l.summary, l.content, l.reflection, 'aula ' + l.number, fmtDate(l.date)].join(' ').toLowerCase().includes(q)) : all;
+
+  if (!all.length) {
+    grid.innerHTML = `<div class="empty"><svg><use href="#ic-resistor"/></svg>
+      <strong>Nenhuma aula registrada ainda</strong>
+      ${state.admin ? 'Comece registrando a primeira aula do bimestre.<br><button class="btn btn-primary btn-caps" type="button" data-admin="new">+ Nova Aula</button>'
+                    : 'As aulas do bimestre aparecerão aqui em breve.'}</div>`;
+    return;
+  }
+  if (!list.length) {
+    grid.innerHTML = `<div class="empty"><strong>Nenhuma aula encontrada</strong>Tente buscar por outro título, data ou palavra do conteúdo.</div>`;
+    return;
+  }
+  grid.innerHTML = list.map(cardHTML).join('');
+}
+
+function renderAdmin() {
+  $('#adminBar').hidden = !state.admin;
+  $$('.admin-only').forEach(el => { el.hidden = !state.admin; });
+  $('#btnAdminEnter').hidden = state.admin;
+  $('#btnAdminFooter').hidden = state.admin;
+  if (!state.admin) return;
+  const dirty = isDirty(), flag = $('#dirtyFlag');
+  flag.className = 'dirty' + (dirty ? ' is-dirty' : '');
+  flag.textContent = dirty ? '● Alterações ainda não publicadas'
+    : (state.published ? '✓ Tudo publicado' : 'Nenhuma aula criada');
+  $('#btnPublish').classList.toggle('is-dirty', dirty);
+  if (document.activeElement !== $('#goalInput')) $('#goalInput').value = state.goal;
+}
+
+function renderFooter() {
+  const el = $('#dataSource');
+  if (state.source === 'publicado' && state.published) {
+    el.textContent = 'Versão publicada em ' + new Date(state.published.publishedAt).toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' });
+  } else if (state.source === 'firebase') el.textContent = 'Dados carregados do Firebase (ainda não publicados no GitHub).';
+  else if (state.source === 'local') el.textContent = 'Dados locais deste navegador (ainda não publicados no GitHub).';
+  else el.textContent = '';
+}
+
+function renderAll() {
+  renderStats(); renderLessons(); renderAdmin(); renderFooter();
+}
+
+/* =====================================================================
+   7. AULAS: VISUALIZAR, CRIAR, EDITAR, EXCLUIR
+   ===================================================================== */
+function openLesson(id) {
+  const l = state.lessons.find(x => x.id === id);
+  if (!l) return;
+  state.viewId = id;
+  $('#lvNum').textContent = 'Aula ' + pad2(l.number);
+  $('#lvDate').textContent = fmtDate(l.date);
+  $('#lvDate').dateTime = l.date;
+  $('#lvTitle').textContent = l.title;
+  const sec = (title, text) => `<div class="lv-sec"><h3>${title}</h3>${text
+    ? `<p class="prose">${esc(text)}</p>` : '<p class="muted">Ainda não registrado.</p>'}</div>`;
+  const gallery = l.photos.length
+    ? `<div class="gallery">${l.photos.map((p, i) => `<button type="button" data-lb="${i}" aria-label="Ampliar foto ${i + 1}"><img src="${esc(p)}" alt="Foto ${i + 1} da aula ${esc(l.title)}" loading="lazy" data-photo></button>`).join('')}</div>`
+    : '<p class="muted">Nenhuma foto adicionada a esta aula.</p>';
+  $('#lvBody').innerHTML = sec('Conteúdo ministrado', l.content) + sec('Desenvolvimento e reflexão', l.reflection)
+    + `<div class="lv-sec"><h3>Galeria da aula</h3>${gallery}</div>`;
+  $('#lvFoot').innerHTML = (state.admin ? `
+      <button class="btn btn-danger" type="button" data-act="delete" data-id="${esc(l.id)}">🗑️ Excluir</button>
+      <button class="btn btn-ghost" type="button" data-act="edit" data-id="${esc(l.id)}">✏️ Editar</button>` : '')
+    + '<button class="btn btn-primary" type="button" data-close>Fechar</button>';
+  $('#lvBody').scrollTop = 0;
+  openDlg(dlgLesson);
+}
+
+function renderFormPhotos() {
+  $('#fThumbs').innerHTML = state.formPhotos.map((u, i) =>
+    `<div class="thumb"><img src="${esc(u)}" alt="Foto ${i + 1}" data-photo><button type="button" data-rm="${i}" aria-label="Remover foto ${i + 1}">✕</button></div>`).join('');
+}
+
+function openLessonForm(id) {
+  const l = id ? state.lessons.find(x => x.id === id) : null;
+  state.editingId = l ? l.id : null;
+  state.formPhotos = l ? [...l.photos] : [];
+  $('#formTitle').textContent = l ? 'Editar aula' : 'Nova aula';
+  $('#fNumber').value = l ? l.number : (state.lessons.reduce((m, x) => Math.max(m, x.number), 0) + 1);
+  $('#fDate').value = l ? l.date : todayISO();
+  $('#fTitle').value = l ? l.title : '';
+  $('#fSummary').value = l ? l.summary : '';
+  $('#fContent').value = l ? l.content : '';
+  $('#fReflection').value = l ? l.reflection : '';
+  $('#fPhotoUrl').value = '';
+  renderFormPhotos();
+  dlgLesson.close();
+  openDlg(dlgForm);
+  setTimeout(() => $('#fTitle').focus(), 60);
+}
+
+function addPhotosFromInput() {
+  const input = $('#fPhotoUrl');
+  const urls = input.value.split(/\s+/).map(s => s.trim()).filter(Boolean);
+  if (!urls.length) return;
+  const bad = urls.filter(u => !isHttpUrl(u));
+  urls.filter(isHttpUrl).forEach(u => { if (!state.formPhotos.includes(u)) state.formPhotos.push(u); });
+  renderFormPhotos();
+  if (bad.length) { toast('Link inválido. Use um endereço que comece com http:// ou https://', 'err'); input.value = bad.join(' '); }
+  else input.value = '';
+}
+
+function saveLessonFromForm(e) {
+  e.preventDefault();
+  addPhotosFromInput();                         // aproveita um link digitado e não adicionado
+  const title = $('#fTitle').value.trim();
+  const number = parseInt($('#fNumber').value, 10);
+  const date = $('#fDate').value;
+  if (!title) { toast('Informe o título da aula.', 'err'); $('#fTitle').focus(); return; }
+  if (!(number >= 1)) { toast('Informe o número da aula (1 ou mais).', 'err'); $('#fNumber').focus(); return; }
+  if (!date) { toast('Informe a data da aula.', 'err'); $('#fDate').focus(); return; }
+
+  const lesson = normLesson({
+    id: state.editingId || uid(), number, date, title,
+    summary: $('#fSummary').value, content: $('#fContent').value,
+    reflection: $('#fReflection').value, photos: state.formPhotos
+  });
+  const idx = state.lessons.findIndex(x => x.id === lesson.id);
+  if (idx >= 0) state.lessons[idx] = lesson; else state.lessons.push(lesson);
+  sortLessons(state.lessons);
+  dlgForm.close();
+  persist();
+  toast(idx >= 0 ? '✏️ Aula atualizada.' : '✅ Aula adicionada ao portfólio.');
+}
+
+async function deleteLesson(id) {
+  const l = state.lessons.find(x => x.id === id);
+  if (!l) return;
+  const ok = await askConfirm({
+    title: 'Excluir aula?',
+    message: `Você vai excluir a Aula ${pad2(l.number)} — “${l.title}”, com todas as fotos. Esta ação só pode ser desfeita se você ainda não tiver publicado.`,
+    okLabel: '🗑️ Excluir'
+  });
+  if (!ok) return;
+  state.lessons = state.lessons.filter(x => x.id !== id);
+  dlgLesson.close();
+  persist();
+  toast('🗑️ Aula excluída.');
+}
+
+/* Galeria ampliada */
+function openLightbox(photos, idx) {
+  state.lb = { photos, idx };
+  showLightbox();
+  openDlg(dlgLightbox);
+}
+function showLightbox() {
+  const { photos, idx } = state.lb;
+  $('#lbImg').src = photos[idx];
+  $('#lbImg').alt = `Foto ${idx + 1} de ${photos.length}`;
+  $('#lbCount').textContent = `${idx + 1} / ${photos.length}`;
+  const multi = photos.length > 1;
+  $('#lbPrev').hidden = !multi; $('#lbNext').hidden = !multi;
+}
+function stepLightbox(d) {
+  const n = state.lb.photos.length;
+  state.lb.idx = (state.lb.idx + d + n) % n;
+  showLightbox();
+}
+
+/* =====================================================================
+   8. MODO ADMINISTRADOR
+   ===================================================================== */
+async function enterAdmin() {
+  state.admin = true;
+  try { sessionStorage.setItem(SS_ADMIN, '1'); } catch {}
+  /* usa o rascunho (local ou Firebase) apenas se partiu da versão publicada atual */
+  const cands = [readDraft(), await remoteLoad()]
+    .filter(d => d && d.baseVersion === currentBase())
+    .sort((a, b) => String(b.savedAt).localeCompare(String(a.savedAt)));
+  if (cands[0]) applySnapshot(cands[0]);
+  renderAll();
+}
+function exitAdmin() {
+  const dirty = isDirty();
+  state.admin = false;
+  try { sessionStorage.removeItem(SS_ADMIN); } catch {}
+  if (state.published) applySnapshot(state.published);   // visão pública = versão publicada
+  renderAll();
+  toast(dirty ? 'Você saiu. As alterações não publicadas continuam salvas neste navegador.' : '🚪 Você saiu do modo administrador.');
+}
+
+/* ---------- Firebase: janela de configuração ---------- */
+function parseFirebaseConfig(text) {
+  const a = text.indexOf('{'), b = text.lastIndexOf('}');
+  if (a < 0 || b <= a) throw new Error('Cole o objeto de configuração do Firebase, começando em { e terminando em }.');
+  let body = text.slice(a, b + 1)
+    .replace(/\/\*[\s\S]*?\*\//g, '')
+    .replace(/(^|[^:"'\w])\/\/.*$/gm, '$1');
+  let cfg;
+  try { cfg = JSON.parse(body); }
+  catch {
+    try {
+      body = body.replace(/'/g, '"').replace(/([{,]\s*)([A-Za-z_$][\w$]*)\s*:/g, '$1"$2":').replace(/,\s*}/g, '}');
+      cfg = JSON.parse(body);
+    } catch { throw new Error('Não consegui ler essa configuração. Copie o objeto exatamente como o Firebase mostra.'); }
+  }
+  if (!cfg.apiKey || !cfg.projectId) throw new Error('Faltam campos obrigatórios: apiKey e projectId.');
+  return cfg;
+}
+function openFirebaseDialog() {
+  const cfg = getFirebaseConfig();
+  $('#fbConfig').value = cfg ? JSON.stringify(cfg, null, 2) : '';
+  $('#fbStatus').textContent = cfg ? `Configurado para o projeto “${cfg.projectId}”.` : 'Nenhum Firebase configurado. O site está usando o modo local.';
+  $('#fbRemove').hidden = !cfg || !!FIREBASE_CONFIG_EMBEDDED;
+  openDlg(dlgFirebase);
+}
+
+/* =====================================================================
+   9. PUBLICAÇÃO NO GITHUB
+   ===================================================================== */
+class PublishError extends Error {
+  constructor(message, hint = '') { super(message); this.hint = hint; }
+}
+
+function ghStatusError(status) {
+  if (status === 401 || status === 403)
+    return new PublishError('❌ Token do GitHub inválido ou sem permissão.',
+      'Confira se o token não expirou e se tem permissão de escrita em Contents (ou o escopo repo) neste repositório.');
+  if (status === 404)
+    return new PublishError('❌ Não foi possível encontrar o arquivo no GitHub. Verifique o usuário, repositório, arquivo e branch.',
+      `A branch correta é ${GITHUB_BRANCH}. Procurei por ${GITHUB_OWNER}/${GITHUB_REPO}, arquivo ${GITHUB_FILE}. Se o repositório for privado, o token também precisa ter acesso a ele.`);
+  if (status === 409 || status === 422)
+    return new PublishError('⚠️ O arquivo foi alterado no GitHub. Tente publicar novamente.',
+      'Alguém (ou outro computador) atualizou o index.html enquanto você publicava. Clique em “Tentar novamente”.');
+  return new PublishError(`❌ O GitHub respondeu com um erro (código ${status}). Tente novamente em instantes.`);
+}
+
+/* Chamada à API do GitHub. O token só é usado no cabeçalho desta requisição. */
+async function ghFetch(url, options, token) {
+  let res;
+  try {
+    res = await fetch(url, {
+      ...options,
+      cache: 'no-store',
+      headers: { 'Accept': 'application/vnd.github+json', 'Authorization': 'Bearer ' + token, ...(options.headers || {}) }
+    });
+  } catch {
+    throw new PublishError('❌ Não foi possível conectar ao GitHub.', 'Verifique sua conexão com a internet e tente de novo.');
+  }
+  if (!res.ok) throw ghStatusError(res.status);
+  return res;
+}
+
+/* Lê o index.html atual do GitHub (branch main): devolve SHA e texto */
+async function githubGetFile(token) {
+  const url = `${GITHUB_API_URL}?ref=${encodeURIComponent(GITHUB_BRANCH)}`;
+  const res = await ghFetch(url, { method: 'GET' }, token);
+  const json = await res.json();
+  if (!json || !json.sha) throw new PublishError('❌ Resposta inesperada do GitHub.', 'Tente novamente.');
+  let html;
+  if (json.encoding === 'base64' && json.content) {
+    html = base64ToUtf8(json.content);
+  } else {                                           // arquivos grandes vêm sem conteúdo embutido
+    const raw = await ghFetch(url, { method: 'GET', headers: { 'Accept': 'application/vnd.github.raw+json' } }, token);
+    html = await raw.text();
+  }
+  return { sha: json.sha, html };
+}
+
+/* Troca somente o bloco de dados publicados dentro do HTML */
+function injectPublishedData(html, data) {
+  const a = html.indexOf(MARK_START);
+  const b = a >= 0 ? html.indexOf(MARK_END, a + MARK_START.length) : -1;
+  if (a < 0 || b < 0) {
+    throw new PublishError('❌ O index.html que está no GitHub não tem a área de dados do portfólio.',
+      'Envie primeiro este arquivo index.html completo para o repositório (branch main) e publique de novo.');
+  }
+  return html.slice(0, a + MARK_START.length)
+    + '\nconst PUBLISHED_PORTFOLIO_DATA = ' + safeJson(data) + ';\n'
+    + html.slice(b);
+}
+
+/* Etapas na janela de publicação */
+const PUB_STEPS = [
+  'Lendo o index.html atual no GitHub (branch main)',
+  'Atualizando os dados do portfólio',
+  'Enviando o commit para a branch main'
+];
+function setPubView(view) {
+  $('#pubForm').hidden = view !== 'idle';
+  $('#pubSteps').hidden = view !== 'working';
+  $('#pubDone').hidden = view !== 'done';
+  $('#pubError').hidden = view !== 'error';
+  $('#pubX').hidden = view === 'working';
+  const foot = $('#pubFoot');
+  if (view === 'idle') foot.innerHTML = '<button class="btn btn-ghost" type="button" data-close>Cancelar</button><button class="btn btn-primary btn-caps" type="button" id="pubGo">🚀 Publicar agora</button>';
+  else if (view === 'done') foot.innerHTML = `<button class="btn btn-ghost" type="button" data-close>Fechar</button><a class="btn btn-primary btn-caps" href="${GITHUB_PAGES_URL}" target="_blank" rel="noopener">🌐 Abrir portfólio publicado</a>`;
+  else if (view === 'error') foot.innerHTML = '<button class="btn btn-ghost" type="button" data-close>Fechar</button><button class="btn btn-primary" type="button" id="pubRetry">Tentar novamente</button>';
+  else foot.innerHTML = '';
+}
+function setStep(n, status) {                    // status: active | done
+  $('#pubSteps').innerHTML = PUB_STEPS.map((t, i) => {
+    const st = i < n ? 'done' : (i === n ? status : '');
+    const mark = st === 'done' ? '✔' : (st === 'active' ? '<span class="spin"></span>' : '○');
+    return `<li class="${st}"><span class="st">${mark}</span>${esc(t)}</li>`;
+  }).join('');
+}
+function openPublish() {
+  $('#pubOwner').textContent = GITHUB_OWNER;
+  $('#pubRepo').textContent = GITHUB_REPO;
+  $('#pubBranch').textContent = GITHUB_BRANCH;
+  $('#pubFile').textContent = GITHUB_FILE;
+  $('#pubToken').value = '';
+  setPubView('idle');
+  openDlg(dlgPublish);
+  setTimeout(() => $('#pubToken').focus(), 80);
+}
+
+async function runPublish() {
+  const field = $('#pubToken');
+  let token = field.value.trim();
+  field.value = '';                              // o token sai do campo imediatamente
+  if (!token) {
+    $('#pubErrMsg').textContent = '❌ Cole o seu Personal Access Token do GitHub para publicar.';
+    $('#pubErrHint').textContent = 'Ele é pedido a cada publicação e nunca é guardado.';
+    setPubView('error');
+    return;
+  }
+  setPubView('working');
+  try {
+    setStep(0, 'active');
+    const file = await githubGetFile(token);     // SHA + conteúdo atual (ref=main)
+    setStep(1, 'active');
+    const data = { version: 1, publishedAt: new Date().toISOString(), goal: state.goal, lessons: state.lessons };
+    const newHtml = injectPublishedData(file.html, data);
+    setStep(2, 'active');
+    await ghFetch(GITHUB_API_URL, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: COMMIT_MESSAGE,
+        content: utf8ToBase64(newHtml),
+        sha: file.sha,
+        branch: GITHUB_BRANCH
+      })
+    }, token);
+    /* sucesso: a versão publicada passa a ser a que acabou de ir ao GitHub */
+    state.published = normalizePublished(data);
+    state.source = 'publicado';
+    writeDraft();
+    remoteSave();
+    renderAll();
+    setPubView('done');
+  } catch (err) {
+    $('#pubErrMsg').textContent = err instanceof PublishError ? err.message : '❌ Algo deu errado ao publicar. Tente novamente.';
+    $('#pubErrHint').textContent = err instanceof PublishError ? err.hint : '';
+    $('#pubErrHint').hidden = !$('#pubErrHint').textContent;
+    setPubView('error');
+  } finally {
+    token = '';                                  // descarta o token da memória
+  }
+}
+
+/* =====================================================================
+   10. CALCULADORA DE RESISTORES
+   ===================================================================== */
+const UNITS = [{ l: 'Ω', f: 1 }, { l: 'kΩ', f: 1e3 }, { l: 'MΩ', f: 1e6 }];
+const mkRow = (v = '', u = 1) => ({ v: String(v), u });
+const calc = {
+  mode: 'serie',
+  simple: [mkRow(100), mkRow(220)],
+  top: 'serie',
+  groups: [
+    { type: 'paralelo', items: [mkRow(100), mkRow(100)] },
+    { type: 'serie',    items: [mkRow(47), mkRow(33)] }
+  ]
+};
+const CALC_ERR = 'Preencha todos os resistores com números maiores ou iguais a zero.';
+
+function parseNum(s) {
+  const t = String(s ?? '').trim().replace(',', '.');
+  if (t === '') return null;
+  const n = Number(t);
+  return isFinite(n) && n >= 0 ? n : null;
+}
+const parseR = r => { const n = parseNum(r.v); return n === null ? null : n * r.u; };
+const sum = a => a.reduce((s, x) => s + x, 0);
+const combine = (type, vals) => type === 'serie' ? sum(vals) : (vals.some(v => v === 0) ? 0 : 1 / sum(vals.map(v => 1 / v)));
+
+function fmtSI(x, unit) {                        // 1200 -> "1,2 kΩ"
+  if (!isFinite(x)) return '∞ ' + unit;
+  if (x === 0) return '0 ' + unit;
+  const P = [[1e9, 'G'], [1e6, 'M'], [1e3, 'k'], [1, ''], [1e-3, 'm'], [1e-6, 'µ'], [1e-9, 'n']];
+  const ax = Math.abs(x);
+  const p = P.find(([f]) => ax >= f * 0.9995) || P[P.length - 1];
+  return (x / p[0]).toLocaleString('pt-BR', { maximumFractionDigits: 3 }) + ' ' + p[1] + unit;
+}
+const fmtR = v => fmtSI(v, 'Ω');
+
+function stepText(type, names, vals, res) {
+  return type === 'serie'
+    ? `${names.join(' + ')} = ${vals.map(fmtR).join(' + ')} = ${fmtR(res)}`
+    : (vals.some(v => v === 0) ? `${names.join(' ∥ ')}: há 0 Ω, curto-circuito = 0 Ω`
+       : `${names.join(' ∥ ')} = 1/(${vals.map(v => '1/' + fmtR(v)).join(' + ')}) = ${fmtR(res)}`);
+}
+
+function computeCalc() {
+  const volts = parseNum($('#calcVolts').value);
+  let top, items, formula, steps = [];
+
+  if (calc.mode !== 'mista') {
+    const vals = calc.simple.map(parseR);
+    if (vals.includes(null)) return { error: CALC_ERR };
+    const names = vals.map((_, i) => 'R' + (i + 1));
+    top = calc.mode;
+    items = vals.map((v, i) => ({ label: names[i], value: v }));
+    formula = top === 'serie' ? 'Req = ' + names.join(' + ') : 'Req = ' + names.join(' ∥ ') + '   (1/Req = ' + names.map(n => '1/' + n).join(' + ') + ')';
+    steps.push(stepText(top, names, vals, combine(top, vals)));
+  } else {
+    top = calc.top;
+    let n = 0;
+    items = [];
+    const exprs = [];
+    for (const [gi, g] of calc.groups.entries()) {
+      const vals = g.items.map(parseR);
+      if (vals.includes(null)) return { error: CALC_ERR };
+      const names = vals.map(() => 'R' + (++n));
+      const req = combine(g.type, vals);
+      items.push({ label: 'Grupo ' + (gi + 1), value: req, name: 'G' + (gi + 1) });
+      exprs.push('(' + names.join(g.type === 'serie' ? ' + ' : ' ∥ ') + ')');
+      steps.push(`G${gi + 1}: ` + stepText(g.type, names, vals, req));
+    }
+    const gnames = items.map(i => i.name);
+    formula = 'Req = ' + exprs.join(top === 'serie' ? ' + ' : ' ∥ ');
+    steps.push('Req: ' + stepText(top, gnames, items.map(i => i.value), combine(top, items.map(i => i.value))));
+  }
+
+  const req = combine(top, items.map(i => i.value));
+  const res = { req, formula, steps, top, items, volts: null };
+  if (volts && volts > 0) {
+    if (req === 0) res.short = true;
+    else {
+      const I = volts / req;
+      res.volts = volts; res.I = I; res.P = volts * I;
+      res.rows = items.map(it => top === 'serie'
+        ? [`V em ${it.label}`, fmtSI(I * it.value, 'V')]
+        : [`I em ${it.label}`, it.value === 0 ? '—' : fmtSI(volts / it.value, 'A')]);
+    }
+  }
+  return res;
+}
+
+function rowHTML(g, i, r, label, canRemove) {
+  return `<div class="rrow"><span class="rlabel">${label}</span>
+    <input type="text" inputmode="decimal" autocomplete="off" placeholder="0" aria-label="Valor de ${label}" data-g="${g}" data-i="${i}" data-f="v" value="${esc(r.v)}">
+    <select aria-label="Unidade de ${label}" data-g="${g}" data-i="${i}" data-f="u">${UNITS.map(u => `<option value="${u.f}" ${u.f === r.u ? 'selected' : ''}>${u.l}</option>`).join('')}</select>
+    <button class="icon-btn" type="button" data-calc="remove" data-g="${g}" data-i="${i}" aria-label="Remover ${label}" ${canRemove ? '' : 'disabled'}>✕</button></div>`;
+}
+const typeOptions = cur => `<option value="serie" ${cur === 'serie' ? 'selected' : ''}>em série</option><option value="paralelo" ${cur === 'paralelo' ? 'selected' : ''}>em paralelo</option>`;
+
+function renderCalcInputs() {
+  $$('[data-calc="mode"]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mode === calc.mode)));
+  let html;
+  if (calc.mode !== 'mista') {
+    html = `<p class="calc-help">${calc.mode === 'serie'
+      ? 'Em série, a corrente é a mesma em todos os resistores e as resistências se somam.'
+      : 'Em paralelo, a tensão é a mesma em todos os resistores e os inversos das resistências se somam.'}</p>`
+      + calc.simple.map((r, i) => rowHTML('s', i, r, 'R' + (i + 1), calc.simple.length > 2)).join('')
+      + '<div class="calc-actions"><button class="btn btn-ghost btn-sm" type="button" data-calc="add" data-g="s">+ Adicionar resistor</button></div>';
+  } else {
+    let n = 0;
+    html = `<p class="calc-help">Monte grupos de resistores e escolha como os grupos se ligam entre si.</p>
+      <div class="top-conn">Os grupos estão ligados <select data-calc="top" aria-label="Ligação entre os grupos">${typeOptions(calc.top)}</select></div>`
+      + calc.groups.map((g, gi) => `
+      <div class="group">
+        <div class="group-head"><strong>Grupo ${gi + 1}</strong>
+          <select data-calc="gtype" data-g="${gi}" aria-label="Tipo do grupo ${gi + 1}">${typeOptions(g.type)}</select>
+          <button class="icon-btn" type="button" data-calc="remove-group" data-g="${gi}" aria-label="Remover grupo ${gi + 1}" ${calc.groups.length > 2 ? '' : 'disabled'}>✕</button>
+        </div>
+        ${g.items.map((r, i) => rowHTML(gi, i, r, 'R' + (++n), g.items.length > 1)).join('')}
+        <button class="btn btn-ghost btn-sm" type="button" data-calc="add" data-g="${gi}">+ Resistor</button>
+      </div>`).join('')
+      + '<div class="calc-actions"><button class="btn btn-ghost btn-sm" type="button" data-calc="add-group">+ Adicionar grupo</button></div>';
+  }
+  $('#calcInputs').innerHTML = html;
+}
+
+let lastReq = null;
+function renderCalcResult() {
+  const box = $('#calcResult');
+  const r = computeCalc();
+  if (r.error) {
+    box.innerHTML = `<p class="res-label">Resistência equivalente</p><p class="res-value">—</p><p class="res-error">${esc(r.error)}</p>`;
+    return;
+  }
+  let elec = '';
+  if (r.short) elec = '<p class="res-error">Req = 0 Ω: é um curto-circuito, a corrente não pode ser calculada.</p>';
+  else if (r.volts) {
+    elec = `<div class="res-elec"><div><span>Corrente total</span><b>${fmtSI(r.I, 'A')}</b></div><div><span>Potência total</span><b>${fmtSI(r.P, 'W')}</b></div></div>
+      <table class="res-table">${r.rows.map(([a, b]) => `<tr><td>${esc(a)}</td><td>${esc(b)}</td></tr>`).join('')}</table>`;
+  }
+  box.innerHTML = `<p class="res-label">Resistência equivalente</p>
+    <p class="res-value" id="resVal">${fmtR(r.req)}</p>
+    <p class="res-formula">${esc(r.formula)}</p>
+    <ol class="res-steps">${r.steps.map(s => `<li>${esc(s)}</li>`).join('')}</ol>${elec}`;
+  if (lastReq !== null && lastReq !== r.req) { const v = $('#resVal'); v.classList.remove('tick'); void v.offsetWidth; v.classList.add('tick'); }
+  lastReq = r.req;
+}
+
+function onCalcClick(e) {
+  const b = e.target.closest('[data-calc]');
+  if (!b || b.tagName === 'SELECT') return;
+  const a = b.dataset.calc, g = b.dataset.g, i = parseInt(b.dataset.i, 10);
+  const list = g === 's' ? calc.simple : (g !== undefined ? calc.groups[+g]?.items : null);
+  if (a === 'mode') calc.mode = b.dataset.mode;
+  else if (a === 'add' && list) list.push(mkRow('', 1));
+  else if (a === 'remove' && list) list.splice(i, 1);
+  else if (a === 'add-group') calc.groups.push({ type: 'serie', items: [mkRow('', 1), mkRow('', 1)] });
+  else if (a === 'remove-group') calc.groups.splice(+g, 1);
+  else return;
+  renderCalcInputs(); renderCalcResult();
+}
+function onCalcInput(e) {
+  const t = e.target;
+  if (t.id === 'calcVolts') return renderCalcResult();
+  if (t.dataset.f) {                              // campo de resistor
+    const list = t.dataset.g === 's' ? calc.simple : calc.groups[+t.dataset.g]?.items;
+    const row = list && list[+t.dataset.i];
+    if (!row) return;
+    if (t.dataset.f === 'v') row.v = t.value; else row.u = Number(t.value);
+    renderCalcResult();
+  } else if (t.dataset.calc === 'top') { calc.top = t.value; renderCalcResult(); }
+  else if (t.dataset.calc === 'gtype') { calc.groups[+t.dataset.g].type = t.value; renderCalcResult(); }
+}
+
+/* =====================================================================
+   11. PARTÍCULAS DO HERO (rede de pontos discreta)
+   ===================================================================== */
+function initParticles() {
+  const canvas = $('#heroCanvas');
+  const ctx = canvas.getContext && canvas.getContext('2d');
+  if (!ctx) return;
+  let w = 0, h = 0, nodes = [], raf = 0;
+
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y, d = Math.hypot(dx, dy);
+        if (d < 130) {
+          ctx.strokeStyle = `rgba(159,191,246,${(1 - d / 130) * 0.45})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath(); ctx.moveTo(nodes[i].x, nodes[i].y); ctx.lineTo(nodes[j].x, nodes[j].y); ctx.stroke();
         }
-
-        // Save Data locally as a draft. This does NOT publish to GitHub.
-        function saveData() {
-            localStorage.setItem('ifrn_portfolio_chapters_v4', JSON.stringify(chapters));
-            localStorage.setItem('ifrn_portfolio_reflection_v4', JSON.stringify(reflection));
-            renderApp();
-            showToast("Rascunho salvo neste computador.");
-        }
-
-        // Data that will become the public version of the portfolio.
-        function getPublicationPayload() {
-            return {
-                version: 2,
-                site: 'ifrn-eletricidade-instrumental',
-                bimestre: '4º BIMESTRE',
-                ano: 2026,
-                aluno: 'Flávio Augusto',
-                disciplina: 'Eletricidade Instrumental',
-                chapters: chapters,
-                reflection: reflection,
-                publishedAt: new Date().toISOString()
-            };
-        }
-
-        function githubBase64(text) {
-            const bytes = new TextEncoder().encode(text);
-            let binary = '';
-            const chunkSize = 0x8000;
-            for (let i = 0; i < bytes.length; i += chunkSize) {
-                binary += String.fromCharCode(...bytes.subarray(i, i + chunkSize));
-            }
-            return btoa(binary);
-        }
-
-        function safePublishedJson(data) {
-            return JSON.stringify(data, null, 2)
-                .replace(/</g, '\\u003c')
-                .replace(/>/g, '\\u003e')
-                .replace(/&/g, '\\u0026');
-        }
-
-        async function getGithubToken() {
-            const token = prompt('Cole seu token do GitHub (ele não será salvo neste site).\n\nEle precisa ter permissão de escrita no conteúdo deste repositório.');
-            if (!token) throw new Error('TOKEN_CANCELADO');
-            return token.trim();
-        }
-
-        // Publica no mesmo index.html do mesmo repositório. A URL não muda.
-        async function publishChanges() {
-            if (isPublishing) return;
-
-            isPublishing = true;
-            const button = document.getElementById('publish-changes-btn');
-            if (button) {
-                button.disabled = true;
-                button.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i> Publicando...';
-                lucide.createIcons();
-            }
-
-            try {
-                const token = await getGithubToken();
-                const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`;
-                const headers = {
-                    'Accept': 'application/vnd.github+json',
-                    'Authorization': `Bearer ${token}`,
-                    'X-GitHub-Api-Version': '2022-11-28',
-                    'Content-Type': 'application/json'
-                };
-
-                // Busca a versão atual do arquivo para obter o SHA exigido pelo GitHub.
-                const currentResponse = await fetch(apiUrl + `?ref=${encodeURIComponent(GITHUB_BRANCH)}`, { headers });
-                if (!currentResponse.ok) throw new Error('GET_' + currentResponse.status);
-                const current = await currentResponse.json();
-
-                const currentHtmlResponse = await fetch(GITHUB_RAW_URL + `?t=${Date.now()}`);
-                if (!currentHtmlResponse.ok) throw new Error('RAW_' + currentHtmlResponse.status);
-                let html = await currentHtmlResponse.text();
-
-                const marker = 'const PUBLISHED_PORTFOLIO_DATA = null;';
-                if (!html.includes(marker)) {
-                    throw new Error('MARCADOR_NAO_ENCONTRADO');
-                }
-
-                html = html.replace(marker, `const PUBLISHED_PORTFOLIO_DATA = ${safePublishedJson(getPublicationPayload())};`);
-
-                const body = {
-                    message: 'Atualizar portfólio pelo editor online',
-                    content: githubBase64(html),
-                    sha: current.sha,
-                    branch: GITHUB_BRANCH
-                };
-
-                const updateResponse = await fetch(apiUrl, {
-                    method: 'PUT',
-                    headers,
-                    body: JSON.stringify(body)
-                });
-
-                if (!updateResponse.ok) {
-                    let detail = '';
-                    try { detail = (await updateResponse.json()).message || ''; } catch (_) {}
-                    throw new Error('PUT_' + updateResponse.status + '_' + detail);
-                }
-
-                showToast('Publicado no GitHub! A mesma URL será atualizada.');
-                localStorage.setItem('ifrn_portfolio_last_published_v4', new Date().toISOString());
-            } catch (error) {
-                console.error('Falha na publicação:', error);
-                if (error.message === 'TOKEN_CANCELADO') {
-                    showToast('Publicação cancelada.');
-                } else if (error.message.includes('401')) {
-                    showToast('Token inválido ou sem permissão para este repositório.');
-                } else if (error.message.includes('403')) {
-                    showToast('GitHub recusou a publicação. Verifique a permissão do token.');
-                } else if (error.message === 'MARCADOR_NAO_ENCONTRADO') {
-                    showToast('Este index.html ainda não é a versão preparada para publicação.');
-                } else {
-                    showToast('Não foi possível publicar. Veja o console para detalhes.');
-                }
-            } finally {
-                isPublishing = false;
-                if (button) {
-                    button.disabled = false;
-                    button.innerHTML = '<i data-lucide="cloud-upload" class="w-4 h-4"></i> Publicar alterações';
-                    lucide.createIcons();
-                }
-            }
-        }
-
-        // Render Entire Application
-        function renderApp() {
-            renderCircuitTimeline();
-            renderSummaryGrid();
-            renderDetailedChapters();
-            renderGeneralGallery();
-            renderReflectionSection();
-            renderModalChaptersList();
-            lucide.createIcons();
-        }
-
-        // Render Circuit Timeline Track
-        function renderCircuitTimeline() {
-            const container = document.getElementById('circuit-nodes-container');
-            if(!container) return;
-
-            container.innerHTML = '';
-            
-            // Sort chapters by num
-            chapters.sort((a,b) => a.num - b.num);
-
-            chapters.forEach((cap, idx) => {
-                const node = document.createElement('div');
-                node.className = 'flex flex-col items-center group cursor-pointer relative z-10';
-                node.onclick = () => scrollToChapter(cap.id);
-
-                node.innerHTML = `
-                    <div class="w-8 h-8 rounded-full bg-mineral-800 border-2 border-gold flex items-center justify-center font-mono text-xs font-bold text-gold group-hover:scale-125 group-hover:bg-gold group-hover:text-charcoal-900 transition-all duration-300 shadow-lg ${idx === 0 ? 'led-glow-active' : 'led-glow'}">
-                        ${cap.num}
-                    </div>
-                    <span class="font-mono text-[10px] text-sand-300 mt-2 tracking-wider uppercase group-hover:text-gold transition-colors">AULA ${cap.num}</span>
-                    <span class="font-mono text-[9px] text-sand-400 font-light">${cap.date}</span>
-                `;
-                container.appendChild(node);
-            });
-
-            // Update Progress Line width
-            const line = document.getElementById('circuit-progress-line');
-            if(line && chapters.length > 1) {
-                line.style.width = '100%';
-            }
-        }
-
-        // Render Summary Cards Grid
-        function renderSummaryGrid() {
-            const container = document.getElementById('chapters-summary-grid');
-            if(!container) return;
-
-            container.innerHTML = '';
-
-            chapters.forEach(cap => {
-                const card = document.createElement('div');
-                card.className = 'p-6 rounded-2xl bg-mineral-800/80 border border-gold/20 hover:border-gold/50 transition-all duration-300 shadow-xl flex flex-col justify-between group hover:-translate-y-1';
-                
-                let statusBadge = '';
-                if(cap.status === 'pratica') {
-                    statusBadge = `<span class="px-2 py-0.5 rounded bg-copper/20 text-copper border border-copper/30 font-mono text-[10px]">AULA PRÁTICA</span>`;
-                } else if(cap.status === 'cancelada') {
-                    statusBadge = `<span class="px-2 py-0.5 rounded bg-red-900/30 text-red-300 border border-red-500/30 font-mono text-[10px]">REGISTRO ESPECIAL</span>`;
-                } else {
-                    statusBadge = `<span class="px-2 py-0.5 rounded bg-gold/10 text-gold border border-gold/30 font-mono text-[10px]">AULA TEÓRICA</span>`;
-                }
-
-                card.innerHTML = `
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between">
-                            <span class="font-mono text-xs text-gold font-bold">CAPÍTULO 0${cap.num}</span>
-                            ${statusBadge}
-                        </div>
-                        <span class="block font-mono text-xs text-sand-400">${cap.date}</span>
-                        <h3 class="font-cinzel text-lg font-bold text-sand-100 group-hover:text-gold transition-colors line-clamp-2">${cap.title}</h3>
-                        <p class="text-sand-300 text-xs line-clamp-3 font-sans leading-relaxed">${cap.content}</p>
-                    </div>
-
-                    <div class="pt-6 mt-6 border-t border-gold/10 flex items-center justify-between">
-                        <span class="font-mono text-[10px] text-sand-400">${cap.photos ? cap.photos.length : 0} Registros Visuais</span>
-                        <button onclick="scrollToChapter('${cap.id}')" class="inline-flex items-center gap-1.5 font-mono text-xs text-gold hover:text-sand-100 font-semibold group-hover:translate-x-1 transition-all">
-                            <span>Ler Capítulo</span>
-                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-                        </button>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-        }
-
-        // Render Detailed Chapters (Main Academic Content)
-        function renderDetailedChapters() {
-            const container = document.getElementById('detailed-chapters-container');
-            if(!container) return;
-
-            container.innerHTML = '';
-
-            chapters.forEach((cap, index) => {
-                const article = document.createElement('article');
-                article.id = cap.id;
-                article.className = 'p-8 sm:p-12 rounded-3xl bg-mineral-800/90 border border-gold/25 shadow-2xl space-y-10 relative overflow-hidden backdrop-blur-md';
-
-                // Status Badge & Header
-                let isCancel = cap.status === 'cancelada';
-
-                // Photo Grid HTML
-                let photosHTML = '';
-                if(cap.photos && cap.photos.length > 0) {
-                    const photoItems = cap.photos.map((p, pIdx) => `
-                        <div onclick="openImageModal('${p.url}', '${escapeQuotes(p.caption)}', 'Capítulo 0${cap.num} · Foto ${pIdx+1}')" class="group relative rounded-xl overflow-hidden border border-gold/30 bg-charcoal-900 cursor-pointer shadow-lg aspect-video">
-                            <img src="${p.url}" alt="${p.caption}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-charcoal-900/90 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity"></div>
-                            <div class="absolute bottom-3 left-3 right-3 text-left">
-                                <span class="font-mono text-[10px] text-gold uppercase block">FOTO 0${pIdx+1}</span>
-                                <p class="text-sand-200 text-xs font-sans truncate">${p.caption}</p>
-                            </div>
-                        </div>
-                    `).join('');
-
-                    photosHTML = `
-                        <div class="space-y-4 pt-6 border-t border-gold/15">
-                            <div class="flex items-center gap-2 font-mono text-xs text-gold uppercase tracking-wider">
-                                <i data-lucide="camera" class="w-4 h-4 text-gold"></i>
-                                <span>GALERIA DA AULA</span>
-                            </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                                ${photoItems}
-                            </div>
-                        </div>
-                    `;
-                }
-
-                // Practical Measurement Panel HTML
-                let measHTML = '';
-                if(cap.measurement && cap.measurement.valor) {
-                    measHTML = `
-                        <div class="p-6 rounded-2xl bg-charcoal-900 border border-gold/20 space-y-4">
-                            <div class="flex items-center gap-2 font-mono text-xs text-copper uppercase tracking-wider">
-                                <i data-lucide="gauge" class="w-4 h-4 text-copper"></i>
-                                <span>PAINEL DE MEDIÇÃO PRÁTICA</span>
-                            </div>
-                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                                <div class="p-3 rounded-lg bg-mineral-800 border border-gold/10">
-                                    <span class="block font-mono text-[10px] text-sand-400 uppercase">Grandeza</span>
-                                    <span class="font-sans font-bold text-sand-100 text-sm">${cap.measurement.grandezza || 'Tensão CC'}</span>
-                                </div>
-                                <div class="p-3 rounded-lg bg-mineral-800 border border-gold/10">
-                                    <span class="block font-mono text-[10px] text-sand-400 uppercase">Valor Lido</span>
-                                    <span class="font-mono font-extrabold text-gold text-lg">${cap.measurement.valor}</span>
-                                </div>
-                                <div class="p-3 rounded-lg bg-mineral-800 border border-gold/10">
-                                    <span class="block font-mono text-[10px] text-sand-400 uppercase">Unidade</span>
-                                    <span class="font-mono font-bold text-sand-200 text-xs">${cap.measurement.unidade || 'V'}</span>
-                                </div>
-                                <div class="p-3 rounded-lg bg-mineral-800 border border-gold/10">
-                                    <span class="block font-mono text-[10px] text-sand-400 uppercase">Instrumento</span>
-                                    <span class="font-sans font-medium text-sand-300 text-xs">${cap.measurement.instrumento || 'Multímetro'}</span>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                }
-
-                // Prev / Next Buttons
-                const prevCap = index > 0 ? chapters[index-1] : null;
-                const nextCap = index < chapters.length - 1 ? chapters[index+1] : null;
-
-                article.innerHTML = `
-                    <!-- Chapter Top Ribbon -->
-                    <div class="flex flex-wrap items-center justify-between gap-4 border-b border-gold/20 pb-6">
-                        <div class="flex items-center gap-3">
-                            <span class="px-3 py-1 rounded-full bg-gold/15 text-gold border border-gold/30 font-mono text-xs font-bold">CAPÍTULO 0${cap.num}</span>
-                            <span class="font-mono text-xs text-sand-300">${cap.date}</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <button onclick="editSingleChapter('${cap.id}')" class="px-3 py-1.5 rounded-lg bg-gold/10 hover:bg-gold/20 border border-gold/30 text-gold font-mono text-xs flex items-center gap-1.5 transition-all">
-                                <i data-lucide="edit-2" class="w-3.5 h-3.5"></i> Editar Aula
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Title & Content -->
-                    <div class="space-y-4">
-                        <h2 class="font-cinzel text-2xl sm:text-4xl font-bold text-sand-100 leading-tight">${cap.title}</h2>
-                        
-                        <div class="space-y-2">
-                            <span class="font-mono text-[11px] text-gold uppercase tracking-wider block">CONTEÚDO MINISTRADO</span>
-                            <div class="text-sand-200 font-sans text-base leading-relaxed space-y-4 whitespace-pre-line bg-charcoal-900/50 p-6 rounded-2xl border border-gold/10">
-                                ${cap.content}
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Highlighted Concept & Formula Grid -->
-                    ${(cap.conceptTitle || cap.formula) ? `
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            ${cap.conceptTitle ? `
-                                <div class="p-6 rounded-2xl bg-charcoal-900 border border-gold/20 space-y-2">
-                                    <span class="font-mono text-[10px] text-gold uppercase tracking-widest block">CONCEITO-CHAVE</span>
-                                    <h4 class="font-cinzel font-bold text-sand-100 text-base">${cap.conceptTitle}</h4>
-                                    <p class="text-sand-300 font-sans text-xs leading-relaxed">${cap.conceptDesc}</p>
-                                </div>
-                            ` : ''}
-
-                            ${cap.formula ? `
-                                <div class="p-6 rounded-2xl bg-charcoal-900 border border-gold/20 space-y-2 flex flex-col justify-between">
-                                    <div>
-                                        <span class="font-mono text-[10px] text-copper uppercase tracking-widest block">EXPRESSÃO / FÓRMULA</span>
-                                        <div class="my-2 font-mono text-2xl font-bold text-gold tracking-widest">${cap.formula}</div>
-                                    </div>
-                                    <p class="text-sand-400 font-mono text-[11px]">${cap.formulaNote || ''}</p>
-                                </div>
-                            ` : ''}
-                        </div>
-                    ` : ''}
-
-                    <!-- Measurement Panel -->
-                    ${measHTML}
-
-                    <!-- Qualitative Reflection Grid (Bom / Ruim / Evolução / Disciplina) -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
-                        <div class="p-5 rounded-2xl bg-charcoal-900/70 border border-green-500/20 space-y-2">
-                            <div class="flex items-center gap-2 font-mono text-xs text-green-400 uppercase">
-                                <i data-lucide="check-circle" class="w-4 h-4"></i>
-                                <span>O QUE FOI BOM?</span>
-                            </div>
-                            <p class="text-sand-200 font-sans text-xs leading-relaxed">${cap.good || '[Ainda não registrado]'}</p>
-                        </div>
-
-                        <div class="p-5 rounded-2xl bg-charcoal-900/70 border border-amber-500/20 space-y-2">
-                            <div class="flex items-center gap-2 font-mono text-xs text-amber-400 uppercase">
-                                <i data-lucide="alert-circle" class="w-4 h-4"></i>
-                                <span>O QUE FOI RUIM / DESAFIOS</span>
-                            </div>
-                            <p class="text-sand-200 font-sans text-xs leading-relaxed">${cap.bad || '[Ainda não registrado]'}</p>
-                        </div>
-
-                        <div class="p-5 rounded-2xl bg-charcoal-900/70 border border-gold/20 space-y-2">
-                            <div class="flex items-center gap-2 font-mono text-xs text-gold uppercase">
-                                <i data-lucide="trending-up" class="w-4 h-4"></i>
-                                <span>EVOLUÇÃO PESSOAL</span>
-                            </div>
-                            <p class="text-sand-200 font-sans text-xs leading-relaxed">${cap.evolution || '[Ainda não registrado]'}</p>
-                        </div>
-
-                        <div class="p-5 rounded-2xl bg-charcoal-900/70 border border-gold/20 space-y-2">
-                            <div class="flex items-center gap-2 font-mono text-xs text-sand-300 uppercase">
-                                <i data-lucide="book-open" class="w-4 h-4 text-gold"></i>
-                                <span>RELAÇÃO COM A DISCIPLINA</span>
-                            </div>
-                            <p class="text-sand-200 font-sans text-xs leading-relaxed">${cap.discipline || '[Ainda não registrado]'}</p>
-                        </div>
-                    </div>
-
-                    <!-- Photos Gallery -->
-                    ${photosHTML}
-
-                    <!-- Prev/Next Navigation Bar -->
-                    <div class="pt-6 border-t border-gold/15 flex items-center justify-between font-mono text-xs">
-                        ${prevCap ? `
-                            <button onclick="scrollToChapter('${prevCap.id}')" class="flex items-center gap-2 text-sand-300 hover:text-gold transition-colors">
-                                <i data-lucide="arrow-left" class="w-4 h-4"></i>
-                                <span>Capítulo 0${prevCap.num}</span>
-                            </button>
-                        ` : `<div></div>`}
-
-                        ${nextCap ? `
-                            <button onclick="scrollToChapter('${nextCap.id}')" class="flex items-center gap-2 text-sand-300 hover:text-gold transition-colors">
-                                <span>Capítulo 0${nextCap.num}</span>
-                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            </button>
-                        ` : `<div></div>`}
-                    </div>
-                `;
-
-                container.appendChild(article);
-            });
-        }
-
-        // Render Consolidated General Gallery
-        function renderGeneralGallery() {
-            const container = document.getElementById('general-gallery-grid');
-            if(!container) return;
-
-            container.innerHTML = '';
-            
-            let allPhotos = [];
-            chapters.forEach(c => {
-                if(c.photos) {
-                    c.photos.forEach(p => {
-                        allPhotos.push({
-                            ...p,
-                            chapterNum: c.num,
-                            chapterTitle: c.title
-                        });
-                    });
-                }
-            });
-
-            if(allPhotos.length === 0) {
-                container.innerHTML = `<div class="col-span-full text-center text-sand-400 font-mono text-xs py-8">Nenhuma fotografia cadastrada na galeria.</div>`;
-                return;
-            }
-
-            allPhotos.forEach((photo, idx) => {
-                const item = document.createElement('div');
-                item.className = 'group relative rounded-xl overflow-hidden border border-gold/20 bg-charcoal-800 cursor-pointer aspect-square shadow-lg';
-                item.onclick = () => openImageModal(photo.url, photo.caption, `Aula 0${photo.chapterNum} · ${photo.chapterTitle}`);
-
-                item.innerHTML = `
-                    <img src="${photo.url}" alt="${photo.caption}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal-900/90 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity"></div>
-                    <div class="absolute bottom-3 left-3 right-3">
-                        <span class="font-mono text-[10px] text-gold uppercase block">CAPÍTULO 0${photo.chapterNum}</span>
-                        <p class="text-sand-100 text-xs font-sans truncate">${photo.caption}</p>
-                    </div>
-                `;
-                container.appendChild(item);
-            });
-        }
-
-        // Render Reflection Section
-        function renderReflectionSection() {
-            document.getElementById('ref-learned').textContent = reflection.learned || '';
-            document.getElementById('ref-evolution').textContent = reflection.evolution || '';
-            document.getElementById('ref-challenges').textContent = reflection.challenges || '';
-            document.getElementById('ref-takeaway').textContent = reflection.takeaway || '';
-        }
-
-        // Render Modal Chapters Manager List
-        function renderModalChaptersList() {
-            const container = document.getElementById('modal-chapters-list');
-            const badge = document.getElementById('chapters-count-badge');
-            if(!container) return;
-
-            if(badge) badge.textContent = chapters.length;
-            container.innerHTML = '';
-
-            chapters.forEach(c => {
-                const row = document.createElement('div');
-                row.className = 'p-4 rounded-xl bg-charcoal-800 border border-gold/15 flex items-center justify-between gap-4 font-mono text-xs';
-
-                row.innerHTML = `
-                    <div class="flex items-center gap-3">
-                        <span class="w-7 h-7 rounded bg-gold/20 text-gold flex items-center justify-center font-bold">0${c.num}</span>
-                        <div>
-                            <span class="font-bold text-sand-100 block">${c.title}</span>
-                            <span class="text-sand-400 text-[10px]">${c.date} · ${c.photos ? c.photos.length : 0} fotos</span>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center gap-2">
-                        <button onclick="editSingleChapter('${c.id}')" class="p-2 rounded bg-gold/10 text-gold hover:bg-gold/20" title="Editar">
-                            <i data-lucide="edit-2" class="w-4 h-4"></i>
-                        </button>
-                        <button onclick="duplicateChapter('${c.id}')" class="p-2 rounded bg-mineral-700 text-sand-200 hover:bg-mineral-600" title="Duplicar">
-                            <i data-lucide="copy" class="w-4 h-4"></i>
-                        </button>
-                        <button onclick="deleteChapter('${c.id}')" class="p-2 rounded bg-red-900/30 text-red-300 hover:bg-red-900/50" title="Excluir">
-                            <i data-lucide="trash-2" class="w-4 h-4"></i>
-                        </button>
-                    </div>
-                `;
-                container.appendChild(row);
-            });
-        }
-
-        /* --- Scroll Helper --- */
-        function scrollToChapter(id) {
-            const el = document.getElementById(id);
-            if(el) {
-                el.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-
-        /* --- Image Modal Lightbox --- */
-        function openImageModal(url, caption, subtext) {
-            document.getElementById('modal-img').src = url;
-            document.getElementById('modal-caption').textContent = caption || '';
-            document.getElementById('modal-subtext').textContent = subtext || '';
-            document.getElementById('image-modal').classList.remove('hidden');
-        }
-
-        function closeImageModal() {
-            document.getElementById('image-modal').classList.add('hidden');
-        }
-
-        function navigateModalImage(dir) {
-            // Placeholder for next/prev photo
-        }
-
-        /* --- Editor Modals & Actions --- */
-        function openEditorModal() {
-            renderModalChaptersList();
-            document.getElementById('editor-modal').classList.remove('hidden');
-            lucide.createIcons();
-        }
-
-        function closeEditorModal() {
-            document.getElementById('editor-modal').classList.add('hidden');
-        }
-
-        function createNewChapter() {
-            const nextNum = chapters.length + 1;
-            const newCap = {
-                id: 'cap-' + Date.now(),
-                num: nextNum,
-                date: new Date().toLocaleDateString('pt-BR').replace(/\//g, ' · '),
-                title: `Nova Aula ${nextNum} - Título da Aula`,
-                status: 'normal',
-                content: '[Escreva aqui o conteúdo detalhado ministrado durante a aula.]',
-                conceptTitle: '',
-                conceptDesc: '',
-                formula: '',
-                formulaNote: '',
-                measurement: { grandezza: '', valor: '', unidade: '', instrumento: '' },
-                good: '[Registre os aspectos positivos da aula.]',
-                bad: '[Registre as dificuldades ou aspectos a melhorar.]',
-                evolution: '[Explique como a aula contribuiu para sua evolução.]',
-                discipline: '[Relacione a aula com seu aprendizado geral.]',
-                photos: []
-            };
-
-            chapters.push(newCap);
-            saveData();
-            editSingleChapter(newCap.id);
-        }
-
-        function duplicateChapter(id) {
-            const target = chapters.find(c => c.id === id);
-            if(!target) return;
-
-            const copy = JSON.parse(JSON.stringify(target));
-            copy.id = 'cap-' + Date.now();
-            copy.num = chapters.length + 1;
-            copy.title = copy.title + ' (Cópia)';
-
-            chapters.push(copy);
-            saveData();
-        }
-
-        function deleteChapter(id) {
-            if(chapters.length <= 1) {
-                showToast("É necessário manter ao menos 1 capítulo no portfólio.");
-                return;
-            }
-            chapters = chapters.filter(c => c.id !== id);
-            saveData();
-        }
-
-        function editSingleChapter(id) {
-            const cap = chapters.find(c => c.id === id);
-            if(!cap) return;
-
-            document.getElementById('edit-chapter-id').value = cap.id;
-            document.getElementById('edit-chapter-num').value = cap.num;
-            document.getElementById('edit-chapter-date').value = cap.date;
-            document.getElementById('edit-chapter-status').value = cap.status || 'normal';
-            document.getElementById('edit-chapter-title-input').value = cap.title;
-            document.getElementById('edit-chapter-content').value = cap.content;
-
-            document.getElementById('edit-chapter-concept-title').value = cap.conceptTitle || '';
-            document.getElementById('edit-chapter-concept-desc').value = cap.conceptDesc || '';
-            document.getElementById('edit-chapter-formula').value = cap.formula || '';
-            document.getElementById('edit-chapter-formula-note').value = cap.formulaNote || '';
-
-            if(cap.measurement) {
-                document.getElementById('edit-meas-grand').value = cap.measurement.grandezza || '';
-                document.getElementById('edit-meas-val').value = cap.measurement.valor || '';
-                document.getElementById('edit-meas-unit').value = cap.measurement.unidade || '';
-                document.getElementById('edit-meas-inst').value = cap.measurement.instrumento || '';
-            }
-
-            document.getElementById('edit-chapter-good').value = cap.good || '';
-            document.getElementById('edit-chapter-bad').value = cap.bad || '';
-            document.getElementById('edit-chapter-evolution').value = cap.evolution || '';
-            document.getElementById('edit-chapter-discipline').value = cap.discipline || '';
-
-            // Render Photos
-            renderEditPhotosList(cap.photos || []);
-
-            closeEditorModal();
-            document.getElementById('single-chapter-modal').classList.remove('hidden');
-        }
-
-        function renderEditPhotosList(photos) {
-            const container = document.getElementById('edit-photos-container');
-            container.innerHTML = '';
-
-            photos.forEach((p, idx) => {
-                const row = document.createElement('div');
-                row.className = 'grid grid-cols-1 sm:grid-cols-2 gap-2 p-2 rounded bg-mineral-800 border border-gold/10 relative';
-                row.innerHTML = `
-                    <input type="text" placeholder="URL da foto" value="${p.url}" class="photo-url-input bg-charcoal-800 p-2 rounded text-xs text-sand-100 border border-gold/20">
-                    <input type="text" placeholder="Legenda da foto" value="${p.caption}" class="photo-caption-input bg-charcoal-800 p-2 rounded text-xs text-sand-100 border border-gold/20">
-                    <button type="button" onclick="this.parentElement.remove()" class="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-red-900 text-white font-mono text-[10px] flex items-center justify-center">x</button>
-                `;
-                container.appendChild(row);
-            });
-        }
-
-        function addPhotoRowToEdit() {
-            const container = document.getElementById('edit-photos-container');
-            const row = document.createElement('div');
-            row.className = 'grid grid-cols-1 sm:grid-cols-2 gap-2 p-2 rounded bg-mineral-800 border border-gold/10 relative';
-            row.innerHTML = `
-                <input type="text" placeholder="URL da foto (ex: https://...)" class="photo-url-input bg-charcoal-800 p-2 rounded text-xs text-sand-100 border border-gold/20">
-                <input type="text" placeholder="Legenda da foto" class="photo-caption-input bg-charcoal-800 p-2 rounded text-xs text-sand-100 border border-gold/20">
-                <button type="button" onclick="this.parentElement.remove()" class="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-red-900 text-white font-mono text-[10px] flex items-center justify-center">x</button>
-            `;
-            container.appendChild(row);
-        }
-
-        function closeSingleChapterModal() {
-            document.getElementById('single-chapter-modal').classList.add('hidden');
-        }
-
-        function saveChapterForm(e) {
-            e.preventDefault();
-            const id = document.getElementById('edit-chapter-id').value;
-            const cap = chapters.find(c => c.id === id);
-            if(!cap) return;
-
-            cap.num = parseInt(document.getElementById('edit-chapter-num').value) || 1;
-            cap.date = document.getElementById('edit-chapter-date').value;
-            cap.status = document.getElementById('edit-chapter-status').value;
-            cap.title = document.getElementById('edit-chapter-title-input').value;
-            cap.content = document.getElementById('edit-chapter-content').value;
-
-            cap.conceptTitle = document.getElementById('edit-chapter-concept-title').value;
-            cap.conceptDesc = document.getElementById('edit-chapter-concept-desc').value;
-            cap.formula = document.getElementById('edit-chapter-formula').value;
-            cap.formulaNote = document.getElementById('edit-chapter-formula-note').value;
-
-            cap.measurement = {
-                grandezza: document.getElementById('edit-meas-grand').value,
-                valor: document.getElementById('edit-meas-val').value,
-                unidade: document.getElementById('edit-meas-unit').value,
-                instrumento: document.getElementById('edit-meas-inst').value
-            };
-
-            cap.good = document.getElementById('edit-chapter-good').value;
-            cap.bad = document.getElementById('edit-chapter-bad').value;
-            cap.evolution = document.getElementById('edit-chapter-evolution').value;
-            cap.discipline = document.getElementById('edit-chapter-discipline').value;
-
-            // Collect Photos
-            const photoRows = document.querySelectorAll('#edit-photos-container > div');
-            cap.photos = [];
-            photoRows.forEach(row => {
-                const url = row.querySelector('.photo-url-input').value;
-                const caption = row.querySelector('.photo-caption-input').value;
-                if(url) {
-                    cap.photos.push({ url, caption });
-                }
-            });
-
-            closeSingleChapterModal();
-            saveData();
-        }
-
-        /* --- Reflection Edit Modal --- */
-        function openReflectionEditModal() {
-            document.getElementById('edit-ref-learned').value = reflection.learned || '';
-            document.getElementById('edit-ref-evolution').value = reflection.evolution || '';
-            document.getElementById('edit-ref-challenges').value = reflection.challenges || '';
-            document.getElementById('edit-ref-takeaway').value = reflection.takeaway || '';
-            document.getElementById('reflection-modal').classList.remove('hidden');
-        }
-
-        function closeReflectionModal() {
-            document.getElementById('reflection-modal').classList.add('hidden');
-        }
-
-        function saveReflectionForm() {
-            reflection.learned = document.getElementById('edit-ref-learned').value;
-            reflection.evolution = document.getElementById('edit-ref-evolution').value;
-            reflection.challenges = document.getElementById('edit-ref-challenges').value;
-            reflection.takeaway = document.getElementById('edit-ref-takeaway').value;
-
-            closeReflectionModal();
-            saveData();
-        }
-
-        /* --- Export & Import Backup JSON --- */
-        function exportDataJSON() {
-            const dataPayload = {
-                bimestre: "4º BIMESTRE",
-                ano: 2026,
-                aluno: "Flávio Augusto",
-                disciplina: "Eletricidade Instrumental",
-                prof: "Elialdo Chibério da Silva",
-                chapters: chapters,
-                reflection: reflection
-            };
-
-            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(dataPayload, null, 2));
-            const downloadAnchor = document.createElement('a');
-            downloadAnchor.setAttribute("href", dataStr);
-            downloadAnchor.setAttribute("download", `portfolio_eletricidade_4bimestre_flavio.json`);
-            document.body.appendChild(downloadAnchor);
-            downloadAnchor.click();
-            downloadAnchor.remove();
-            showToast("Exportação do backup concluída!");
-        }
-
-        function importDataJSON(event) {
-            const file = event.target.files[0];
-            if(!file) return;
-
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                try {
-                    const parsed = JSON.parse(e.target.result);
-                    if(parsed.chapters) chapters = parsed.chapters;
-                    if(parsed.reflection) reflection = parsed.reflection;
-                    saveData();
-                    closeEditorModal();
-                    showToast("Backup JSON importado com sucesso!");
-                } catch(err) {
-                    showToast("Erro ao importar arquivo JSON.");
-                }
-            };
-            reader.readAsText(file);
-        }
-
-        function resetDataToDefault() {
-            chapters = JSON.parse(JSON.stringify(DEFAULT_CHAPTERS));
-            reflection = JSON.parse(JSON.stringify(DEFAULT_REFLECTION));
-            saveData();
-            closeEditorModal();
-            showToast("Exemplo padrão restaurado!");
-        }
-
-        /* --- Toast Notification Utility --- */
-        function showToast(msg) {
-            const container = document.getElementById('toast-container');
-            const toast = document.createElement('div');
-            toast.className = 'px-4 py-3 rounded-xl bg-mineral-800 border border-gold/40 text-gold font-mono text-xs shadow-2xl flex items-center gap-2 animate-bounce';
-            toast.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4"></i> <span>${msg}</span>`;
-            container.appendChild(toast);
-            lucide.createIcons();
-
-            setTimeout(() => {
-                toast.remove();
-            }, 3500);
-        }
-
-        /* --- Helper Functions --- */
-        function escapeQuotes(str) {
-            return (str || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
-        }
-
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        }
-    </script>
+      }
+    }
+    ctx.fillStyle = 'rgba(207,224,251,.8)';
+    nodes.forEach(n => { ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fill(); });
+  }
+  function step() {
+    nodes.forEach(n => {
+      n.x += n.vx; n.y += n.vy;
+      if (n.x < 0 || n.x > w) n.vx *= -1;
+      if (n.y < 0 || n.y > h) n.vy *= -1;
+    });
+    draw();
+    raf = requestAnimationFrame(step);
+  }
+  function resize() {
+    const r = canvas.parentElement.getBoundingClientRect();
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = r.width; h = r.height;
+    canvas.width = w * dpr; canvas.height = h * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const count = Math.round(Math.min(60, (w * h) / 20000));
+    nodes = Array.from({ length: count }, () => ({
+      x: Math.random() * w, y: Math.random() * h, r: Math.random() * 1.5 + 0.8,
+      vx: (Math.random() - 0.5) * 0.28, vy: (Math.random() - 0.5) * 0.28
+    }));
+    draw();
+  }
+  resize();
+  window.addEventListener('resize', resize);
+  if (prefersReduced() || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(([en]) => {           // anima só enquanto o hero está visível
+    if (en.isIntersecting) { if (!raf) raf = requestAnimationFrame(step); }
+    else { cancelAnimationFrame(raf); raf = 0; }
+  }).observe(canvas.parentElement);
+}
+
+/* =====================================================================
+   12. EVENTOS
+   ===================================================================== */
+function bindEvents() {
+  /* fechar modais (botões [data-close]) e clique no fundo (exceto data-static) */
+  document.addEventListener('click', e => {
+    const c = e.target.closest('[data-close]');
+    if (c) { const d = c.closest('dialog'); if (d) d.close(); }
+  });
+  $$('dialog').forEach(d => d.addEventListener('click', e => {
+    if (e.target === d && d.id !== 'dlgConfirm' && !d.hasAttribute('data-static')) d.close();
+    else if (e.target === d && d.id === 'dlgConfirm') d.close();
+  }));
+
+  /* imagem quebrada: troca por um aviso discreto */
+  document.addEventListener('error', e => {
+    const img = e.target;
+    if (img.tagName === 'IMG' && img.hasAttribute('data-photo') && !img.dataset.failed) {
+      img.dataset.failed = '1';
+      img.alt = 'Imagem indisponível';
+      img.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 60'%3E%3Crect width='80' height='60' fill='%23e6effd'/%3E%3Ctext x='40' y='34' font-size='7' text-anchor='middle' fill='%235f6b87' font-family='sans-serif'%3EImagem indisponível%3C/text%3E%3C/svg%3E";
+    }
+  }, true);
+
+  /* cards: abrir / editar / excluir */
+  document.addEventListener('click', e => {
+    const b = e.target.closest('[data-act]');
+    if (!b) return;
+    const id = b.dataset.id;
+    if (b.dataset.act === 'open') openLesson(id);
+    else if (b.dataset.act === 'edit' && state.admin) openLessonForm(id);
+    else if (b.dataset.act === 'delete' && state.admin) deleteLesson(id);
+  });
+
+  /* ações do administrador (barra, botões e estado vazio) */
+  document.addEventListener('click', e => {
+    const b = e.target.closest('[data-admin]');
+    if (!b || !state.admin) return;
+    const a = b.dataset.admin;
+    if (a === 'new') openLessonForm(null);
+    else if (a === 'firebase') openFirebaseDialog();
+    else if (a === 'publish') openPublish();
+    else if (a === 'exit') exitAdmin();
+  });
+  const goAdmin = () => enterAdmin().then(() => toast('🔐 Modo administrador ativado.'));
+  $('#btnAdminEnter').addEventListener('click', goAdmin);
+  $('#btnAdminFooter').addEventListener('click', goAdmin);
+
+  /* busca e meta */
+  $('#searchInput').addEventListener('input', e => { state.query = e.target.value; renderLessons(); });
+  $('#goalInput').addEventListener('change', e => {
+    state.goal = sanitizeGoal(e.target.value); persist();
+  });
+
+  /* galeria da aula (miniaturas -> ampliar) */
+  $('#lvBody').addEventListener('click', e => {
+    const b = e.target.closest('[data-lb]');
+    const l = state.lessons.find(x => x.id === state.viewId);
+    if (b && l) openLightbox(l.photos, +b.dataset.lb);
+  });
+  $('#lbPrev').addEventListener('click', () => stepLightbox(-1));
+  $('#lbNext').addEventListener('click', () => stepLightbox(1));
+  document.addEventListener('keydown', e => {
+    if (!dlgLightbox.open || state.lb.photos.length < 2) return;
+    if (e.key === 'ArrowLeft') stepLightbox(-1);
+    if (e.key === 'ArrowRight') stepLightbox(1);
+  });
+
+  /* formulário da aula */
+  $('#lessonForm').addEventListener('submit', saveLessonFromForm);
+  $('#btnAddPhoto').addEventListener('click', addPhotosFromInput);
+  $('#fPhotoUrl').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); addPhotosFromInput(); } });
+  $('#fThumbs').addEventListener('click', e => {
+    const b = e.target.closest('[data-rm]');
+    if (b) { state.formPhotos.splice(+b.dataset.rm, 1); renderFormPhotos(); }
+  });
+
+  /* publicação */
+  $('#pubForm').addEventListener('submit', e => { e.preventDefault(); runPublish(); });
+  $('#pubFoot').addEventListener('click', e => {
+    if (e.target.closest('#pubGo')) runPublish();
+    if (e.target.closest('#pubRetry')) { setPubView('idle'); setTimeout(() => $('#pubToken').focus(), 50); }
+  });
+  dlgPublish.addEventListener('close', () => { $('#pubToken').value = ''; });
+  dlgPublish.addEventListener('cancel', e => { if (!$('#pubSteps').hidden) e.preventDefault(); });   // não fecha no meio do envio
+
+  /* Firebase */
+  $('#fbForm').addEventListener('submit', async e => {
+    e.preventDefault();
+    try {
+      const cfg = parseFirebaseConfig($('#fbConfig').value);
+      localStorage.setItem(LS_FIREBASE, JSON.stringify(cfg));
+      fbDb = null;
+      dlgFirebase.close();
+      toast('⚙️ Firebase configurado. Enviando o rascunho…');
+      await remoteSave();
+    } catch (err) { $('#fbStatus').textContent = '❌ ' + err.message; }
+  });
+  $('#fbRemove').addEventListener('click', () => {
+    try { localStorage.removeItem(LS_FIREBASE); } catch {}
+    fbDb = null;
+    dlgFirebase.close();
+    toast('Configuração do Firebase removida. O site volta ao modo local.');
+  });
+
+  /* calculadora */
+  const calcRoot = $('#calcRoot');
+  calcRoot.addEventListener('click', onCalcClick);
+  calcRoot.addEventListener('input', onCalcInput);
+  calcRoot.addEventListener('change', onCalcInput);
+}
+
+/* =====================================================================
+   13. INICIALIZAÇÃO
+   ===================================================================== */
+async function boot() {
+  state.published = normalizePublished(PUBLISHED_PORTFOLIO_DATA);   // dados publicados dentro deste index.html
+  bindEvents();
+  renderCalcInputs();
+  renderCalcResult();
+  initParticles();
+  renderAll();                                   // mostra "Carregando aulas…"
+  await loadPublicData();
+  state.loading = false;
+  let wasAdmin = false;
+  try { wasAdmin = sessionStorage.getItem(SS_ADMIN) === '1'; } catch {}
+  if (wasAdmin) await enterAdmin();
+  renderAll();
+}
+boot();
+
+})();
+</script>
 </body>
 </html>
