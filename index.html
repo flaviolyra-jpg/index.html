@@ -260,7 +260,7 @@ textarea{min-height:110px;resize:vertical;line-height:1.5}
 .hint{font-size:.84rem;color:var(--muted)}
 .row2{display:grid;grid-template-columns:120px 1fr;gap:12px}
 @media (max-width:420px){.row2{grid-template-columns:1fr}}
-.photo-add{display:flex;gap:8px}
+.photo-add{display:flex;gap:8px;flex-wrap:wrap}.photo-add input[type=url]{flex:1 1 280px}.photo-upload{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:8px}.photo-upload input[type=file]{display:none}.photo-upload-label{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:9px 13px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--navy-900);font:600 .9rem/1.2 var(--font-body);cursor:pointer}.photo-upload-label:hover{border-color:var(--blue-400);background:var(--blue-50)}.photo-upload-hint{font-size:.82rem;color:var(--muted)}
 .thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:10px;margin-top:10px}
 .thumb{position:relative;aspect-ratio:4/3;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:var(--blue-50);animation:pop .35s ease}
 .thumb img{width:100%;height:100%;object-fit:cover}
@@ -579,12 +579,17 @@ dialog::backdrop{background:rgba(6,18,46,.58);backdrop-filter:blur(3px);animatio
       <div class="field"><label for="fContent">Conteúdo ministrado</label><textarea id="fContent" placeholder="O que foi ensinado nesta aula?"></textarea></div>
       <div class="field"><label for="fReflection">Desenvolvimento e reflexão</label><textarea id="fReflection" placeholder="O que você entendeu, o que foi difícil, como aplicou na prática?"></textarea></div>
       <div class="field">
-        <label for="fPhotoUrl">Galeria de fotos</label>
-        <div class="photo-add">
-          <input id="fPhotoUrl" type="url" inputmode="url" placeholder="Cole o link direto da imagem (https://…)">
-          <button class="btn btn-ghost" type="button" id="btnAddPhoto">Adicionar</button>
+        <label for="fPhotoFile">Galeria de fotos</label>
+        <div class="photo-upload">
+          <label class="photo-upload-label" for="fPhotoFile">📷 Selecionar fotos do computador</label>
+          <input id="fPhotoFile" type="file" accept="image/jpeg,image/png,image/webp,image/gif,image/avif" multiple>
+          <span class="photo-upload-hint">As fotos selecionadas serão enviadas ao GitHub quando você clicar em “Publicar alterações”.</span>
         </div>
-        <span class="hint">Use o endereço direto da imagem (termina em .jpg, .png ou .webp). Você pode colar vários links separados por espaço.</span>
+        <div class="photo-add" style="margin-top:8px">
+          <input id="fPhotoUrl" type="url" inputmode="url" placeholder="Ou cole um link direto da imagem (https://…)">
+          <button class="btn btn-ghost" type="button" id="btnAddPhoto">Adicionar link</button>
+        </div>
+        <span class="hint">Fotos do computador ficam visíveis para você imediatamente. Ao publicar, o site envia os arquivos para o GitHub para que apareçam para todos.</span>
         <div class="thumbs" id="fThumbs"></div>
       </div>
     </div>
@@ -695,23 +700,7 @@ dialog::backdrop{background:rgba(6,18,46,.58);backdrop-filter:blur(3px);animatio
      ===================================================================== -->
 <script id="published-data">
 /* PORTFOLIO_DATA_START */
-const PUBLISHED_PORTFOLIO_DATA = {
-  "version": 1,
-  "publishedAt": "2026-10-09T15:55:06.723Z",
-  "goal": 20,
-  "lessons": [
-    {
-      "id": "amv154nuj9xuxn",
-      "number": 99,
-      "date": "2026-10-09",
-      "title": "Aula de Teste da Publicação",
-      "summary": "Teste para verificar se as alterações do administrador são publicadas corretamente.",
-      "content": "Esta é uma aula de teste criada para verificar o funcionamento do sistema de edição e publicação do portfólio.",
-      "reflection": "O objetivo deste teste é confirmar se uma alteração feita no modo administrador consegue ser publicada no GitHub e aparecer para outros dispositivos.",
-      "photos": []
-    }
-  ]
-};
+const PUBLISHED_PORTFOLIO_DATA = null;
 /* PORTFOLIO_DATA_END */
 </script>
 
@@ -766,6 +755,14 @@ function todayISO() {
 function fmtDate(iso) {                      // 2026-05-12 -> 12/05/2026 (sem problemas de fuso)
   const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
   return m ? `${m[3]}/${m[2]}/${m[1]}` : '';
+}
+function isPhotoSource(u) {
+  const v = String(u || '').trim();
+  if (!v) return false;
+  if (v.startsWith('data:image/')) return true;
+  if (/^(?:https?:\/\/)/i.test(v)) return true;
+  if (/^imagens\/aulas\//i.test(v)) return true;
+  return false;
 }
 function isHttpUrl(u) {
   try { const p = new URL(String(u).trim()); return p.protocol === 'http:' || p.protocol === 'https:'; }
@@ -832,6 +829,7 @@ const state = {
   query: '',
   editingId: null,
   formPhotos: [],
+  pendingPhotoFiles: [],
   viewId: null,
   lb: { photos: [], idx: 0 },
   badgesSeen: null
@@ -852,7 +850,7 @@ function normLesson(l) {
     summary: String(l.summary || '').trim(),
     content: String(l.content || '').trim(),
     reflection: String(l.reflection || '').trim(),
-    photos: Array.isArray(l.photos) ? l.photos.map(p => String(p).trim()).filter(isHttpUrl) : []
+    photos: Array.isArray(l.photos) ? l.photos.map(p => String(p).trim()).filter(isPhotoSource) : []
   };
 }
 const sortLessons = list => list.sort((a, b) => a.number - b.number || a.date.localeCompare(b.date));
@@ -888,10 +886,13 @@ function readDraft() {
     return { baseVersion: d.baseVersion ?? null, savedAt: d.savedAt || '', goal: d.goal, lessons: d.lessons };
   } catch { return null; }
 }
+function serializableLessons() {
+  return state.lessons.map(l => ({ ...l, photos: (l.photos || []).filter(p => !String(p).startsWith('data:image/')) }));
+}
 function writeDraft() {
   try {
     localStorage.setItem(LS_DRAFT, JSON.stringify({
-      baseVersion: currentBase(), savedAt: new Date().toISOString(), goal: state.goal, lessons: state.lessons
+      baseVersion: currentBase(), savedAt: new Date().toISOString(), goal: state.goal, lessons: serializableLessons()
     }));
   } catch { toast('Não foi possível guardar o rascunho neste navegador.', 'err'); }
 }
@@ -940,7 +941,7 @@ async function remoteSave() {
     if (!db) return;
     await withTimeout(db.collection(FIREBASE_COLLECTION).doc(FIREBASE_DOC).set({
       baseVersion: currentBase(), savedAt: new Date().toISOString(), goal: state.goal,
-      lessons: JSON.parse(JSON.stringify(state.lessons))
+      lessons: serializableLessons()
     }));
   } catch { toast('Firebase indisponível. O rascunho ficou salvo só neste navegador.', 'err'); }
 }
@@ -1147,6 +1148,7 @@ function openLessonForm(id) {
   const l = id ? state.lessons.find(x => x.id === id) : null;
   state.editingId = l ? l.id : null;
   state.formPhotos = l ? [...l.photos] : [];
+  state.pendingPhotoFiles = [];
   $('#formTitle').textContent = l ? 'Editar aula' : 'Nova aula';
   $('#fNumber').value = l ? l.number : (state.lessons.reduce((m, x) => Math.max(m, x.number), 0) + 1);
   $('#fDate').value = l ? l.date : todayISO();
@@ -1159,6 +1161,41 @@ function openLessonForm(id) {
   dlgLesson.close();
   openDlg(dlgForm);
   setTimeout(() => $('#fTitle').focus(), 60);
+}
+
+function fileToDataUrl(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result));
+    reader.onerror = () => reject(new Error('Não foi possível ler a imagem.'));
+    reader.readAsDataURL(file);
+  });
+}
+function photoExtFromType(type, name='') {
+  const byType = { 'image/jpeg':'jpg', 'image/png':'png', 'image/webp':'webp', 'image/gif':'gif', 'image/avif':'avif' };
+  if (byType[type]) return byType[type];
+  const m = /\.([a-z0-9]+)$/i.exec(name);
+  return m ? m[1].toLowerCase() : 'jpg';
+}
+function safeFilePart(s) {
+  return String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-zA-Z0-9_-]+/g,'-').replace(/^-+|-+$/g,'').slice(0,60) || 'aula';
+}
+async function addPhotoFiles(files) {
+  const list = [...(files || [])].filter(f => f.type && f.type.startsWith('image/'));
+  if (!list.length) return;
+  const tooBig = list.filter(f => f.size > 8 * 1024 * 1024);
+  if (tooBig.length) toast(`⚠️ ${tooBig.length} foto(s) passam de 8 MB e foram ignoradas.`, 'err');
+  const accepted = list.filter(f => f.size <= 8 * 1024 * 1024);
+  for (const file of accepted) {
+    try {
+      const dataUrl = await fileToDataUrl(file);
+      state.formPhotos.push(dataUrl);
+      state.pendingPhotoFiles.push({ dataUrl, file, name: file.name, type: file.type, size: file.size });
+    } catch {
+      toast(`Não foi possível carregar “${file.name}”.`, 'err');
+    }
+  }
+  renderFormPhotos();
 }
 
 function addPhotosFromInput() {
@@ -1346,8 +1383,8 @@ function injectPublishedData(html, data) {
 /* Etapas na janela de publicação */
 const PUB_STEPS = [
   'Lendo o index.html atual no GitHub (branch main)',
-  'Atualizando os dados do portfólio',
-  'Enviando o commit para a branch main'
+  'Enviando as fotos para o GitHub e preparando os dados',
+  'Atualizando o portfólio na branch main'
 ];
 function setPubView(view) {
   $('#pubForm').hidden = view !== 'idle';
@@ -1379,6 +1416,43 @@ function openPublish() {
   setTimeout(() => $('#pubToken').focus(), 80);
 }
 
+function dataUrlParts(dataUrl) {
+  const m = /^data:([^;,]+)(?:;charset=[^;,]+)?;base64,(.+)$/i.exec(String(dataUrl || ''));
+  if (!m) return null;
+  return { mime: m[1], base64: m[2] };
+}
+function relativeImagePath(lesson, index, file) {
+  const ext = photoExtFromType(file?.type, file?.name);
+  return `imagens/aulas/aula-${String(lesson.number).padStart(2,'0')}-${safeFilePart(lesson.title)}-${Date.now()}-${index + 1}.${ext}`;
+}
+async function uploadPendingPhotos(token, lessons) {
+  const uploads = [];
+  for (const lesson of lessons) {
+    for (let i = 0; i < lesson.photos.length; i++) {
+      const photo = lesson.photos[i];
+      if (!String(photo).startsWith('data:image/')) continue;
+      const pending = state.pendingPhotoFiles.find(x => x.dataUrl === photo);
+      const parts = dataUrlParts(photo);
+      if (!parts) throw new PublishError('❌ Uma das imagens selecionadas não pôde ser preparada.', 'Selecione a foto novamente e tente publicar.');
+      const path = relativeImagePath(lesson, i, pending?.file);
+      const url = `${GITHUB_API_URL.slice(0, GITHUB_API_URL.indexOf('/contents/'))}/contents/${path}`;
+      const response = await ghFetch(url, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: `Adicionar foto da Aula ${String(lesson.number).padStart(2,'0')}`,
+          content: parts.base64,
+          branch: GITHUB_BRANCH
+        })
+      }, token);
+      if (!response.ok) throw ghStatusError(response.status);
+      lesson.photos[i] = path;
+      uploads.push(path);
+    }
+  }
+  return uploads;
+}
+
 async function runPublish() {
   const field = $('#pubToken');
   let token = field.value.trim();
@@ -1394,6 +1468,7 @@ async function runPublish() {
     setStep(0, 'active');
     const file = await githubGetFile(token);     // SHA + conteúdo atual (ref=main)
     setStep(1, 'active');
+    await uploadPendingPhotos(token, state.lessons);
     const data = { version: 1, publishedAt: new Date().toISOString(), goal: state.goal, lessons: state.lessons };
     const newHtml = injectPublishedData(file.html, data);
     setStep(2, 'active');
@@ -1409,6 +1484,7 @@ async function runPublish() {
     }, token);
     /* sucesso: a versão publicada passa a ser a que acabou de ir ao GitHub */
     state.published = normalizePublished(data);
+    state.pendingPhotoFiles = [];
     state.source = 'publicado';
     writeDraft();
     remoteSave();
@@ -1721,6 +1797,7 @@ function bindEvents() {
 
   /* formulário da aula */
   $('#lessonForm').addEventListener('submit', saveLessonFromForm);
+  $('#fPhotoFile').addEventListener('change', e => { addPhotoFiles(e.target.files); e.target.value = ''; });
   $('#btnAddPhoto').addEventListener('click', addPhotosFromInput);
   $('#fPhotoUrl').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); addPhotosFromInput(); } });
   $('#fThumbs').addEventListener('click', e => {
